@@ -13,7 +13,9 @@
     color:red;
 }
 
-
+#_a666b5ea47429334ae308f0cb79cca7a-group-control ntx-label.nx-zinc-control-label {
+    display: none;
+}
 
 .nx-radio-group.nx-radio-group-inline {
     display: flex;
