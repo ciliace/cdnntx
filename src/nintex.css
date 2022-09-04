@@ -3,7 +3,7 @@
   src: url('https://ciliace.github.io/cdnntx/src/Mclawsuit.ttf');
 }
 
-[dir] .nx-theme-styles .nx-theme-richtext p {
+[dir] .nx-theme-styles .nx-theme-richtext {
     color: #FFC72C;
     font-family: McLawsuit;
     font-size: 50px;
