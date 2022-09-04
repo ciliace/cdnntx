@@ -1,3 +1,8 @@
+@font-face {
+  font-family: McLawsuit;
+  src: url('https://github.com/ciliace/CSS/blob/191d0ed50e8916af645516c2c234d8adae47afe0/Mclawsuit.ttf');
+}
+
 table.McDo  {
     width:100%;
 }
