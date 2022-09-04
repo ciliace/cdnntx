@@ -17,7 +17,7 @@ div#_a666b5ea47429334ae308f0cb79cca7a-group-control ntx-label.nx-zinc-control-la
     display: none;
 }
 
-div#_a666b5ea47429334ae308f0cb79cca7a-group-control .nx-theme-styles  .nx-theme-radio-1 .nx-radio input[type=radio]:checked + .nx-radio-container .nx-radio-faux {
+.nx-theme-styles .nx-theme-radio-1 .nx-radio input[type=radio]:checked + .nx-radio-container .nx-radio-faux {
     background-color: #FFFFFF;
     border: 6px solid #FFC72C;
 }
