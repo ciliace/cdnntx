@@ -1,0 +1,127 @@
+/*#region : Background Page */
+[dir] .nx-theme-styles .nx-theme-page {
+    background-image: url("https://i.ibb.co/5YTTzqD/coronavirus.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+/*#endregion*/
+
+/*#region : Signature Control in FRENCH */
+.nx-signature-placeholder-canvas-border.nx-signature-border.ng-star-inserted h5 {
+    display: none;
+}
+
+.nx-signature-placeholder-canvas-border.nx-signature-border.ng-star-inserted::after {
+    content: 'Cliquer pour signer';
+}
+
+ntx-signature ntx-label {
+    display: none;
+}
+[dir] .nx-signature-popup-btn-row button.nx-theme-button-1 {
+    color: #d90011;
+}
+
+[dir] .nx-signature-popup-btn-row button.nx-theme-button-1:before {
+    color: #FFFFFF;
+    position: absolute;
+}
+
+[dir] .nx-signature-popup-btn-row button.nx-theme-button-1:before {
+    content: 'Valider';
+}
+
+[dir] .nx-signature-popup-btn-row button.nx-theme-button-2:before {
+    content: 'Effacer';
+    color: #d90011;
+    position: absolute;
+}
+
+[dir] .nx-signature-popup-btn-row button.nx-theme-button-2 {
+    color: #FFFFFF;
+}
+
+[dir] .nx-signature-popup-btn-row button.nx-theme-button-2:hover {
+    color: #e44d58 !important;
+}
+[dir] .nx-signature-popup-btn-row button.nx-theme-button-2:hover:before {
+    color: #FFFFFF;
+}
+/*#endregion*/
+
+/*#region : Upload control in FRENCH */
+label.btn.nx-theme-button-2.nx-upload-button {
+    visibility: hidden;
+    position: relative;
+}
+
+label.btn.nx-theme-button-2.nx-upload-button:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "Parcourir";
+    visibility: visible;
+    color: #d90011;
+    font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+    border-color: #d90011;
+    background-color: #FFFFFF;
+    font-size: 14px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px;
+}
+
+ntx-file-upload.ng-star-inserted .nx-upload-action-bar div:before {
+    content: 'Glisser des fichiers ici ou  ';
+}
+.nx-file-upload-control .drop-container .nx-upload-button {
+    margin-bottom: 5%;
+}
+p.drag-file-label.ng-star-inserted {
+    display: none;
+}
+
+.nx-file-upload-control .drop-container .nx-upload-button {
+    min-width: 104px;
+}
+
+[dir] label.btn.nx-theme-button-2.nx-upload-button:hover:after {
+    color: #FFFFFF;
+    background-color: #d90011;
+}
+/*#endregion*/
+
+/*#region : Submit Form in FRENCH */
+ntx-message-page#nx-message-page h1 {
+    color: rgba(255,255,255,0%);
+}
+
+ntx-message-page#nx-message-page h1:before {
+    content: 'Demande soumise avec succès';
+    color: #008000;
+    position: absolute;
+}
+
+ntx-message-page#nx-message-page button:before {
+    content: 'Cliquer ici pour une autre demande';
+    color: #d90011;
+    position: absolute;
+}
+
+ntx-message-page#nx-message-page button {
+    color: #FFFFFF;
+    width: 250px;
+}
+
+ntx-message-page#nx-message-page button:hover {
+    color: #e44d58;
+}
+
+ntx-message-page#nx-message-page button:hover:before{
+    color: #FFFFFF;
+}
+.nx-message-content.nx-form.form {
+    background: rgba(255, 255, 255, .7);
+}
+/*#endregion*/
