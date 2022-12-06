@@ -92,6 +92,21 @@ p.drag-file-label.ng-star-inserted {
 }
 /*#endregion*/
 
+/*#region : Yes/No control */
+span.nx-checkbox-toggle-off.nx-theme-label-1.nx-boolean-control--readonlyarea.ng-star-inserted,
+span.nx-checkbox-toggle-off.nx-theme-label-2.nx-boolean-control--readonlyarea.ng-star-inserted{
+    color: rgba(255,255,255,0%);
+}
+span.nx-checkbox-toggle-off.nx-theme-label-1.nx-boolean-control--readonlyarea.ng-star-inserted:before {
+    content: 'Non';
+    color: #54698D;
+}
+span.nx-checkbox-toggle-off.nx-theme-label-2.nx-boolean-control--readonlyarea.ng-star-inserted:before {
+    content: 'Oui';
+    color: #54698D;
+}
+/*#endregion*/
+
 /*#region : Submit Form in FRENCH */
 ntx-message-page#nx-message-page h1 {
     color: rgba(255,255,255,0%);
