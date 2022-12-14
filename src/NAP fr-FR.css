@@ -1,12 +1,12 @@
 /*#region : Background Page */
-body {
+body.theme-entry {
     background-image: url('https://i.ibb.co/pbsCDj3/Picture2.png')!important;
     background-size: cover!important;
     background-attachment: fixed!important;
 }
 
 form {
-  opacity:0.92!important;
+  opacity:0.80!important;
 }
 
 /*#endregion*/
