@@ -1,0 +1,13 @@
+/*#region : Background Page */
+body {
+    background-image: url('https://i.ibb.co/pbsCDj3/Picture2.png')!important;
+    background-size: cover!important;
+    background-attachment: fixed!important;
+}
+
+form {
+  opacity:0.92!important;
+}
+
+/*#endregion*/
+
