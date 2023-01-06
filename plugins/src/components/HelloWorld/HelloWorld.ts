@@ -26,16 +26,7 @@ export class HelloWorld extends LitElement {
             'Who for greetings',
           defaultValue: 'world',
         }
-      },
-      standardProperties: {
-        readOnly: true,
-        required: true,
-        description: true,
-        fieldLabel: true,
-        defaultValue:true,
-        visibility:true,
-        tooltip:true
-      },
+      }
     };
   }
 
