@@ -571,7 +571,7 @@ var HelloWorld = _decorate([e$1('ntx-helloworld')], function (_initialize, _LitE
           groupName: 'Controls ByC',
           version: '1.0',
           properties: {
-            name: {
+            who: {
               type: 'string',
               title: 'Who',
               description: 'Who for greetings',

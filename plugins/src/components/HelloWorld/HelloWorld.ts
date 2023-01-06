@@ -19,7 +19,7 @@ export class HelloWorld extends LitElement {
       groupName: 'Controls ByC',
       version: '1.0',
       properties: {
-        name: {
+        who: {
           type: 'string',
           title: 'Who',
           description:
