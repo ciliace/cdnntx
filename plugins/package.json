@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "lit": "^2.5.0"
+  },
+  "scripts": {
+    "analyze": "cem analyze --config ./cem.config.mjs",
+    "analyze:watch": "cem analyze --watch --config ./cem.config.mjs",
+    "build": "rollup -c",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook",
+    "release": "run-s build analyze build-storybook",
+    "start": "run-p analyze:watch storybook"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/plugin-proposal-class-properties": "^7.18.6",
+    "@storybook/addon-actions": "^6.5.15",
+    "@storybook/addon-essentials": "^6.5.15",
+    "@storybook/addon-links": "^6.5.15",
+    "@storybook/builder-webpack4": "^6.5.15",
+    "@storybook/manager-webpack4": "^6.5.15",
+    "@storybook/web-components": "^6.5.15",
+    "babel-loader": "^8.3.0",
+    "lit-html": "^2.5.0"
+  }
+}
