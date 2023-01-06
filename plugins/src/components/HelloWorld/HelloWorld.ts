@@ -7,7 +7,7 @@ export class HelloWorld extends LitElement {
   static styles = css`p { color: blue }`;
 
   @property()
-  name = 'Somebody';
+  who = 'Somebody';
 
   static getMetaConfig(): Promise<NintexPlugin> | NintexPlugin {
     // plugin contract information
@@ -16,15 +16,15 @@ export class HelloWorld extends LitElement {
       fallbackDisableSubmit: false,
       description: 'Hello World component',
       iconUrl: 'one-line-text',
-      groupName: 'ByC - Simple',
+      groupName: 'Controls ByC',
       version: '1.0',
       properties: {
         name: {
           type: 'string',
-          title: 'Name',
+          title: 'Who',
           description:
-            'Name for greetings',
-          defaultValue: 'somebody',
+            'Who for greetings',
+          defaultValue: 'world',
         }
       },
       standardProperties: {
@@ -40,6 +40,6 @@ export class HelloWorld extends LitElement {
   }
 
   render() {
-    return html`<p>Hello, ${this.name}!</p>`;
+    return html`<p>Hello, ${this.who}!</p>`;
   }
 }

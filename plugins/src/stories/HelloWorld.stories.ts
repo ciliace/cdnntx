@@ -9,14 +9,14 @@ export default {
   component: 'ntx-helloworld',
 } as Meta;
 
-const Template: Story<HelloWorld> = ({ name }) => {
+const Template: Story<HelloWorld> = ({ who }) => {
   return html`<ntx-helloworld
-    .name=${name}
+    .who=${who}
   >
   </ntx-helloworld>`;
 };
 
 export const Base: Story<HelloWorld> = Template.bind({});
 Base.args = {
-  name: 'Name'
+  who: 'Who'
 };

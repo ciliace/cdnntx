@@ -553,7 +553,7 @@ var HelloWorld = _decorate([e$1('ntx-helloworld')], function (_initialize, _LitE
     }, {
       kind: "field",
       decorators: [e()],
-      key: "name",
+      key: "who",
       value: function value() {
         return 'Somebody';
       }
@@ -568,14 +568,14 @@ var HelloWorld = _decorate([e$1('ntx-helloworld')], function (_initialize, _LitE
           fallbackDisableSubmit: false,
           description: 'Hello World component',
           iconUrl: 'one-line-text',
-          groupName: 'ByC - Simple',
+          groupName: 'Controls ByC',
           version: '1.0',
           properties: {
             name: {
               type: 'string',
-              title: 'Name',
-              description: 'Name for greetings',
-              defaultValue: 'somebody'
+              title: 'Who',
+              description: 'Who for greetings',
+              defaultValue: 'world'
             }
           },
           standardProperties: {
@@ -593,7 +593,7 @@ var HelloWorld = _decorate([e$1('ntx-helloworld')], function (_initialize, _LitE
       kind: "method",
       key: "render",
       value: function render() {
-        return y(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["<p>Hello, ", "!</p>"])), this.name);
+        return y(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["<p>Hello, ", "!</p>"])), this.who);
       }
     }]
   };
