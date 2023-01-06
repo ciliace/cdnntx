@@ -581,7 +581,11 @@ var HelloWorld = _decorate([e$1('ntx-helloworld')], function (_initialize, _LitE
           standardProperties: {
             readOnly: true,
             required: true,
-            description: true
+            description: true,
+            fieldLabel: true,
+            defaultValue: true,
+            visibility: true,
+            tooltip: true
           }
         };
       }

@@ -31,6 +31,10 @@ export class HelloWorld extends LitElement {
         readOnly: true,
         required: true,
         description: true,
+        fieldLabel: true,
+        defaultValue:true,
+        visibility:true,
+        tooltip:true
       },
     };
   }
