@@ -1,0 +1,12 @@
+.ntx-states div.nx-radio :has(> input[type=radio]:checked) 
+{
+    background-color: green;
+    padding: 5px 15px;
+    border: solid 1px;
+}
+
+.ntx-states div.nx-radio :has(> input[type=radio]:not(:checked)) {
+    background-color: white;
+    padding: 5px 15px;
+    border: solid 1px;
+}
