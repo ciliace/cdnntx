@@ -27,6 +27,7 @@
 }
 [dir] .ntx-custom-radio-button .nx-radio input[type=radio]+.nx-radio-container{
     padding-left:0px;
+    justify-content: center;
 }
 .ntx-custom-radio-button div.nx-radio :has(> input[type=radio]) {
     background-color: #f5f5f5;
@@ -38,5 +39,6 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    width: 66px;
 }
 /*#endregion*/
