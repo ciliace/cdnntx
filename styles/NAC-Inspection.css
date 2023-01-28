@@ -13,7 +13,6 @@
 .ntx-custom-radio-button div.nx-radio :has(> input[type=radio]:checked) span.nx-radio-label{
     color:#FFF;
 }
-[dir] .ntx-custom-radio-button .nx-radio input[type=radio]+.nx-radio-container
 [dir] .ntx-custom-radio-button .nx-radio input[type=radio]+.nx-radio-container .nx-radio-faux{
     display: none;
 }
