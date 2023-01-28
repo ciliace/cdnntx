@@ -5,6 +5,11 @@
     background-size: cover;
 }
 /*#endregion*/
+/*region : Header and Footer */
+.nx-form .nx-form-heading, .nx-form .nx-form-footing{
+    border:none;
+}
+?*endregion*/
 
 /*#region : Check Radio as Button */
 .ntx-custom-radio-button div.nx-radio:nth-child(1) :has(> input[type=radio]:checked) {
