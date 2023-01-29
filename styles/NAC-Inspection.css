@@ -81,7 +81,7 @@ ntx-form-control:has(div.ntx-custom-totals) {
     position: absolute;
     z-index: 1;
     top: 5px;
-    left: calc(100% - 175px);
+    right: calc(0% + 15px);
 }
 
 .nx-group-control-header ntx-icon {
