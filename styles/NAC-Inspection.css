@@ -57,8 +57,7 @@
 }
 
 .nx-file-upload-control {
-    border: 1px dashed;
-    /* padding: 5px; */
+    padding: 0px;
 }
 
 .ntx-custom-totals div p span {
