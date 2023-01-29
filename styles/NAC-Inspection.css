@@ -78,4 +78,8 @@
     background-color: rgb(198, 0, 34);
 }
 
-
+.ntx-custom-totals {
+    position: relative;
+    top: 45px;
+    z-index: 1;
+}
