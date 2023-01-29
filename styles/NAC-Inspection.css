@@ -47,3 +47,16 @@
     width: 66px;
 }
 /*#endregion*/
+
+.ntx-custom-notes .nx-checkbox-toggle-container {
+    display: flex;
+}
+
+.ntx-custom-notes .nx-zinc-control-input {
+    padding: 10px 0px;
+}
+
+.nx-file-upload-control {
+    border: 1px dashed;
+    /* padding: 5px; */
+}
