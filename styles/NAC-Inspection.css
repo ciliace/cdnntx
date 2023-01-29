@@ -90,3 +90,6 @@ ntx-form-control:has(div.ntx-custom-totals) {
 .ntx-custom-totals p span {
     color: #FFF;
 }
+.ntx-custom-Building-Title p {
+    text-align: right!important;
+}
