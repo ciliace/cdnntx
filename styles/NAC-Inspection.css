@@ -82,6 +82,10 @@
     position: relative;
     top: 45px;
     z-index: 1;
-    color:#FFF;
-    margin-left: 45px;
+}
+.nx-group-control-header ntx-icon {
+    z-index: 1;
+}
+.ntx-custom-totals p span {
+    color: #FFF;
 }
