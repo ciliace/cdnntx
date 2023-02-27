@@ -8,5 +8,5 @@
     "experimentalDecorators": true,
     "outDir": "./build"
   },
-  "include": ["src", "lib", "stories", "rollup.config.mjs.ts"]
+  "include": ["src", "lib", "stories", "rollup.config.ts"]
 }
