@@ -6,10 +6,9 @@ import { existsSync, readdirSync } from 'fs';
 
 const getDirectories = source =>
   readdirSync(source, { withFileTypes: true })
-  .filter(dirent => dirent.isDirectory())
-  .map(dirent => path.join(source, dirent.name, `${dirent.name}.ts`))
-  .filter(x => existsSync(x));
-
+    .filter(dirent => dirent.isDirectory())
+    .map(dirent => path.join(source, dirent.name, `${dirent.name}.ts`))
+    .filter(x => existsSync(x));
 
 const allEntrys = getDirectories('./src/components');
 
