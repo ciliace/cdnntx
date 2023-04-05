@@ -6,6 +6,9 @@
     --view-rounding: 25px;
     --panel-rounding: 25px;
 }
+.theme-entry .runtime-form {
+  width: 80%;
+}
 
 .theme-entry.runtime-view {
     background-image: url('https://i.ibb.co/pbsCDj3/Picture2.png') important!;
@@ -14,7 +17,7 @@
 }
 
 form {
-  opacity:0.80!important;
+  opacity:0.85!important;
 }
 
 
