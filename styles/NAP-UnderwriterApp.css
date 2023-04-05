@@ -1,6 +1,6 @@
 /*#region : Background Page */
 .theme-entry {
-    background-image: url('https://i.ibb.co/Bcr5Z8q/piotr-chrobot-6o-Usye-YXg-Tg-unsplash.jpg');
+    background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg');
     background-size: cover;
     background-attachment: fixed;
     --view-rounding: 25px;
@@ -11,7 +11,7 @@
 }
 
 .theme-entry.runtime-view {
-    background-image: url('https://i.ibb.co/Bcr5Z8q/piotr-chrobot-6o-Usye-YXg-Tg-unsplash.jpg') important!;
+    background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg') important!;
     --view-rounding: 12px;
     --panel-rounding: 12px;
 }
