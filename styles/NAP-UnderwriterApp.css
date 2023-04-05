@@ -1,17 +1,17 @@
 /*#region : Background Page */
 .theme-entry {
-    background-image: url('https://i.ibb.co/Bcr5Z8q/piotr-chrobot-6o-Usye-YXg-Tg-unsplash.jpg');
+    background-image: url('https://i.ibb.co/1JC9vj3/7b877a558005dd8ad11dcf3c19c4b13d.jpg');
     background-size: cover;
     background-attachment: fixed;
     --view-rounding: 25px;
     --panel-rounding: 25px;
 }
 .theme-entry .runtime-form {
-  width: 80%;
+  width: 80% !important;
 }
 
 .theme-entry.runtime-view {
-    background-image: url('https://i.ibb.co/Bcr5Z8q/piotr-chrobot-6o-Usye-YXg-Tg-unsplash.jpg') important!;
+    background-image: url('https://i.ibb.co/1JC9vj3/7b877a558005dd8ad11dcf3c19c4b13d.jpg') important!;
     --view-rounding: 12px;
     --panel-rounding: 12px;
 }
