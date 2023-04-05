@@ -22,5 +22,8 @@ form {
 .theme-entry .tab-box.tabs-top .tab-box-body{
   background-color: transparent;  
 }
+.theme-entry .grid-toolbars {
+  border-radius: 24px;
+}
 
 /*#endregion*/
