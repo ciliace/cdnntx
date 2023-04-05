@@ -19,6 +19,8 @@
 form {
   opacity:0.85!important;
 }
-
+.theme-entry .tab-box.tabs-top .tab-box-body{
+  background-color: transparent;  
+}
 
 /*#endregion*/
