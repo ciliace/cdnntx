@@ -1,6 +1,6 @@
 /*#region : Background Page */
 .theme-entry {
-    background-image: url('https://i.ibb.co/1JC9vj3/7b877a558005dd8ad11dcf3c19c4b13d.jpg');
+    background-image: url('https://i.ibb.co/HGcj8H1/0a10cc3dce77a68eee694570ba59bddb.jpg');
     background-size: cover;
     background-attachment: fixed;
     --view-rounding: 25px;
@@ -11,7 +11,7 @@
 }
 
 .theme-entry.runtime-view {
-    background-image: url('https://i.ibb.co/1JC9vj3/7b877a558005dd8ad11dcf3c19c4b13d.jpg') important!;
+    background-image: url('https://i.ibb.co/HGcj8H1/0a10cc3dce77a68eee694570ba59bddb.jpg') important!;
     --view-rounding: 12px;
     --panel-rounding: 12px;
 }
