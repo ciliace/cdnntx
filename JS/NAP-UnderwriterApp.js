@@ -5,3 +5,9 @@ $("#frame").on("load", function() {
     let css = '<style>div.logoBar {display:none;}</style>';
     $(head).append(css);
   });
+
+  window.onload = function() {
+    let frame = document.getElementById("#frame");
+    let doc = frame.contentDocument;
+    doc.body.innerHTML = doc.body.innerHTML + '<style>div.logoBar {display:none;}</style>';
+ }
