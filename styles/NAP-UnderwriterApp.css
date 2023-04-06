@@ -22,8 +22,11 @@ form {
 .theme-entry .tab-box.tabs-top .tab-box-body{
   background-color: transparent;  
 }
-.theme-entry .grid-toolbars {
+.theme-entry .grid-toolbars,
+.theme-entry .SourceCode-Forms-Controls-Web-DataLabel {
   border-radius: 24px;
 }
+
+
 
 /*#endregion*/
