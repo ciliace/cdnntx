@@ -41,5 +41,8 @@ html.workspace.workspace-main div.SFC.SourceCode-Forms-Controls-Web-ControlPack-
   background-color: #031955;
   border: none;
 }
+.panel-body {
+  opacity: 0.8;
+}
 
 /*#endregion*/
