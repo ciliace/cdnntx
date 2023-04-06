@@ -6,7 +6,7 @@
     --view-rounding: 25px;
     --panel-rounding: 25px;
     --tab-background-color: #ffffff;
-    --tab-text-color: #ffffff;
+    --tab-text-color: #000000;
 }
 .theme-entry .runtime-form {
   width: 80% !important;
@@ -53,12 +53,14 @@ html.workspace.workspace-main div.SFC.SourceCode-Forms-Controls-Web-ControlPack-
 
 .theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab {
   height: 61px;
+  margin-right: 10px;
+  border-radius: 24px;
 }
 .theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab:not(:selected) {
   color:#ffffff;
 }
 
 .theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab.selected {
-  border-radius: 24px;
+  opacity: 1;
 }
 /*#endregion*/
