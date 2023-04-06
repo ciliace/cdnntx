@@ -32,6 +32,14 @@ form {
   background-size: cover;
   background-attachment: fixed;
 }
-
+html.workspace.workspace-main div.SourceCode-Forms-Controls-Web-ControlPack-Navigation .navigation-topbar {
+  border-bottom: 1px solid #031955;
+  background-color: #031955;
+}
+html.workspace.workspace-main div.SFC.SourceCode-Forms-Controls-Web-ControlPack-Navigation .navigation-topbar-clickarea {
+  width: 310px;
+  background-color: #031955;
+  border: none;
+}
 
 /*#endregion*/
