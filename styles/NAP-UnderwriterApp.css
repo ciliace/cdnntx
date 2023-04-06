@@ -48,7 +48,7 @@ html.workspace.workspace-main div.SFC.SourceCode-Forms-Controls-Web-ControlPack-
 }
 
 .theme-entry .tab-box.tabs-top ul.tab-box-tabs {
-  padding: 10px;
+  padding: 10px 5px 0px 10px;
 }
 
 .theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab {
