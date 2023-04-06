@@ -56,11 +56,11 @@ html.workspace.workspace-main div.SFC.SourceCode-Forms-Controls-Web-ControlPack-
   margin-right: 10px;
   border-radius: 24px;
 }
-.theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab:not(:selected) {
-  color:#ffffff;
-}
 
 .theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab.selected {
   opacity: 1;
+}
+.theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab:not(selected) {
+  opacity: 0.5;
 }
 /*#endregion*/
