@@ -1,0 +1,1 @@
+$('frame').contents().find('.logoBarWrapper').css({'display':'none'});
