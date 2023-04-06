@@ -7,7 +7,7 @@ $("#frame").on("load", function() {
   });
 
   window.onload = function() {
-    let frame = document.getElementById("#frame");
+    let frame = document.getElementById("frame");
     let doc = frame.contentDocument;
     doc.body.innerHTML = doc.body.innerHTML + '<style>div.logoBar {display:none;}</style>';
  }
