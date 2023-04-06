@@ -52,9 +52,10 @@ html.workspace.workspace-main div.SFC.SourceCode-Forms-Controls-Web-ControlPack-
 }
 
 .theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab {
-  height: 61px;
+  height: 90px;
   margin-right: 10px;
   border-radius: 24px;
+  padding: 0;
 }
 
 .theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab.selected {
