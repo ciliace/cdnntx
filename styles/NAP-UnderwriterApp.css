@@ -49,4 +49,10 @@ html.workspace.workspace-main div.SFC.SourceCode-Forms-Controls-Web-ControlPack-
   padding: 10px;
 }
 
+.theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab {
+  height: 61px;
+}
+.theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab:not(:selected) {
+  color:#ffffff;
+}
 /*#endregion*/
