@@ -69,12 +69,12 @@
 /*#endregion*/
 
 
-div[fxlayout='row']:has(>div > div > ntx-form-control > ntx-control-validation > div > ntx-group > div.ntx-custom-grid-1) {
+div[fxlayout='row']:has(> div > ntx-form-control > ntx-control-validation > div > ntx-group > div.ntx-custom-grid-1) {
     width: calc(50% - 13px);
     display: inline-grid;
 }
 
-div[fxlayout='row']:has(>div > div > ntx-form-control > ntx-control-validation > div > ntx-group > div.ntx-custom-grid-2) {
+div[fxlayout='row']:has(> div > ntx-form-control > ntx-control-validation > div > ntx-group > div.ntx-custom-grid-2) {
     width: calc(50% - 13px);
     display: inline-grid;
     float: right;
