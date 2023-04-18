@@ -8,31 +8,60 @@ div#nx-form-container::before {
     bottom: 0;
     right: 0;
     left: 0;
-    background: linear-gradient(-90deg, #f44336, #ffeb3b, #2196f3, #4caf50, #9c27b0, #f44336);
-    animation: colorCycle 10s linear infinite;
+    background-image: repeating-linear-gradient(-90deg, 
+    #f44336 0%, 
+    #ffeb3b 16.666%, 
+    #2196f3 33.333%, 
+    #4caf50 50%, 
+    #9c27b0 66.666%, 
+    #f44336 83.333%, 
+    #f44336 100%);
+  animation: colorCycle 10s linear infinite;
     opacity: 0.5;
     width: 500px;
 }
 @keyframes colorCycle {
-  0% {
-    background-image: linear-gradient(-90deg, #f44336, #ffeb3b);
+    0% {
+      background-image: repeating-linear-gradient(-90deg, 
+        #f44336 0%, 
+        #f44336 100%);
+    }
+    16.666% {
+      background-image: repeating-linear-gradient(-90deg, 
+        #f44336 0%, 
+        #ffeb3b 16.666%, 
+        #ffeb3b 100%);
+    }
+    33.333% {
+      background-image: repeating-linear-gradient(-90deg, 
+        #ffeb3b 0%, 
+        #2196f3 33.333%, 
+        #2196f3 100%);
+    }
+    50% {
+      background-image: repeating-linear-gradient(-90deg, 
+        #2196f3 0%, 
+        #4caf50 50%, 
+        #4caf50 100%);
+    }
+    66.666% {
+      background-image: repeating-linear-gradient(-90deg, 
+        #4caf50 0%, 
+        #9c27b0 66.666%, 
+        #9c27b0 100%);
+    }
+    83.333% {
+      background-image: repeating-linear-gradient(-90deg, 
+        #9c27b0 0%, 
+        #f44336 83.333%, 
+        #f44336 100%);
+    }
+    100% {
+      background-image: repeating-linear-gradient(-90deg, 
+        #f44336 0%, 
+        #f44336 100%);
+    }
   }
-  20% {
-    background-image: linear-gradient(-90deg, #ffeb3b, #2196f3);
-  }
-  40% {
-    background-image: linear-gradient(-90deg, #2196f3, #4caf50);
-  }
-  60% {
-    background-image: linear-gradient(-90deg, #4caf50, #9c27b0);
-  }
-  80% {
-    background-image: linear-gradient(-90deg, #9c27b0, #f44336);
-  }
-  100% {
-    background-image: linear-gradient(-90deg, #f44336, #ffeb3b);
-  }
-}
 
 div#nx-form-container {
     position: relative;
