@@ -8,6 +8,7 @@ div#nx-form-container::before {
     bottom: 0;
     right: 0;
     left: 0;
+    width: 100%;
     background-image: linear-gradient(-90deg, 
     #f44336, 
     #ffeb3b, 
@@ -15,10 +16,10 @@ div#nx-form-container::before {
     #4caf50, 
     #9c27b0, 
     #f44336);
-  animation: colorCycle 10s linear infinite, moveTube 20s linear infinite;
+    animation: colorCycle 10s linear infinite, moveTube 5s linear infinite;
 
     opacity: 0.5;
-    width: 500px;
+    width: 300px;
 }
 @keyframes colorCycle {
     0% {
