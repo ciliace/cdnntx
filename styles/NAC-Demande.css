@@ -1,0 +1,202 @@
+/*#region : Background */
+div#nx-form-container::before {
+    clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%);
+    content: "";
+    position: fixed;
+    /* background-image: linear-gradient(to bottom, rgb(55 87 134 / 29%) 100%, transparent 50%) !important; */
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: linear-gradient(-90deg, #f44336, #ffeb3b, #2196f3, #4caf50, #9c27b0, #f44336);
+    animation: colorCycle 10s linear infinite;
+    opacity: 0.5;
+    width: 500px;
+}
+@keyframes colorCycle {
+  0% {
+    background-image: linear-gradient(-90deg, #f44336, #ffeb3b);
+  }
+  20% {
+    background-image: linear-gradient(-90deg, #ffeb3b, #2196f3);
+  }
+  40% {
+    background-image: linear-gradient(-90deg, #2196f3, #4caf50);
+  }
+  60% {
+    background-image: linear-gradient(-90deg, #4caf50, #9c27b0);
+  }
+  80% {
+    background-image: linear-gradient(-90deg, #9c27b0, #f44336);
+  }
+  100% {
+    background-image: linear-gradient(-90deg, #f44336, #ffeb3b);
+  }
+}
+
+div#nx-form-container {
+    position: relative;
+    background: linear-gradient(to bottom, rgb(55 87 134 / 29%) 100%, transparent 50%) !important;
+}
+
+[dir] .nx-theme-styles  .nx-theme-form {
+    border-color: #898F94;
+    box-shadow: none;
+    border: 0px;
+    background: none;
+}
+
+.ntx-host-content {
+    background-image: linear-gradient(to bottom, rgb(255 232 0 / 17%) 100%, transparent 50%), url(https://i.ibb.co/x5qdS7p/Picture2.jpg) !important;
+    background-size: cover;
+}
+
+.nx-form {
+    opacity: 0.8;
+}
+
+[dir] .nx-theme-styles  mat-step-header[aria-selected="true"] {
+    background: none;
+}
+[dir] .nx-theme-styles  .mat-stepper-horizontal {
+    background: none;
+    border: none;
+}
+[dir] .nx-theme-styles  .mat-horizontal-content-container {
+    border: none;
+}
+[dir] .nx-theme-styles  .nx-form-heading {
+    border: none;
+}
+
+/*#endregion*/
+
+/*#region : Signature */
+.nx-signature-placeholder-canvas-border.nx-signature-border.ng-star-inserted h5 {
+    display: none;
+}
+
+.nx-signature-placeholder-canvas-border.nx-signature-border.ng-star-inserted::after {
+    content: 'Cliquer pour signer';
+}
+
+ntx-signature ntx-label {
+    display: none;
+}
+[dir] .nx-signature-popup-btn-row button.nx-theme-button-1 {
+    color: #d90011;
+}
+
+[dir] .nx-signature-popup-btn-row button.nx-theme-button-1:before {
+    color: #FFFFFF;
+    position: absolute;
+}
+
+[dir] .nx-signature-popup-btn-row button.nx-theme-button-1:before {
+    content: 'Valider';
+}
+
+[dir] .nx-signature-popup-btn-row button.nx-theme-button-2:before {
+    content: 'Effacer';
+    color: #d90011;
+    position: absolute;
+}
+
+[dir] .nx-signature-popup-btn-row button.nx-theme-button-2 {
+    color: #FFFFFF;
+}
+
+[dir] .nx-signature-popup-btn-row button.nx-theme-button-2:hover {
+    color: #e44d58 !important;
+}
+[dir] .nx-signature-popup-btn-row button.nx-theme-button-2:hover:before {
+    color: #FFFFFF;
+}
+/*#endregion*/
+
+/*#region : Upload */
+label.btn.nx-theme-button-2.nx-upload-button {
+    visibility: hidden;
+    position: relative;
+}
+
+label.btn.nx-theme-button-2.nx-upload-button:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "Parcourir";
+    visibility: visible;
+    color: #d90011;
+    font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+    border-color: #d90011;
+    background-color: #FFFFFF;
+    font-size: 14px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px;
+}
+
+ntx-file-upload.ng-star-inserted .nx-upload-action-bar div:before {
+    content: 'Glisser des fichiers ici ou  ';
+}
+.nx-file-upload-control .drop-container .nx-upload-button {
+    margin-bottom: 5%;
+}
+p.drag-file-label.ng-star-inserted {
+    display: none;
+}
+
+.nx-file-upload-control .drop-container .nx-upload-button {
+    min-width: 104px;
+}
+
+[dir] label.btn.nx-theme-button-2.nx-upload-button:hover:after {
+    color: #FFFFFF;
+    background-color: #d90011;
+}
+/*#endregion*/
+
+/*#region : Specific controls */
+div#_8e385f8b572b93e15ae7e1deb22b728f-group-control ntx-label span.nx-title {
+    display: none;
+}
+
+div#_8e385f8b572b93e15ae7e1deb22b728f-group-control ntx-label span.nx-label-symbols.ng-star-inserted:before {
+    content: 'Veuillez approuver et signer';
+}
+/*#endregion*/
+
+/*#region : Submit Form */
+ntx-message-page#nx-message-page h1 {
+    color: rgba(255,255,255,0%);
+}
+
+ntx-message-page#nx-message-page h1:before {
+    content: 'Demande soumise avec succès';
+    color: #008000;
+    position: absolute;
+}
+
+ntx-message-page#nx-message-page button:before {
+    content: 'Cliquer ici pour une autre demande';
+    color: #d90011;
+    position: absolute;
+}
+
+ntx-message-page#nx-message-page button {
+    color: #FFFFFF;
+    width: 250px;
+}
+
+ntx-message-page#nx-message-page button:hover {
+    color: #e44d58;
+}
+
+ntx-message-page#nx-message-page button:hover:before{
+    color: #FFFFFF;
+}
+.nx-message-content.nx-form.form {
+    background: rgba(255, 255, 255, .7);
+}
+/*#endregion*/
