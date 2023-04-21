@@ -116,10 +116,10 @@ button.btn.btn-medium.ml-md-auto.nx-theme-button-1.ng-star-inserted {
 }
 
 .row.nx-action-panel  div:nth-child(1){
-    display:none;
+    display:none !important;
 }
 .row.nx-action-panel  div:nth-child(2){
-    margin:auto;
+    margin:auto !important;
 }
 
 
