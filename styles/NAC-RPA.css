@@ -87,6 +87,9 @@ div#nx-form-container {
 
 /*#endregion*/
 /*#region : Check Radio as Button */
+div.ntx-custom-menu {
+    text-align: center;
+}
 .ntx-custom-action div.nx-radio:nth-child(1) :has(> input[type=radio]:checked) {
     background-color: #f44336;
 }
@@ -99,7 +102,7 @@ div#nx-form-container {
 .ntx-custom-action div.nx-radio:nth-child(4) :has(> input[type=radio]:checked) {
     background-color: #4caf50;
 }
-.ntx-custom-action div.nx-radio:nth-child(4) :has(> input[type=radio]:checked) {
+.ntx-custom-action div.nx-radio:nth-child(5) :has(> input[type=radio]:checked) {
     background-color: #9c27b0;
 }
 [dir] .ntx-custom-action .nx-radio :has(> input[type=radio]:checked) .nx-radio-label{
