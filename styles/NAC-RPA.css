@@ -1,3 +1,90 @@
+/*#region : Background */
+div#nx-form-container::before {
+    clip-path: polygon(30% 0, 100% 0, 70% 100%, 0 100%);
+    content: "";
+    position: fixed;
+    /* background-image: linear-gradient(to bottom, rgb(55 87 134 / 29%) 100%, transparent 50%) !important; */
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-image: linear-gradient(-90deg, 
+    #f44336, 
+    #ffeb3b, 
+    #2196f3, 
+    #4caf50, 
+    #9c27b0, 
+    #f44336);
+    animation: colorCycle 10s linear infinite, moveTube 20s linear infinite;
+    opacity: 0.5;
+    width: 300px;
+}
+@keyframes colorCycle {
+    0% {
+      background-image: linear-gradient(-90deg, 
+        #f44336, 
+        #ffeb3b, 
+        #2196f3, 
+        #4caf50, 
+        #9c27b0, 
+        #f44336);
+    }
+    100% {
+      background-image: linear-gradient(-90deg, 
+        #f44336, 
+        #ffeb3b, 
+        #2196f3, 
+        #4caf50, 
+        #9c27b0, 
+        #f44336);
+    }
+  }
+  
+  @keyframes moveTube {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(500%);
+    }
+  }
+
+div#nx-form-container {
+    position: relative;
+    background: linear-gradient(to bottom, rgb(55 87 134 / 29%) 100%, transparent 50%) !important;
+}
+
+[dir] .nx-theme-styles  .nx-theme-form {
+    border-color: #898F94;
+    box-shadow: none;
+    border: 0px;
+    background: none;
+}
+
+.ntx-host-content {
+    background-image: linear-gradient(to bottom, rgb(255 232 0 / 17%) 100%, transparent 50%), url(https://i.ibb.co/x5qdS7p/Picture2.jpg) !important;
+    background-size: cover;
+}
+
+.nx-form {
+    opacity: 0.8;
+}
+
+[dir] .nx-theme-styles  mat-step-header[aria-selected="true"] {
+    background: none;
+}
+[dir] .nx-theme-styles  .mat-stepper-horizontal {
+    background: none;
+    border: none;
+}
+[dir] .nx-theme-styles  .mat-horizontal-content-container {
+    border: none;
+}
+[dir] .nx-theme-styles  .nx-form-heading {
+    border: none;
+}
+
+/*#endregion*/
 /*#region : Check Radio as Button */
 .ntx-custom-menu div.nx-radio:nth-child(1) :has(> input[type=radio]:checked) {
     background-color: rgb(19, 133, 95);
