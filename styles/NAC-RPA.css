@@ -85,7 +85,7 @@ div#nx-form-container {
     border: none;
 }
 
-div.ntx-custom-menu,div.ntx-custom-create, .nx-panel-body.nx-group-control-body {
+div.ntx-custom-menu, div.ntx-custom-create,  div.ntx-custom-exist, div.ntx-custom-delete, div.ntx-custom-extend, .nx-panel-body.nx-group-control-body {
     background: none !important;
 }
 div.ntx-custom-create {
