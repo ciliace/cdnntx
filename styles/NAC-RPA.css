@@ -110,6 +110,18 @@ div.ntx-custom-header span {
     color: #FFFFFF;
 }
 
+button.btn.btn-medium.ml-md-auto.nx-theme-button-1.ng-star-inserted {
+    margin: auto;
+    min-width: 300px;
+}
+
+.row.nx-action-panel  div.x-radio:nth-child(1){
+    display:none;
+}
+.row.nx-action-panel  div.x-radio:nth-child(1){
+    margin:auto;
+}
+
 
 /*#endregion*/
 /*#region : Check Radio as Button */
