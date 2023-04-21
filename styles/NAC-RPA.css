@@ -11,6 +11,9 @@
 .ntx-custom-menu div.nx-radio:nth-child(4) :has(> input[type=radio]:checked) {
     background-color: rgb(112, 112, 112);
 }
+.ntx-custom-menu div.nx-radio:nth-child(4) :has(> input[type=radio]:checked) {
+    background-color: rgb(45, 75, 119);
+}
 [dir] .ntx-custom-menu .nx-radio :has(> input[type=radio]:checked) .nx-radio-label{
     color:#FFF;
 }
@@ -31,6 +34,7 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    width: 66px;
+    width: auto;
+    min-width: 300px;
 }
 /*#endregion*/
