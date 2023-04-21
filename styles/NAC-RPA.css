@@ -88,7 +88,7 @@ div#nx-form-container {
 div.ntx-custom-menu, div.ntx-custom-create, div.ntx-custom-select,  div.ntx-custom-exist, div.ntx-custom-delete, div.ntx-custom-extend, .nx-panel-body.nx-group-control-body {
     background: none !important;
 }
-div.ntx-custom-create {
+div.ntx-custom-create, div.ntx-custom-select {
     max-width: 900px;
     padding: 10px;
     margin: auto;
