@@ -94,7 +94,11 @@ div.ntx-custom-create, div.ntx-custom-select, div.ntx-custom-delete, div.ntx-cus
     margin: auto;
 }
 
-span.nx-title.ng-star-inserted{
+div.ntx-custom-create span.nx-title.ng-star-inserted,
+div.ntx-custom-select span.nx-title.ng-star-inserted,
+div.ntx-custom-delete span.nx-title.ng-star-inserted,
+div.ntx-custom-extend span.nx-title.ng-star-inserted
+ {
     color: #FFFFFF;
 }
 
