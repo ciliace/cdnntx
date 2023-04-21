@@ -102,6 +102,11 @@ div.ntx-custom-exist > span.nx-title.ng-star-inserted{
     color: #000000;
 }
 
+div.ntx-custom-header span {
+    color: #FFFFFF;
+}
+
+
 /*#endregion*/
 /*#region : Check Radio as Button */
 div.ntx-custom-menu {
