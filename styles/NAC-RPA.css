@@ -98,8 +98,8 @@ span.nx-title.ng-star-inserted{
     color: #FFFFFF;
 }
 
-div.ntx-custom-exist > span.nx-title.ng-star-inserted{
-    color: #000000;
+div.ntx-custom-exist span.nx-title.ng-star-inserted{
+    color: #000000 !important;
 }
 
 div.ntx-custom-header span {
