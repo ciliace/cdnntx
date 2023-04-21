@@ -94,6 +94,10 @@ div.ntx-custom-create {
     margin: auto;
 }
 
+span.nx-title.ng-star-inserted{
+    display: none;
+}
+
 /*#endregion*/
 /*#region : Check Radio as Button */
 div.ntx-custom-menu {
