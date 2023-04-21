@@ -68,6 +68,7 @@ div#nx-form-container {
 
 .nx-form {
     opacity: 0.8;
+    display: contents;
 }
 
 [dir] .nx-theme-styles  mat-step-header[aria-selected="true"] {
@@ -87,19 +88,19 @@ div#nx-form-container {
 /*#endregion*/
 /*#region : Check Radio as Button */
 .ntx-custom-menu div.nx-radio:nth-child(1) :has(> input[type=radio]:checked) {
-    background-color: rgb(19, 133, 95);
+    background-color: #f44336;
 }
 .ntx-custom-menu div.nx-radio:nth-child(2) :has(> input[type=radio]:checked) {
-    background-color: rgb(255, 176, 0);
+    background-color: #ffeb3b;
 }
 .ntx-custom-menu div.nx-radio:nth-child(3) :has(> input[type=radio]:checked) {
-    background-color: rgb(198, 0, 34);
+    background-color: #2196f3;
 }
 .ntx-custom-menu div.nx-radio:nth-child(4) :has(> input[type=radio]:checked) {
-    background-color: rgb(112, 112, 112);
+    background-color: #4caf50;
 }
 .ntx-custom-menu div.nx-radio:nth-child(4) :has(> input[type=radio]:checked) {
-    background-color: rgb(45, 75, 119);
+    background-color: #9c27b0;
 }
 [dir] .ntx-custom-menu .nx-radio :has(> input[type=radio]:checked) .nx-radio-label{
     color:#FFF;
