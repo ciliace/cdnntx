@@ -85,8 +85,13 @@ div#nx-form-container {
     border: none;
 }
 
-.nx-panel-body.nx-group-control-body {
-    background: none;
+div.ntx-custom-menu,div.ntx-custom-create, .nx-panel-body.nx-group-control-body {
+    background: none !important;
+}
+div.ntx-custom-create {
+    max-width: 900px;
+    padding: 10px;
+    margin: auto;
 }
 
 /*#endregion*/
