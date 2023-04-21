@@ -62,7 +62,7 @@ div#nx-form-container {
 }
 
 .ntx-host-content {
-    background-image: linear-gradient(to bottom, rgb(255 232 0 / 17%) 100%, transparent 50%), url(https://i.ibb.co/x5qdS7p/Picture2.jpg) !important;
+    background-image: linear-gradient(to bottom, rgb(255 232 0 / 17%) 100%, transparent 50%), url(https://i.ibb.co/TPLQ5Qj/Picture1.png) !important;
     background-size: cover;
 }
 
@@ -83,6 +83,10 @@ div#nx-form-container {
 }
 [dir] .nx-theme-styles  .nx-form-heading {
     border: none;
+}
+
+.nx-panel-body.nx-group-control-body {
+    background: none;
 }
 
 /*#endregion*/
