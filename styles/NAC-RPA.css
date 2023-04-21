@@ -87,32 +87,32 @@ div#nx-form-container {
 
 /*#endregion*/
 /*#region : Check Radio as Button */
-.ntx-custom-menu div.nx-radio:nth-child(1) :has(> input[type=radio]:checked) {
+.ntx-custom-action div.nx-radio:nth-child(1) :has(> input[type=radio]:checked) {
     background-color: #f44336;
 }
-.ntx-custom-menu div.nx-radio:nth-child(2) :has(> input[type=radio]:checked) {
+.ntx-custom-action div.nx-radio:nth-child(2) :has(> input[type=radio]:checked) {
     background-color: #ffeb3b;
 }
-.ntx-custom-menu div.nx-radio:nth-child(3) :has(> input[type=radio]:checked) {
+.ntx-custom-action div.nx-radio:nth-child(3) :has(> input[type=radio]:checked) {
     background-color: #2196f3;
 }
-.ntx-custom-menu div.nx-radio:nth-child(4) :has(> input[type=radio]:checked) {
+.ntx-custom-action div.nx-radio:nth-child(4) :has(> input[type=radio]:checked) {
     background-color: #4caf50;
 }
-.ntx-custom-menu div.nx-radio:nth-child(4) :has(> input[type=radio]:checked) {
+.ntx-custom-action div.nx-radio:nth-child(4) :has(> input[type=radio]:checked) {
     background-color: #9c27b0;
 }
-[dir] .ntx-custom-menu .nx-radio :has(> input[type=radio]:checked) .nx-radio-label{
+[dir] .ntx-custom-action .nx-radio :has(> input[type=radio]:checked) .nx-radio-label{
     color:#FFF;
 }
-[dir] .ntx-custom-menu .nx-radio input[type=radio]+.nx-radio-container .nx-radio-faux{
+[dir] .ntx-custom-action .nx-radio input[type=radio]+.nx-radio-container .nx-radio-faux{
     display: none;
 }
-[dir] .ntx-custom-menu .nx-radio input[type=radio]+.nx-radio-container{
+[dir] .ntx-custom-action .nx-radio input[type=radio]+.nx-radio-container{
     padding-left:0px;
     justify-content: center;
 }
-.ntx-custom-menu div.nx-radio :has(> input[type=radio]) {
+.ntx-custom-action div.nx-radio :has(> input[type=radio]) {
     background-color: #f5f5f5;
     color: #000;
     padding: 5px 15px;
