@@ -1,5 +1,5 @@
 /*#region : Background Page */
-html {
+:root {
   --is-in-iframe: 1;
 }
 
@@ -10,7 +10,7 @@ html {
     --tab-text-color: #000000;
 }
 
-:root:not([--is-in-iframe]) .theme-entry .runtime-form {
+:root[--is-in-iframe="1"] .theme-entry .runtime-form {
   width: 100% !important;
   max-width: 100% !important;
 }
