@@ -1,4 +1,4 @@
-iframe.content-control-iframe  :root {
+iframe.content-control-iframe :root {
     --is-in-iframe: 0;
 }
 
