@@ -22,7 +22,8 @@ html[is-in-iframe] .theme-entry .runtime-form {
   background-size: cover;
   background-attachment: fixed;
 }
-html[is-in-iframe] .theme-entry {
+html[is-in-iframe] .theme-entry,
+html[is-in-iframe] body.theme-entry  {
   background: none;
 }
 
