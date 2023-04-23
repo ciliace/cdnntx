@@ -25,8 +25,11 @@ form {
   border-radius: 24px;
 }
 
+body {
+background-color: none;
+}
+
 .runtime-content {
-  background-image: url(https://i.ibb.co/xFbQ8jh/bg-Login.jpg);
   background-size: cover;
   background-attachment: fixed;
 }
