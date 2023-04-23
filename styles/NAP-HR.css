@@ -1,3 +1,6 @@
+iframe.content-control-iframe  :root {
+    --is-in-iframe: 0;
+}
 
 form .row:first-child > div:first-child {
     width: 100% !important;

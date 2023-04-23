@@ -1,4 +1,8 @@
 /*#region : Background Page */
+:root {
+  --is-in-iframe: 1;
+}
+
 .theme-entry {
     --view-rounding: 25px;
     --panel-rounding: 25px;
@@ -14,6 +18,17 @@
     --view-rounding: 12px;
     --panel-rounding: 12px;
 }
+
+:root:not([--is-in-iframe]) .theme-entry {
+  background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+:root:not([--is-in-iframe]) .theme-entry.runtime-view {
+  background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg') important!;
+}
+
 
 form {
   opacity:0.85!important;
@@ -69,3 +84,4 @@ html.workspace.workspace-main div.SFC.SourceCode-Forms-Controls-Web-ControlPack-
   opacity: 0.5;
 }
 /*#endregion*/
+
