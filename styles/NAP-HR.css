@@ -15,3 +15,13 @@ form .row:first-child > div:nth-child(2) {
     position: absolute;
 }
 #endregion
+
+.theme-entry {
+    background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    --view-rounding: 25px;
+    --panel-rounding: 25px;
+    --tab-background-color: #ffffff;
+    --tab-text-color: #000000;
+}
