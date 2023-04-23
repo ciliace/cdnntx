@@ -7,9 +7,12 @@ form .row:first-child > div:first-child {
     position: absolute;
     top: 0;
     left: 0;
-    max-width: 20%;
-    margin: auto;
+    max-width: calc(20% - 10px);
+    /* margin: 0 !important; */
+    padding-top: 10px;
+    padding-left: 10px;
 }
+
 form .row:first-child > div:nth-child(2) {
     margin: auto;
     width: 100% !important;
@@ -17,7 +20,9 @@ form .row:first-child > div:nth-child(2) {
     right: 0;
     position: absolute;
     height: 100%;
-    max-width: 80%;
+    max-width: calc(80% - 10px);
+    padding-top: 10px;
+    padding-right: 10px;
 }
 
 .theme-entry .form {
