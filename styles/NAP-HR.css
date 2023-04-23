@@ -1,20 +1,16 @@
-#region Navigation
+
 form .row:first-child > div:first-child {
     width: 300px !important;
     position: absolute;
     top: 0;
     left: 0;
 }
-#endregion
-
-#region Page
 form .row:first-child > div:nth-child(2) {
     width: calc(100% - 300px) !important;
     top: 0;
     right: 0;
     position: absolute;
 }
-#endregion
 
 .theme-entry {
     background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg');
