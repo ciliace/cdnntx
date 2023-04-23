@@ -10,6 +10,7 @@ form .row:first-child > div:nth-child(2) {
     top: 0;
     right: 0;
     position: absolute;
+    height: 100%;
 }
 
 .theme-entry {
