@@ -22,7 +22,7 @@
  var iframe = document.querySelector("div[name='HR-APP'] > div > div > iframe");
  iframe.addEventListener('load', function() {
    var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
-   var itemToChange = iframeDocument.querySelector('body');
+   var itemToChange = iframeDocument.querySelector('html');
    itemToChange.style.setProperty('--is-in-iframe', '0');
  });
 
