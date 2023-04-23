@@ -19,7 +19,7 @@ html {
 }
 
 .theme-entry {
-  background: none;
+  background: none !important;
 }
 
 
