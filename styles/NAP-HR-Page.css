@@ -51,7 +51,7 @@ body.theme-entry {
   background-attachment: fixed;
 }
 
-:root[--is-in-iframe] .runtime-content {
+:root:not([--is-in-iframe]) .runtime-content {
   background-image: url(https://i.ibb.co/xFbQ8jh/bg-Login.jpg);
 }
 
