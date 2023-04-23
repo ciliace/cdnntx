@@ -12,9 +12,6 @@ form .row:first-child > div:nth-child(2) {
     position: absolute;
     height: 100%;
 }
-body.theme-entry {
-    background: none !important;
-}
 
 .theme-entry {
     background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg');
