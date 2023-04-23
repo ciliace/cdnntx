@@ -7,38 +7,21 @@
     --tab-text-color: #000000;
 }
 
-html[is-in-iframe] .theme-entry .runtime-form {
-  width: 100% !important;
-  max-width: 100% !important;
-}
-
 .theme-entry.runtime-view {
     --view-rounding: 12px;
     --panel-rounding: 12px;
 }
 
-.theme-entry {
+html {
   background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg');
   background-size: cover;
   background-attachment: fixed;
 }
-html[is-in-iframe] .theme-entry,
-body.theme-entry  {
+
+.theme-entry {
   background: none;
 }
 
-.theme-entry.runtime-view {
-  background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg') !important;
-}
-html[is-in-iframe] .theme-entry.runtime-view  {
-  background: none;
-}
-.runtime-content {
-  background-image: url(https://i.ibb.co/xFbQ8jh/bg-Login.jpg);
-}
-html[is-in-iframe] .runtime-content {
-  background: none;
-}
 
 
 
@@ -52,14 +35,6 @@ form {
 .theme-entry .SourceCode-Forms-Controls-Web-DataLabel {
   border-radius: 24px;
 }
-
-
-
-.runtime-content {
-  background-size: cover;
-  background-attachment: fixed;
-}
-
 
 html.workspace.workspace-main div.SourceCode-Forms-Controls-Web-ControlPack-Navigation .navigation-topbar {
   border-bottom: 1px solid #031955;
@@ -97,3 +72,9 @@ html.workspace.workspace-main div.SFC.SourceCode-Forms-Controls-Web-ControlPack-
 }
 /*#endregion*/
 
+/*#region Portal*/
+html[is-in-iframe] .theme-entry .runtime-form {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+/*#endregion*/
