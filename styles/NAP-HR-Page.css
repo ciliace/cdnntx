@@ -1,7 +1,4 @@
 /*#region : Background Page */
-:root {
-  --is-in-iframe: 1;
-}
 
 .theme-entry {
     --view-rounding: 25px;
@@ -10,7 +7,7 @@
     --tab-text-color: #000000;
 }
 
-:root[--is-in-iframe="1"] .theme-entry .runtime-form {
+html[is-in-iframe].theme-entry .runtime-form {
   width: 100% !important;
   max-width: 100% !important;
 }
@@ -20,17 +17,17 @@
     --panel-rounding: 12px;
 }
 
-:root:not([--is-in-iframe]) .theme-entry {
+html:not([is-in-iframe]) .theme-entry {
   background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg');
   background-size: cover;
   background-attachment: fixed;
 }
 
-:root:not([--is-in-iframe]) .theme-entry.runtime-view {
+html:not([is-in-iframe]) .theme-entry.runtime-view {
   background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg') !important;
 }
 
-:root:not([--is-in-iframe]) .runtime-content {
+html:not([is-in-iframe]) .runtime-content {
   background-image: url(https://i.ibb.co/xFbQ8jh/bg-Login.jpg);
 }
 
