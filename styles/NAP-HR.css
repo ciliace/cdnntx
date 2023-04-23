@@ -13,6 +13,11 @@ form .row:first-child > div:nth-child(2) {
     height: 100%;
 }
 
+.theme-entry .form {
+    padding: 12px;
+    background: none;
+}
+
 .theme-entry {
     background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg');
     background-size: cover;
