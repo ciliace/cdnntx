@@ -7,7 +7,7 @@
     --tab-text-color: #000000;
 }
 
-html[is-in-iframe] .theme-entry .runtime-form {
+html:not([is-in-iframe]) .theme-entry .runtime-form {
   width: 100% !important;
   max-width: 100% !important;
 }
@@ -17,18 +17,26 @@ html[is-in-iframe] .theme-entry .runtime-form {
     --panel-rounding: 12px;
 }
 
-html:not([is-in-iframe]) .theme-entry {
+.theme-entry {
   background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg');
   background-size: cover;
   background-attachment: fixed;
 }
-
-html:not([is-in-iframe]) .theme-entry.runtime-view {
-  background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg') !important;
+html[is-in-iframe] .theme-entry {
+  background: none;
 }
 
-html:not([is-in-iframe]) .runtime-content {
+.theme-entry.runtime-view {
+  background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg') !important;
+}
+html[is-in-iframe] .theme-entry.runtime-view  {
+  background: none;
+}
+.runtime-content {
   background-image: url(https://i.ibb.co/xFbQ8jh/bg-Login.jpg);
+}
+html[is-in-iframe] .runtime-content {
+  background: none;
 }
 
 
