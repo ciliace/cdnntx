@@ -16,7 +16,7 @@
   window.onload = function() {
     let frame = document.querySelector("div[name='HR-APP'] > div > div > iframe");
     let doc = frame.contentDocument;
-    doc.body.innerHTML = doc.body.innerHTML + '<style>:root {--is-in-iframe:0;}</style>';
+    //doc.body.innerHTML = doc.body.innerHTML + '<style>:root {--is-in-iframe:0;}</style>';
  }
 
 
