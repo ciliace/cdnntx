@@ -1,7 +1,7 @@
 
-$('#frame').contents().find(':root').css({'--is-in-iframe':'0'});
+$('iframe.content-control-iframe').contents().find(':root').css({'--is-in-iframe':'0'});
 
-$("#frame").on("load", function() {
+$("iframe.content-control-iframee").on("load", function() {
     let head = $("#frame").contents().find("head");
     let css = '<style>:root {--is-in-iframe:0;}</style>';
     $(head).append(css);
