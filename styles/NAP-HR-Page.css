@@ -52,9 +52,7 @@ form {
   border-radius: 24px;
 }
 
-body.theme-entry {
-  background: none !important;
-}
+
 
 .runtime-content {
   background-size: cover;
