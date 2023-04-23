@@ -1,0 +1,71 @@
+/*#region : Background Page */
+.theme-entry {
+    background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    --view-rounding: 25px;
+    --panel-rounding: 25px;
+    --tab-background-color: #ffffff;
+    --tab-text-color: #000000;
+}
+.theme-entry .runtime-form {
+  width: 80% !important;
+}
+
+.theme-entry.runtime-view {
+    background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg') important!;
+    --view-rounding: 12px;
+    --panel-rounding: 12px;
+}
+
+form {
+  opacity:0.85!important;
+}
+.theme-entry .tab-box.tabs-top .tab-box-body{
+  background-color: transparent;  
+}
+.theme-entry .grid-toolbars,
+.theme-entry .SourceCode-Forms-Controls-Web-DataLabel {
+  border-radius: 24px;
+}
+
+.runtime-content {
+  background-image: url(https://i.ibb.co/xFbQ8jh/bg-Login.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
+html.workspace.workspace-main div.SourceCode-Forms-Controls-Web-ControlPack-Navigation .navigation-topbar {
+  border-bottom: 1px solid #031955;
+  background-color: #031955;
+}
+html.workspace.workspace-main div.SFC.SourceCode-Forms-Controls-Web-ControlPack-Navigation .navigation-topbar-clickarea {
+  width: 310px;
+  background-color: #031955;
+  border: none;
+}
+.panel-body {
+  opacity: 0.8;
+}
+
+.theme-entry .tab-box.tabs-top ul.tab-box-tabs {
+  padding: 10px 5px 0px 10px;
+}
+
+.theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab {
+  height: 90px;
+  margin-right: 10px;
+  border-radius: var(--view-rounding) ;
+  padding: 0;
+}
+
+.theme-entry .panel>.panel-body {
+  border-radius: var(--view-rounding);
+}
+
+.theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab.selected {
+  opacity: 1;
+}
+.theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab:not(selected) {
+  opacity: 0.5;
+}
+/*#endregion*/
