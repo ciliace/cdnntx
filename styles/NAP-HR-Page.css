@@ -6,7 +6,8 @@
     --tab-text-color: #000000;
 }
 .theme-entry .runtime-form {
-  width: 80% !important;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
 .theme-entry.runtime-view {
