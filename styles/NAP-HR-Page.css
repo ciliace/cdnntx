@@ -7,7 +7,7 @@
     --tab-text-color: #000000;
 }
 
-html[is-in-iframe].theme-entry .runtime-form {
+html[is-in-iframe] .theme-entry .runtime-form {
   width: 100% !important;
   max-width: 100% !important;
 }
