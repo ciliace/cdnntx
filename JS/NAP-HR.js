@@ -13,7 +13,7 @@
 //     doc.body.innerHTML = doc.body.innerHTML + '<style>:root {--is-in-iframe:0;}</style>';
 //  }
 
-var iframe = document.querySelector("iframe.content-control-iframe");
+var iframe = document.querySelector("div[name='HR-APP'] > div > div > iframe");
   iframe.addEventListener('load', function() {
   var iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
   iframeDocument.body.innerHTML = iframeDocument.body.innerHTML + '<style>:root {--is-in-iframe:0;}</style>';
