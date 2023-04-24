@@ -67,6 +67,10 @@ background: none;
   background: none !important;
 }
 
+.theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab {
+  color: #ffffff;
+}
+
 .theme-entry .form {
   min-height: 500px;
 }
