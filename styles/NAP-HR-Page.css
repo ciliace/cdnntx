@@ -53,10 +53,7 @@ html.workspace.workspace-main div.SFC.SourceCode-Forms-Controls-Web-ControlPack-
 }
 
 .theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab {
-  height: 90px;
-  margin-right: 10px;
-  border-radius: var(--view-rounding) ;
-  padding: 0;
+background: none;
 }
 
 .theme-entry .panel>.panel-body {
@@ -64,10 +61,11 @@ html.workspace.workspace-main div.SFC.SourceCode-Forms-Controls-Web-ControlPack-
 }
 
 .theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab.selected {
-  opacity: 1;
+  background-color: #ffffff;
+  color:#031955;
 }
 .theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab:not(selected) {
-  opacity: 0.5;
+  background: none;
 }
 /*#endregion*/
 
