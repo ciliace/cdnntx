@@ -12,16 +12,15 @@
     --panel-rounding: 12px;
 }
 
-html:not([is-in-iframe]) {
+/* html:not([is-in-iframe]) {
   background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg');
   background-size: cover;
   background-attachment: fixed;
-}
+} */
 
 .theme-entry {
   background: none !important;
 }
-
 
 
 
@@ -73,7 +72,7 @@ html.workspace.workspace-main div.SFC.SourceCode-Forms-Controls-Web-ControlPack-
 /*#endregion*/
 
 /*#region Portal*/
-html[is-in-iframe] .theme-entry .runtime-form {
+html .theme-entry .runtime-form {
   width: 100% !important;
   max-width: 100% !important;
 }
