@@ -29,10 +29,15 @@ iframe.content-control-iframe :root {
     color: #ffffff;
 }
 
+.form .row:first-child > div:first-child span:has(label):hover {
+    opacity: 0.2;
+}
 
 .form .row:first-child > div:first-child span:has(label.checked),
 .form .row:first-child > div:first-child span:has(label):hover {
     background-color: #ffffff;
+    
+  border-radius: var(--view-rounding) ;
 }
 
 .form .row:first-child > div:first-child span:has(label.checked) span,
@@ -61,8 +66,8 @@ iframe.content-control-iframe :root {
     background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg');
     background-size: cover;
     background-attachment: fixed;
-    --view-rounding: 25px;
-    --panel-rounding: 25px;
+    --view-rounding: 12px;
+    --panel-rounding: 12px;
     --tab-background-color: #ffffff;
     --tab-text-color: #000000;
 }
