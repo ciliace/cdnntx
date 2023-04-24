@@ -15,10 +15,11 @@ form .row:first-child > div:first-child {
 
 form .row:first-child > div:first-child > div > div {
     background: none;
-    color: #ffffff !important;
 }
 
-
+form .row:first-child > div:first-child span:has(label) {
+    color: #ffffff;
+}
 form .row:first-child > div:first-child span:has(label.checked) {
     background-color: #ffffff;
     color: #000000;
