@@ -9,8 +9,12 @@ iframe.content-control-iframe :root {
     left: 0;
     max-width: calc(20% - 10px);
     /* margin: 0 !important; */
-    padding-top: 10px;
+    padding-top: 20px;
     padding-left: 10px;
+}
+
+.form .row:first-child > div:first-child span.input-control-img{
+     display: none !important;
 }
 
 .form .row:first-child > div:first-child > div > div {
@@ -24,11 +28,15 @@ iframe.content-control-iframe :root {
 .form .row:first-child > div:first-child span {
     color: #ffffff;
 }
-.form .row:first-child > div:first-child span:has(label.checked) {
+
+
+.form .row:first-child > div:first-child span:has(label.checked),
+.form .row:first-child > div:first-child span:has(label):hover {
     background-color: #ffffff;
 }
 
-.form .row:first-child > div:first-child span:has(label.checked) span {
+.form .row:first-child > div:first-child span:has(label.checked) span,
+.form .row:first-child > div:first-child span:has(label):hover span {
     color: #000000;
 }
 
@@ -39,9 +47,9 @@ iframe.content-control-iframe :root {
     right: 0;
     position: absolute;
     height: 100%;
-    max-width: calc(80% - 10px);
-    padding-top: 10px;
-    padding-right: 10px;
+    max-width: calc(80% - 20px);
+    padding-top: 20px;
+    padding-right: 20px;
 }
 
 .theme-entry .form {
