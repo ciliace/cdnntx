@@ -72,6 +72,11 @@ background: none;
   padding: 0 !important;
   margin: 0 !important;
 } */
+
+.theme-entry .form {
+  min-height: 500px;
+}
+
 /*#endregion*/
 
 /*#region Portal*/
