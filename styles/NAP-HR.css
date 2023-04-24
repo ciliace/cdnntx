@@ -76,3 +76,9 @@ iframe.content-control-iframe :root {
     height: 100% !important;
     
 }
+
+.form .row:first-child > div:first-child span[name="NAV Space 1"], .form .row:first-child > div:first-child span[name="NAV Space 2"] {
+    margin: 8px 0;
+    height: 0.1px;
+  }
+  
