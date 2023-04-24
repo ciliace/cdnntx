@@ -65,13 +65,9 @@ background: none;
   color:#000000;
 }
 
-/* .theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab:not(selected),
-.theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab:not(selected) span {
+.theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab span {
   background: none !important;
-  height: 50px;
-  padding: 0 !important;
-  margin: 0 !important;
-} */
+}
 
 .theme-entry .form {
   min-height: 500px;
