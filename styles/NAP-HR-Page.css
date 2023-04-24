@@ -71,6 +71,13 @@ background: none;
   color: #ffffff;
 }
 
+.theme-entry .tab-box ul.tab-box-tabs a.tab .tab-text {
+  font-family: Arial, Gadget, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 11pt;
+}
+
 .theme-entry .form {
   min-height: 500px;
 }
