@@ -3,8 +3,6 @@
 .theme-entry {
     --view-rounding: 25px;
     --panel-rounding: 25px;
-    --tab-background-color: #ffffff;
-    --tab-text-color: #000000;
 }
 
 .theme-entry.runtime-view {
