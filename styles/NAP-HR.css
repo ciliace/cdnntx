@@ -17,7 +17,7 @@ form .row:first-child > div:first-child > div > div {
     background: none;
 }
 
-form .row:first-child > div:first-child span:has(label) {
+form .row:first-child > div:first-child span {
     color: #ffffff;
 }
 form .row:first-child > div:first-child span:has(label.checked) {
