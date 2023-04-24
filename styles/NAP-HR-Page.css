@@ -48,9 +48,9 @@ html.workspace.workspace-main div.SFC.SourceCode-Forms-Controls-Web-ControlPack-
   opacity: 0.8;
 }
 
-.theme-entry .tab-box.tabs-top ul.tab-box-tabs {
+/* .theme-entry .tab-box.tabs-top ul.tab-box-tabs {
   padding: 10px 5px 0px 10px;
-}
+} */
 
 .theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab {
 background: none;
