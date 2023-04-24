@@ -62,19 +62,16 @@ background: none;
 
 .theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab.selected {
   background-color: #ffffff;
-  color:#031955;
-  height: 50px;
-  padding: 0 !important;
-  margin: 0 !important;
+  color:#000000;
 }
 
-.theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab:not(selected),
+/* .theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab:not(selected),
 .theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab:not(selected) span {
   background: none !important;
   height: 50px;
   padding: 0 !important;
   margin: 0 !important;
-}
+} */
 /*#endregion*/
 
 /*#region Portal*/
