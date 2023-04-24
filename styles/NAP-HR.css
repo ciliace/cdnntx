@@ -21,7 +21,7 @@ form .row:first-child > div:first-child .panel-body {
     border: none;
 }
 
-form .row:first-child > div:first-child span {
+form .row:first-child > div:first-child .panel-body-wrapper > div > div > span {
     color: #ffffff;
 }
 form .row:first-child > div:first-child span:has(label.checked) {
