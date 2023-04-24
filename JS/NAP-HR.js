@@ -13,4 +13,16 @@
    iframeRoot.setAttribute('is-in-iframe', 1);
  });
 
+ const divElement = document.querySelector("div[name='navigation']");
+
+ divElement.addEventListener('click', function() {
+   // Get the data-options attribute and parse it as a JSON object
+   const options = JSON.parse(divElement.getAttribute('data-options'));
+   
+   // Get the value property of the options object
+   const optionValue = options.value;
+   
+   // Your code to handle the option value here
+   console.log('The option value is:', optionValue);
+ });
 

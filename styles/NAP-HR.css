@@ -2,7 +2,7 @@ iframe.content-control-iframe :root {
     --is-in-iframe: 0;
 }
 
-form .row:first-child > div:first-child {
+.form .row:first-child > div:first-child {
     width: 100% !important;
     position: absolute;
     top: 0;
@@ -13,26 +13,26 @@ form .row:first-child > div:first-child {
     padding-left: 10px;
 }
 
-form .row:first-child > div:first-child > div > div {
+.form .row:first-child > div:first-child > div > div {
     background: none;
 }
 
-form .row:first-child > div:first-child .panel-body {
+.form .row:first-child > div:first-child .panel-body {
     border: none;
 }
 
-form .row:first-child > div:first-child span {
+.form .row:first-child > div:first-child span {
     color: #ffffff;
 }
-form .row:first-child > div:first-child span:has(label.checked) {
+.form .row:first-child > div:first-child span:has(label.checked) {
     background-color: #ffffff;
 }
 
-form .row:first-child > div:first-child span:has(label.checked) span {
+.form .row:first-child > div:first-child span:has(label.checked) span {
     color: #000000;
 }
 
-form .row:first-child > div:nth-child(2) {
+.form .row:first-child > div:nth-child(2) {
     margin: auto;
     width: 100% !important;
     top: 0;
@@ -59,7 +59,7 @@ form .row:first-child > div:nth-child(2) {
     --tab-text-color: #000000;
 }
 
-form .row:first-child > div:nth-child(2) div {
+.form .row:first-child > div:nth-child(2) div {
     height: 100% !important;
     
 }
