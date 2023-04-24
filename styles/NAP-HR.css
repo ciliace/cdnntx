@@ -17,6 +17,10 @@ form .row:first-child > div:first-child > div > div {
     background: none;
 }
 
+form .row:first-child > div:first-child .panel-body {
+    border: none;
+}
+
 form .row:first-child > div:first-child span {
     color: #ffffff;
 }
