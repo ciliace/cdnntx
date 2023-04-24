@@ -65,6 +65,12 @@ background: none;
   color:#000000;
 }
 
+.form .row:first-child > div:first-child span[name="NAV Space 1"], .form .row:first-child > div:first-child span[name="NAV Space 2"] {
+  margin: 8px 0;
+  height: 0.1px;
+}
+
+
 /* .theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab:not(selected),
 .theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab:not(selected) span {
   background: none !important;
