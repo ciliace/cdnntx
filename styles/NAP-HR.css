@@ -13,6 +13,17 @@ form .row:first-child > div:first-child {
     padding-left: 10px;
 }
 
+form .row:first-child > div:first-child > div > div {
+    background: none;
+    color: #ffffff;
+}
+
+
+form .row:first-child > div:first-child span:has(label.checked) {
+    background-color: #ffffff;
+    color: #000000;
+}
+
 form .row:first-child > div:nth-child(2) {
     margin: auto;
     width: 100% !important;
