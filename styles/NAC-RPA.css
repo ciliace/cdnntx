@@ -14,7 +14,8 @@ div#nx-form-container::before {
     #2196f3, 
     #4caf50, 
     #9c27b0, 
-    #f44336);
+    #f44336
+    );
     animation: colorCycle 10s linear infinite, moveTube 20s linear infinite;
     opacity: 0.5;
     width: 300px;
@@ -27,7 +28,8 @@ div#nx-form-container::before {
         #2196f3, 
         #4caf50, 
         #9c27b0, 
-        #f44336);
+        #f44336
+        );
     }
     100% {
       background-image: linear-gradient(-90deg, 
@@ -36,7 +38,8 @@ div#nx-form-container::before {
         #2196f3, 
         #4caf50, 
         #9c27b0, 
-        #f44336);
+        #f44336
+        );
     }
   }
   
@@ -142,6 +145,12 @@ div.ntx-custom-menu {
 }
 .ntx-custom-action div.nx-radio:nth-child(5) :has(> input[type=radio]:checked) {
     background-color: #9c27b0;
+}
+.ntx-custom-action div.nx-radio:nth-child(6) :has(> input[type=radio]:checked) {
+    background-color: #2934d4;
+}
+.ntx-custom-action div.nx-radio:nth-child(7) :has(> input[type=radio]:checked) {
+    background-color: #21768b;
 }
 [dir] .ntx-custom-action .nx-radio :has(> input[type=radio]:checked) .nx-radio-label{
     color:#FFF;
