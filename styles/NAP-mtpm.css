@@ -1,0 +1,185 @@
+/*#region : Background */
+[dir] .nx-theme-styles .nx-theme-page {
+    background-image: url("https://a.travel-assets.com/findyours-php/viewfinder/images/res70/77000/77278-Port-Of-Toulon.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.nx-form.form.container-fluid.nx-theme-form {
+    opacity: 0.90;
+}
+/*#endregion*/
+/*#region : Header and Footer */
+.nx-form .nx-form-heading, .nx-form .nx-form-footing{
+    border:none;
+}
+/*#endregion*/
+/*#region : Repeating control */
+.nx-repeating-section-container .nx-repeating-section-body .ntx-repeating-section-repeated-section .nx-form-runtime-content {
+    background-color: #ffffff;
+    background-image: none;
+}
+.ntx-custom-table-amounts label {
+    min-height: 35px !important;
+}
+ 
+.ntx-custom-table-1 .ntx-repeating-section-overlay {
+    right: calc(50% - 60px);
+    z-index: 1;
+    position: absolute;
+}
+
+.ntx-custom-table-2 .ntx-repeating-section-overlay {
+    right: 50px;
+    z-index: 1;
+    top: 22px;
+    position: absolute;
+}
+
+/*#endregion*/
+/*#region : Signature */
+.nx-signature-placeholder-canvas-border.nx-signature-border.ng-star-inserted h5 {
+    display: none;
+}
+
+.nx-signature-placeholder-canvas-border.nx-signature-border.ng-star-inserted::after {
+    content: 'Cliquer pour signer';
+}
+
+ntx-signature ntx-label {
+    display: none;
+}
+[dir] .nx-signature-popup-btn-row button.nx-theme-button-1 {
+    color: #d90011;
+}
+
+[dir] .nx-signature-popup-btn-row button.nx-theme-button-1:before {
+    color: #FFFFFF;
+    position: absolute;
+}
+
+[dir] .nx-signature-popup-btn-row button.nx-theme-button-1:before {
+    content: 'Valider';
+}
+
+[dir] .nx-signature-popup-btn-row button.nx-theme-button-2:before {
+    content: 'Effacer';
+    color: #d90011;
+    position: absolute;
+}
+
+[dir] .nx-signature-popup-btn-row button.nx-theme-button-2 {
+    color: #FFFFFF;
+}
+
+[dir] .nx-signature-popup-btn-row button.nx-theme-button-2:hover {
+    color: #e44d58 !important;
+}
+[dir] .nx-signature-popup-btn-row button.nx-theme-button-2:hover:before {
+    color: #FFFFFF;
+}
+/*#endregion*/
+/*#region : Upload */
+label.btn.nx-theme-button-2.nx-upload-button {
+    visibility: hidden;
+    position: relative;
+}
+
+label.btn.nx-theme-button-2.nx-upload-button:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: "Parcourir";
+    visibility: visible;
+    color: #d90011;
+    font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
+    border-color: #d90011;
+    background-color: #FFFFFF;
+    font-size: 14px;
+    border-radius: 4px;
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px;
+}
+
+ntx-file-upload.ng-star-inserted .nx-upload-action-bar div:before {
+    content: 'Glisser des fichiers ici ou  ';
+}
+.nx-file-upload-control .drop-container .nx-upload-button {
+    margin-bottom: 5%;
+}
+p.drag-file-label.ng-star-inserted {
+    display: none;
+}
+
+.nx-file-upload-control .drop-container .nx-upload-button {
+    min-width: 104px;
+}
+
+[dir] label.btn.nx-theme-button-2.nx-upload-button:hover:after {
+    color: #FFFFFF;
+    background-color: #d90011;
+}
+/*#endregion*/
+/*#region : Profile */
+div.ntx-custom-profile > header.nx-panel-header.nx-group-control-header:hover + div.nx-group-control-body-wrapper {
+    display: block;
+}
+div.ntx-custom-profile > header.nx-panel-header.nx-group-control-header + div.nx-group-control-body-wrapper {
+    display: none;
+}
+.nx-control-richtext-label.ntx-custom-profile > div {
+    font-weight: bold;
+}
+/*#endregion*/
+/*#region : Address */
+ntx-simple-address > input {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='50px' width='120px'><text x='25' y='20' fill='gray' font-size='14'>Entrer une addresse</text></svg>");
+  background-repeat: no-repeat;
+}
+
+/* Hides our fake placeholder on input focus */
+ntx-simple-address > input:focus,
+ntx-simple-address > input:not(:placeholder-shown) {
+  background-image: none;
+}
+
+/* Hides the default placeholder displayed */
+ntx-simple-address > input::-webkit-input-placeholder {
+  visibility: hidden;
+}
+
+
+/*#endregion*/
+/*#region : Submit Form */
+ntx-message-page#nx-message-page h1 {
+    color: rgba(255,255,255,0%);
+}
+
+ntx-message-page#nx-message-page h1:before {
+    content: 'Demande soumise avec succès';
+    color: #008000;
+    position: absolute;
+}
+
+ntx-message-page#nx-message-page button:before {
+    content: 'Cliquer ici pour une autre demande';
+    color: #d90011;
+    position: absolute;
+}
+
+ntx-message-page#nx-message-page button {
+    color: #FFFFFF;
+    width: 250px;
+}
+
+ntx-message-page#nx-message-page button:hover {
+    color: #e44d58;
+}
+
+ntx-message-page#nx-message-page button:hover:before{
+    color: #FFFFFF;
+}
+.nx-message-content.nx-form.form {
+    background: rgba(255, 255, 255, .7);
+}
+/*#endregion*/
