@@ -11,6 +11,9 @@ export class HelloWorld extends LitElement {
     return {
       controlName: 'Hello World',
       fallbackDisableSubmit: false,
+      description: 'Hello World component',
+      iconUrl: 'one-line-text',
+      groupName: 'Controls JAAM',
       version: '1.2',
       properties: {
         who: {
