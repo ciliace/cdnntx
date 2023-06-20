@@ -156,13 +156,13 @@ ntx-message-page#nx-message-page h1 {
 }
 
 ntx-message-page#nx-message-page h1:before {
-    content: 'Demande soumise avec succès';
+    content: 'Rapport exploitation soumise avec succès';
     color: #008000;
     position: absolute;
 }
 
 ntx-message-page#nx-message-page button:before {
-    content: 'Cliquer ici pour une autre demande';
+    content: 'Cliquer ici pour une autre rapport exploitation';
     color: #d90011;
     position: absolute;
 }
