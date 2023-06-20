@@ -156,7 +156,7 @@ ntx-message-page#nx-message-page h1 {
 }
 
 ntx-message-page#nx-message-page h1:before {
-    content: 'Rapport exploitation soumise avec succès';
+    content: 'Rapport exploitation soumis avec succès';
     color: #008000;
     position: absolute;
 }
@@ -169,7 +169,7 @@ ntx-message-page#nx-message-page button:before {
 
 ntx-message-page#nx-message-page button {
     color: #FFFFFF;
-    width: 250px;
+    width: 350px;
 }
 
 ntx-message-page#nx-message-page button:hover {
