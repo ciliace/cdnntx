@@ -224,3 +224,7 @@ ntx-message-page#nx-message-page button:hover:before{
 [dir] .nx-theme-styles .form-control[readonly].nx-read-only{
     background-color: #e6ecec;
 }
+
+ng-dropdown-panel[role="listbox"] {
+    display: contents;
+}
