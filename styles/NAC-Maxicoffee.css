@@ -225,6 +225,6 @@ ntx-message-page#nx-message-page button:hover:before{
     background-color: #e6ecec;
 }
 
-ng-dropdown-panel[role="listbox"] {
+ng-dropdown-panel[role=listbox] {
     display: contents;
 }
