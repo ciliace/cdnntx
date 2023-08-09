@@ -42,7 +42,7 @@
 }
 
 .nx-signature-placeholder-canvas-border.nx-signature-border.ng-star-inserted::after {
-    content: 'Cliquer pour signer';
+    content: 'Clique para assinar';
 }
 
 ntx-signature ntx-label {
@@ -58,11 +58,11 @@ ntx-signature ntx-label {
 }
 
 [dir] .nx-signature-popup-btn-row button.nx-theme-button-1:before {
-    content: 'Valider';
+    content: 'Validar';
 }
 
 [dir] .nx-signature-popup-btn-row button.nx-theme-button-2:before {
-    content: 'Effacer';
+    content: 'Apagar';
     color: #d90011;
     position: absolute;
 }
@@ -88,7 +88,7 @@ label.btn.nx-theme-button-2.nx-upload-button:after {
     position: absolute;
     top: 0;
     left: 0;
-    content: "Parcourir";
+    content: "Navegar";
     visibility: visible;
     color: #d90011;
     font-family: "Open Sans", "Helvetica", "Arial", sans-serif;
@@ -102,7 +102,7 @@ label.btn.nx-theme-button-2.nx-upload-button:after {
 }
 
 ntx-file-upload.ng-star-inserted .nx-upload-action-bar div:before {
-    content: 'Glisser des fichiers ici ou  ';
+    content: 'Arraste os arquivos aqui ou';
 }
 .nx-file-upload-control .drop-container .nx-upload-button {
     margin-bottom: 5%;
@@ -156,13 +156,13 @@ ntx-message-page#nx-message-page h1 {
 }
 
 ntx-message-page#nx-message-page h1:before {
-    content: 'Rapport exploitation soumis';
+    content: 'Incorporação submetidas';
     color: #008000;
     position: absolute;
 }
 
 ntx-message-page#nx-message-page button:before {
-    content: 'Cliquer ici pour une autre rapport exploitation';
+    content: 'Clique aqui para outra incorporação';
     color: #d90011;
     position: absolute;
 }
