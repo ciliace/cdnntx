@@ -1,0 +1,81 @@
+/*#region : Background */
+[dir] .nx-theme-styles .nx-theme-page {
+    background-image: url("https://i.ibb.co/4jPsNXT/bee-naturalles-IRM9qg-Zdl-W0-unsplash.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.nx-form.form.container-fluid.nx-theme-form {
+    opacity: 0.90;
+}
+/*#endregion*/
+/*region : Header and Footer */
+.nx-form .nx-form-heading, .nx-form .nx-form-footing{
+    border:none;
+}
+/*endregion*/
+
+.ntx-custom-grid > div > div > div > ntx-form-rows > form > div[fxlayout='row'] {
+    display: inline-flex;
+    width: calc(50% + 13px);
+} 
+
+.ntx-custom-grid > div > div > div > ntx-form-rows > form > div[fxlayout='row']:nth-child(2) {
+    float: right;
+}
+
+
+.ntx-custom-notitle > ntx-label {
+    display: none;
+}
+
+/*#region : Check Radio as Button */
+.ntx-custom-radio-button div.nx-radio:nth-child(3) :has(input[type=radio]:checked) {
+    background-color: rgb(19, 133, 95);
+}
+.ntx-custom-radio-button div.nx-radio:nth-child(2) :has(input[type=radio]:checked) {
+    background-color: rgb(255, 176, 0);
+}
+.ntx-custom-radio-button div.nx-radio:nth-child(1) :has(input[type=radio]:checked) {
+    background-color: rgb(198, 0, 34);
+}
+.ntx-custom-radio-button div.nx-radio:nth-child(4) :has(input[type=radio]:checked) {
+    background-color: rgb(112, 112, 112);
+}
+[dir] .ntx-custom-radio-button .nx-radio :has(input[type=radio]:checked) .nx-radio-label{
+    color:#FFF;
+}
+[dir] .ntx-custom-radio-button .nx-radio input[type=radio]+.nx-radio-container .nx-radio-faux{
+    display: none;
+}
+[dir] .ntx-custom-radio-button .nx-radio input[type=radio]+.nx-radio-container{
+    padding-left:0px;
+    justify-content: center;
+}
+.ntx-custom-radio-button div.nx-radio :has(input[type=radio]) {
+    background-color: #f5f5f5;
+    color: #000;
+    padding: 5px 15px;
+    white-space: nowrap;
+    font-weight: 500;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 120px;
+}
+.ntx-custom-radio-button > ntx-simple-choice > div > div > div {
+    margin: auto !important;
+}
+/*#endregion*/
+
+
+div[fxlayout='row']:has(> div > ntx-form-control > ntx-control-validation > div > ntx-group > div.ntx-custom-grid-1) {
+    width: calc(50% - 13px);
+    display: inline-grid;
+}
+
+div[fxlayout='row']:has(> div > ntx-form-control > ntx-control-validation > div > ntx-group > div.ntx-custom-grid-2) {
+    width: calc(50% - 13px);
+    display: inline-grid;
+    float: right;
+}
