@@ -1,8 +1,9 @@
 /*#region : Background */
 [dir] .nx-theme-styles .nx-theme-page {
-    background-image: url("https://i.ibb.co/4jPsNXT/bee-naturalles-IRM9qg-Zdl-W0-unsplash.jpg");
+    background-image: url("https://static.pierre-fabre.com/corpo/sites/pierre-fabre.com/files/2023-03/Pierre%20Fabre%20HP%20V2%20Quote.png");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-position: center bottom;
+    background-attachment: fixed
 }
 .nx-form.form.container-fluid.nx-theme-form {
     opacity: 0.90;
