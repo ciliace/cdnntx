@@ -58,7 +58,12 @@
 /*#region : All controls with text input */
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-input-1 { 
     background-color: #00335B; 
-    color: #ebfdbf;
+    color: #ebfdbf; 
+    font-size: 1.2em; 
+    text-transform: uppercase; 
+    font-weight: 700; 
+    width: 100%; 
+    border-color: #ebfdbf;
 }
 /*#endregion*/
 
