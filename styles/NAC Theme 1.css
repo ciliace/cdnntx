@@ -62,6 +62,64 @@
 }
 /*#endregion*/
 
+/*#region : Short text controls */
+[dir] .nx-theme-styles .nx-theme-form  ntx-textbox .nx-theme-input-1 { 
+    background-color: #00335B; 
+    color: #ebfdbf;
+}
+/*#endregion*/
+
+/*#region : Short text controls */
+[dir] .nx-theme-styles .nx-theme-form  ntx-textbox .nx-theme-input-1 { 
+    background-color: #00335B; 
+    color: #ebfdbf;
+}
+/*#endregion*/
+
+/*#region : Text control in a Repeating control or other controls
+    ntx-address
+    ntx-barcode
+    ntx-multichoice
+    ntx-choice
+    ntx-currency
+    ntx-data-lookup
+    ntx-datetime
+    ntx-email
+    ntx-file-upload
+    ntx-geolocation
+    ntx-group
+    ntx-image
+    ntx-richtext-label
+    ntx-number
+    ntx-people-picker
+    ntx-repeating-section
+    ntx-signature
+    ntx-space
+    ntx-multilinetext (Text – Long)
+    ntx-textbox (Text – Short)
+    ntx-boolean (Yes/no control)
+*/
+[dir] .nx-theme-styles .nx-theme-form ntx-repeating-section ntx-textbox .nx-theme-input-1 { 
+    background-color: #00335B; 
+    color: #ebfdbf; 
+}
+/*#endregion*/
+
+/*#region : Text control in a Group control */
+[dir] .nx-theme-styles .nx-theme-form ntx-group ntx-textbox .nx-theme-input-1 {
+    background-color: #464646; 
+    color: #b9ff50; 
+  }
+/*#endregion*/
+
+/*#region : Specific control using custom CSS classes */
+[dir] .nx-theme-styles .custom-radio-button div.nx-radio :has(input[type=radio]:checked) {
+    background-color: #464646;
+}
+/*#endregion*/
+
+
+
 /*#region : Header and Footer */
 .nx-form .nx-form-heading, .nx-form .nx-form-footing{
     border:none;
