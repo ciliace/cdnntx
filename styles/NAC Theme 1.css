@@ -7,9 +7,11 @@
 /*#endregion*/
 
 /*#region : Form */
+/*
 [dir] .nx-theme-styles .nx-theme-form { 
-	background-color: #00335B; 
+	background-color: #ebfdbf; 
 }
+*/
 
 .nx-form.form.container-fluid.nx-theme-form {
     opacity: 0.90;
