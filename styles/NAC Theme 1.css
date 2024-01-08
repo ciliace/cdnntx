@@ -1,14 +1,15 @@
-/*#region : Background */
+/*#region : Page */
 [dir] .nx-theme-styles .nx-theme-page {
-    background-image: url("https://ibb.co/FYTb2CD");
+    background-image: url("https://i.ibb.co/Lg7zmHZ/DALL-E-2024-01-08-18-51-02-A-high-quality-artistic-background-representing-the-JC-Decaux-company-The.png");
     background-repeat: no-repeat;
     background-size: cover;
 }
+/*#endregion*/
 
+/*#region : Form */
 [dir] .nx-theme-styles .nx-theme-form { 
-	background-color: #FFF8DC; 
+	background-color: #00335B; 
 }
-
 
 .nx-form.form.container-fluid.nx-theme-form {
     opacity: 0.90;
@@ -18,6 +19,19 @@
     opacity: 1;
 }
 /*#endregion*/
+
+/*#region : Submit */
+[dir] .nx-theme-styles .nx-theme-form .nx-theme-button-1 { 
+    background-color: #00335B; 
+    color: #ebfdbf; 
+    font-size: 1.2em; 
+    text-transform: uppercase; 
+    font-weight: 700; 
+    width: 100%; 
+}
+/*#endregion*/
+
+
 /*#region : Header and Footer */
 .nx-form .nx-form-heading, .nx-form .nx-form-footing{
     border:none;
