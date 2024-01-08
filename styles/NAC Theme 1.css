@@ -67,39 +67,7 @@
     border:none;
 }
 /*#endregion*/
-/*#region : Submit Form */
-ntx-message-page#nx-message-page h1 {
-    color: rgba(255,255,255,0%);
-}
 
-ntx-message-page#nx-message-page h1:before {
-    content: 'Demande soumise avec succès';
-    color: #008000;
-    position: absolute;
-}
-
-ntx-message-page#nx-message-page button:before {
-    content: 'Cliquer ici pour une autre demande';
-    color: #d33233;
-    position: absolute;
-}
-
-ntx-message-page#nx-message-page button {
-    color: #FFFFFF;
-    width: 250px;
-}
-
-ntx-message-page#nx-message-page button:hover {
-    color: #d33233;
-}
-
-ntx-message-page#nx-message-page button:hover:before{
-    color: #FFFFFF;
-}
-.nx-message-content.nx-form.form {
-    background: rgba(255, 255, 255, .7);
-}
-/*#endregion*/
 /*#region : Check Radio as Button */
 .ntx-custom-radio-button div.nx-radio:nth-child(1) :has(input[type=radio]:checked),
 .ntx-custom-radio-button div.nx-radio:nth-child(2) :has(input[type=radio]:checked),
@@ -190,21 +158,3 @@ ntx-message-page#nx-message-page button:hover:before{
 }
 
 /*#endregion*/
-/*#region : Profile */
-div.ntx-custom-information > header.nx-panel-header.nx-group-control-header:hover + div.nx-group-control-body-wrapper {
-    display: block;
-}
-div.ntx-custom-information > header.nx-panel-header.nx-group-control-header + div.nx-group-control-body-wrapper {
-    display: none;
-}
-.nx-control-richtext-label.ntx-custom-profile > div {
-    font-weight: bold;
-}
-.ntx-custom-radio-button{
-    top:-20px;
-}
-/*#endregion*/
-
-.nx-has-warning .nx-inline-warning-message {
-    display: none !important;
-}
