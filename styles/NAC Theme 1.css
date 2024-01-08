@@ -7,11 +7,17 @@
 /*#endregion*/
 
 /*#region : Form */
-/*
+
 [dir] .nx-theme-styles .nx-theme-form { 
-	background-color: #ebfdbf; 
+	/*background-color: #ebfdbf;*/ 
+    color: #2a2a2a;
+    font-family: Inter,Helvetica,Arial,sans-serif;
+    font-size: calc(1.6rem + .1vw);
+    font-weight: 400;
+    line-height: 1.5;
+    
 }
-*/
+
 
 .nx-form.form.container-fluid.nx-theme-form {
     opacity: 0.90;
