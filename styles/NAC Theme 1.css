@@ -95,7 +95,6 @@
     background-color: #00335B;
 }
 
-
 [dir] .nx-theme-styles .custom-radio-button .nx-radio :has(input[type=radio]:checked) .nx-radio-label{
     color:#FFF!important;
 }
@@ -161,19 +160,19 @@
 /*#endregion*/
 
 /*#region : Specific "custom-radio-button-colors" */
-[dir] .nx-theme-styles .custom-radio-button-colors::nth-child(1) div.nx-radio:has(input[type=radio]:checked) {
+[dir] .nx-theme-styles .custom-radio-button-colors div.nx-radio:nth-child(1):has(input[type=radio]:checked) {
     background-color: #FF0000; 
 }
-[dir] .nx-theme-styles .custom-radio-button-colors::nth-child(2) div.nx-radio:has(input[type=radio]:checked) {
+[dir] .nx-theme-styles .custom-radio-button-colors div.nx-radio:nth-child(2):has(input[type=radio]:checked) {
     background-color: #FFA500; 
 }
-[dir] .nx-theme-styles .custom-radio-button-colors::nth-child(3) div.nx-radio:has(input[type=radio]:checked) {
+[dir] .nx-theme-styles .custom-radio-button-colors div.nx-radio:nth-child(3):has(input[type=radio]:checked) {
     background-color: #FFFF00; 
 }
-[dir] .nx-theme-styles .custom-radio-button-colors::nth-child(4) div.nx-radio:has(input[type=radio]:checked) {
+[dir] .nx-theme-styles .custom-radio-button-colors div.nx-radio:nth-child(4):has(input[type=radio]:checked) {
     background-color: #008000; 
 }
-[dir] .nx-theme-styles .custom-radio-button-colors::nth-child(5) div.nx-radio:has(input[type=radio]:checked) {
+[dir] .nx-theme-styles .custom-radio-button-colors div.nx-radio:nth-child(5):has(input[type=radio]:checked) {
     background-color: #0000FF; 
 }
 
