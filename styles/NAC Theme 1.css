@@ -7,7 +7,6 @@
 /*#endregion*/
 
 /*#region : Form */
-
 [dir] .nx-theme-styles .nx-theme-form { 
 	/*background-color: #ebfdbf;*/ 
     color: #2a2a2a;
@@ -28,6 +27,13 @@
 }
 /*#endregion*/
 
+/*#region : All controls */
+
+[dir] .nx-theme-styles .nx-theme-form .form-group { 
+    padding: 0; border: 0; 
+}
+/*#endregion*/
+
 /*#region : Submit */
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-button-1 { 
     background-color: #00335B; 
@@ -38,6 +44,17 @@
     width: 100%; 
 }
 /*#endregion*/
+
+/*#region : All control labels */
+[dir] .nx-theme-styles .nx-theme-form .nx-theme-label-1 { 
+    text-align: right; 
+    color: #00335B; 
+    text-transform: uppercase; 
+    text-decoration: underline; 
+}
+/*#endregion*/
+
+
 
 
 /*#region : Header and Footer */
