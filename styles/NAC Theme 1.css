@@ -59,12 +59,6 @@
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-input-1 { 
     background-color: #00335B; 
     color: #ebfdbf; 
-/*#endregion*/
-
-/*#region : Short text controls */
-[dir] .nx-theme-styles .nx-theme-form  ntx-textbox .nx-theme-input-1 { 
-    background-color: #00335B; 
-    color: #ebfdbf;
 }
 /*#endregion*/
 
