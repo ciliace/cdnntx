@@ -59,12 +59,6 @@
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-input-1 { 
     background-color: #00335B; 
     color: #ebfdbf; 
-    font-size: 1.2em; 
-    text-transform: uppercase; 
-    font-weight: 700; 
-    width: 100%; 
-    border-color: #ebfdbf;
-}
 /*#endregion*/
 
 /*#region : Short text controls */
@@ -81,29 +75,14 @@
 }
 /*#endregion*/
 
-/*#region : Text control in a Repeating control or other controls
-    ntx-address
-    ntx-barcode
-    ntx-multichoice
-    ntx-choice
-    ntx-currency
-    ntx-data-lookup
-    ntx-datetime
-    ntx-email
-    ntx-file-upload
-    ntx-geolocation
-    ntx-group
-    ntx-image
-    ntx-richtext-label
-    ntx-number
-    ntx-people-picker
-    ntx-repeating-section
-    ntx-signature
-    ntx-space
-    ntx-multilinetext (Text – Long)
-    ntx-textbox (Text – Short)
-    ntx-boolean (Yes/no control)
-*/
+/*#region : Short text controls */
+[dir] .nx-theme-styles .nx-theme-form  ntx-textbox .nx-theme-input-1 { 
+    background-color: #00335B; 
+    color: #ebfdbf;
+}
+/*#endregion*/
+
+/*#region : Text control in a Repeating control or other controls*/
 [dir] .nx-theme-styles .nx-theme-form ntx-repeating-section ntx-textbox .nx-theme-input-1 { 
     background-color: #00335B; 
     color: #ebfdbf; 
@@ -118,9 +97,118 @@
 /*#endregion*/
 
 /*#region : Specific "custom-radio-button" */
-[dir] .nx-theme-styles .custom-radio-button div.nx-radio :has(input[type=radio]:checked) {
+[dir] .nx-theme-styles .custom-radio-button:nth-of-type(2n) div.nx-radio :has(input[type=radio]:checked) {
     background-color: #00335B;
 }
+
+/* First radio button - Red */
+[dir] .nx-theme-styles .custom-radio-button:nth-of-type(1) div.nx-radio:has(input[type=radio]:checked) {
+    background-color: #FF0000; /* Red */
+}
+
+/* Second radio button - Orange */
+[dir] .nx-theme-styles .custom-radio-button:nth-of-type(2) div.nx-radio:has(input[type=radio]:checked) {
+    background-color: #FFA500; /* Orange */
+}
+
+/* Third radio button - Yellow */
+[dir] .nx-theme-styles .custom-radio-button:nth-of-type(3) div.nx-radio:has(input[type=radio]:checked) {
+    background-color: #FFFF00; /* Yellow */
+}
+
+/* Fourth radio button - Green */
+[dir] .nx-theme-styles .custom-radio-button:nth-of-type(4) div.nx-radio:has(input[type=radio]:checked) {
+    background-color: #008000; /* Green */
+}
+
+/* Fifth radio button - Blue */
+[dir] .nx-theme-styles .custom-radio-button:nth-of-type(5) div.nx-radio:has(input[type=radio]:checked) {
+    background-color: #0000FF; /* Blue */
+}
+
+
+[dir] .nx-theme-styles .custom-radio-button .nx-radio :has(input[type=radio]:checked) .nx-radio-label{
+    color:#FFF!important;
+}
+[dir] .nx-theme-styles .custom-radio-button .nx-radio input[type=radio]+.nx-radio-container .nx-radio-faux{
+    display: none;
+}
+[dir] .nx-theme-styles .custom-radio-button .nx-radio input[type=radio]+.nx-radio-container{
+    padding-left:0px;
+    justify-content: center;
+}
+.nx-theme-styles .custom-radio-button div.nx-radio :has( input[type=radio]) {
+    background-color: #f5f5f5;
+    color: #000;
+    padding: 5px 0;
+    white-space: nowrap;
+    font-weight: 500;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 130px;
+}
+.nx-theme-styles .custom-radio-button div.nx-radio-container{
+    align-items: center;
+}
+
+.nx-theme-styles .custom-radio-button .nx-radio-group-inline {
+    display: block;
+}
+
+.nx-theme-styles .custom-radio-button {
+    /*display: flex;*/
+    display: block;
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.nx-theme-styles .custom-radio-button ntx-label {
+    /*flex: 1 1 100%;*/ 
+    display: block;
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    align-items: center;
+    text-align: center;
+}
+
+.nx-theme-styles .custom-radio-button ntx-simple-choice {
+    /*flex: 1 1 100%;*/ 
+    display: block;
+    word-wrap: break-word; 
+    overflow-wrap: break-word; 
+    align-items: center;
+    text-align: center;
+}
+
+.nx-theme-styles .custom-radio-button ntx-simple-choice .nx-radio input[type=radio]+.nx-radio-container{
+
+     align-items: center; /* Vertically centers children */
+}
+.nx-theme-styles .custom-radio-button div.nx-radio:nth-child(1) :has(input[type=radio]:hover) +  .ntx-custom-label {
+    display: block; /* Show on hover */
+}
+/*#endregion*/
+
+/*#region : Specific "custom-radio-button-colors" */
+[dir] .nx-theme-styles .custom-radio-button-colors:nth-of-type(1) div.nx-radio:has(input[type=radio]:checked) {
+    background-color: #FF0000; /* Red */
+}
+[dir] .nx-theme-styles .custom-radio-button-colors:nth-of-type(2) div.nx-radio:has(input[type=radio]:checked) {
+    background-color: #FFA500; /* Orange */
+}
+[dir] .nx-theme-styles .custom-radio-button-colors:nth-of-type(3) div.nx-radio:has(input[type=radio]:checked) {
+    background-color: #FFFF00; /* Yellow */
+}
+[dir] .nx-theme-styles .custom-radio-button-colors:nth-of-type(4) div.nx-radio:has(input[type=radio]:checked) {
+    background-color: #008000; /* Green */
+}
+[dir] .nx-theme-styles .custom-radio-button-colors:nth-of-type(5) div.nx-radio:has(input[type=radio]:checked) {
+    background-color: #0000FF; /* Blue */
+}
+
+
 [dir] .nx-theme-styles .custom-radio-button .nx-radio :has(input[type=radio]:checked) .nx-radio-label{
     color:#FFF!important;
 }
