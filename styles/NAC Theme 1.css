@@ -7,16 +7,16 @@
 /*#endregion*/
 
 /*#region : Form */
+/*
 [dir] .nx-theme-styles .nx-theme-form { 
-	/*background-color: #ebfdbf;*/ 
+    background-color: #ebfdbf;
     color: #2a2a2a;
     font-family: Inter,Helvetica,Arial,sans-serif;
     font-size: calc(1.6rem + .1vw);
     font-weight: 400;
     line-height: 1.5;
-    
 }
-
+*/
 
 .nx-form.form.container-fluid.nx-theme-form {
     opacity: 0.90;
@@ -28,10 +28,11 @@
 /*#endregion*/
 
 /*#region : All controls */
-
+/*
 [dir] .nx-theme-styles .nx-theme-form .form-group { 
     padding: 0; border: 0; 
 }
+*/
 /*#endregion*/
 
 /*#region : Submit */
@@ -47,33 +48,32 @@
 /*#endregion*/
 
 /*#region : All control labels */
+/*
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-label-1 { 
     text-align: right; 
     color: #00335B; 
     text-transform: uppercase; 
     text-decoration: underline; 
 }
+*/
 /*#endregion*/
 
 /*#region : All controls with text input */
+/*
 [dir] .nx-theme-styles .nx-theme-form .nx-theme-input-1 { 
     background-color: #00335B; 
     color: #ebfdbf; 
 }
+*/
 /*#endregion*/
 
 /*#region : Short text controls */
+/*
 [dir] .nx-theme-styles .nx-theme-form  ntx-textbox .nx-theme-input-1 { 
     background-color: #00335B; 
     color: #ebfdbf;
 }
-/*#endregion*/
-
-/*#region : Short text controls */
-[dir] .nx-theme-styles .nx-theme-form  ntx-textbox .nx-theme-input-1 { 
-    background-color: #00335B; 
-    color: #ebfdbf;
-}
+*/
 /*#endregion*/
 
 /*#region : Text control in a Repeating control or other controls*/
@@ -84,10 +84,12 @@
 /*#endregion*/
 
 /*#region : Text control in a Group control */
+/*
 [dir] .nx-theme-styles .nx-theme-form ntx-group ntx-textbox .nx-theme-input-1 {
     background-color: #00335B; 
     color: #ebfdbf; 
 }
+*/
 /*#endregion*/
 
 /*#region : Specific "custom-radio-button" */
@@ -246,95 +248,4 @@
 .nx-form .nx-form-heading, .nx-form .nx-form-footing{
     border:none;
 }
-/*#endregion*/
-
-/*#region : Check Radio as Button */
-.ntx-custom-radio-button div.nx-radio:nth-child(1) :has(input[type=radio]:checked),
-.ntx-custom-radio-button div.nx-radio:nth-child(2) :has(input[type=radio]:checked),
-.ntx-custom-radio-button div.nx-radio:nth-child(3) :has(input[type=radio]:checked),
-.ntx-custom-radio-button div.nx-radio:nth-child(4) :has(input[type=radio]:checked) {
-    background-color: #d33233;
-}
-[dir] .ntx-custom-radio-button .nx-radio :has(input[type=radio]:checked) .nx-radio-label{
-    color:#FFF!important;
-}
-[dir] .ntx-custom-radio-button .nx-radio input[type=radio]+.nx-radio-container .nx-radio-faux{
-    display: none;
-}
-[dir] .ntx-custom-radio-button .nx-radio input[type=radio]+.nx-radio-container{
-    padding-left:0px;
-    justify-content: center;
-}
-.ntx-custom-radio-button div.nx-radio :has( input[type=radio]) {
-    background-color: #f5f5f5;
-    color: #000;
-    padding: 5px 0;
-    white-space: nowrap;
-    font-weight: 500;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 130px;
-}
-
-.ntx-custom-radio-button div.nx-radio-container{
-    align-items: center;
-}
-
-.ntx-custom-radio-button .nx-radio-group-inline {
-    display: block;
-}
-
-.ntx-custom-radio-button {
-    /*display: flex;*/
-    display: block;
-    justify-content: space-between; 
-    align-items: center; 
-}
-
-.ntx-custom-radio-button ntx-label {
-    /*flex: 1 1 100%;*/ 
-    display: block;
-    word-wrap: break-word; 
-    overflow-wrap: break-word; 
-    align-items: center;
-    text-align: center;
-}
-
-.ntx-custom-radio-button ntx-simple-choice {
-    /*flex: 1 1 100%;*/ 
-    display: block;
-    word-wrap: break-word; 
-    overflow-wrap: break-word; 
-    align-items: center;
-    text-align: center;
-}
-
-.ntx-custom-radio-button ntx-simple-choice .nx-radio input[type=radio]+.nx-radio-container{
-
-     align-items: center; /* Vertically centers children */
-}
-
-.ntx-custom-nolabel .nx-zinc-control-label{
-    display: none;
-}
-
-.ntx-custom-label {
-    display: block; /* Hide by default */
-    position: absolute;
-    float: right;
-    right: -100%; 
-    top: 0; 
-    width: 30%;
-}
-
-.ntx-custom-label {
-    display: none; 
-}
-
-.ntx-custom-radio-button div.nx-radio:nth-child(1) :has(input[type=radio]:hover) +  .ntx-custom-label {
-    display: block; /* Show on hover */
-}
-
 /*#endregion*/
