@@ -242,7 +242,13 @@
 }
 /*#endregion*/
 
-
+[dir] .nx-theme-styles .custom-label-header h1 {
+    color: #00335B; 
+    font-size: 1.2em; 
+    text-transform: uppercase; 
+    font-weight: 700; 
+    width: 100%; 
+}
 
 /*#region : Header and Footer */
 .nx-form .nx-form-heading, .nx-form .nx-form-footing{
