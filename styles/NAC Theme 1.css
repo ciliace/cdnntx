@@ -242,7 +242,7 @@
 }
 /*#endregion*/
 
-[dir] .nx-theme-styles .custom-label-header h1 {
+[dir] .nx-theme-styles .custom-label-header .nx-theme-richtext h1 {
     color: #00335B; 
     font-size: 1.2em; 
     text-transform: uppercase; 
