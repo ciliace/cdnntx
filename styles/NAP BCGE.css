@@ -4,6 +4,7 @@
     --view-rounding: 25px;
     --panel-rounding: 25px;
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
     animation: slideShow 15s infinite;
 }
