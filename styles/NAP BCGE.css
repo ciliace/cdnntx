@@ -3,30 +3,15 @@
     position: relative;
     overflow: hidden;
     height: 100vh;
-}
-
-.theme-entry::before {
-    content: "";
-    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: linear-gradient(to right, transparent 0%, #ef3341 40%, #ef3341);
-    z-index: 1;
-}
-
-.theme-entry::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     background-image: url('https://www.bcge.ch/documents/509424/1155322/BCGE_carousel_1.jpg/a17caca1-52cd-2c5c-201d-cfd2012bcadd?t=1624433488175');
     background-size: cover;
     background-position: center;
-    z-index: 0;
+    z-index: 1;
 }
 
 .theme-entry.runtime-view {
