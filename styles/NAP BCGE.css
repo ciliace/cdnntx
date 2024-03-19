@@ -1,0 +1,19 @@
+/*#region : Background Page */
+.theme-entry {
+    background: linear-gradient(to right, transparent 0%, #ef3341 40%, #ef3341);
+    --view-rounding: 25px;
+    --panel-rounding: 25px;
+}
+
+.theme-entry.runtime-view {
+    background-image: url('https://www.bcge.ch/documents/509424/1155322/BCGE_carousel_1.jpg/a17caca1-52cd-2c5c-201d-cfd2012bcadd?t=1624433488175') important!;
+    --view-rounding: 12px;
+    --panel-rounding: 12px;
+}
+
+form {
+  opacity:0.95!important;
+}
+
+
+/*#endregion*/
