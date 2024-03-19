@@ -4,6 +4,10 @@
     --panel-rounding: 25px;
     position: relative;
     overflow: hidden;
+    display: flex;
+    justify-content: flex-end; /* Aligns children to the right */
+    align-items: center; /* Vertically centers children */
+    height: 100vh; /* Adjust this to fit your design */
 }
 
 .theme-entry::before {
