@@ -29,7 +29,7 @@
     z-index: 0;
 }
 
-.theme-entry.runtime-view .content {
+.theme-entry.runtime-view {
     position: relative;
     z-index: 2;
     /* Additional styling for your content */
