@@ -1,36 +1,17 @@
 /*#region : Background Page */
+.theme-entry .form {
+    padding: 12px;
+    background: none;
+}
+
 .theme-entry {
-    position: relative;
-    overflow: hidden;
-    height: 100vh;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
     background: linear-gradient(to right, transparent 0%, #ef3341 40%, #ef3341);
-    z-index: 1;
-}
-
-@keyframes slideShow {
-    0% {
-        background-image: url('https://www.bcge.ch/documents/509424/1155322/BCGE_carousel_1.jpg/a17caca1-52cd-2c5c-201d-cfd2012bcadd?t=1624433488175');
-    }
-    33% {
-        background-image: url('https://www.bcge.ch/documents/509424/1155322/BCGE_carousel_2.jpg/1067b93a-2ff8-3a56-5de8-f39cb612cef6?t=1624433488383');
-    }
-    66% {
-        background-image: url('https://www.bcge.ch/documents/509424/1155322/BCGE_carousel_5.jpg/eb5b2022-4e3d-0d49-8c13-53ba03e137d7?t=1624433487773');
-    }
-    100% {
-        background-image: url('https://www.bcge.ch/documents/509424/1155322/BCGE_carousel_1.jpg/a17caca1-52cd-2c5c-201d-cfd2012bcadd?t=1624433488175');
-    }
-}
-
-
-.theme-entry.runtime-view {
-    background-image: url('https://www.bcge.ch/documents/509424/1155322/BCGE_carousel_1.jpg/a17caca1-52cd-2c5c-201d-cfd2012bcadd?t=1624433488175') important!;
+    background-size: cover;
+    background-attachment: fixed;
     --view-rounding: 12px;
     --panel-rounding: 12px;
+    --tab-background-color: #ffffff;
+    --tab-text-color: #000000;
 }
 
 form {
@@ -38,6 +19,5 @@ form {
     position: relative;
     z-index: 2;
 }
-
 
 /*#endregion*/
