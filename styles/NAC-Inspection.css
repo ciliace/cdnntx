@@ -1,8 +1,9 @@
 /*#region : Background */
 [dir] .nx-theme-styles .nx-theme-page {
-    background-image: url("https://energiesdeloire.com/wp-content/uploads/2020/07/11.png");
+    /*background-image: url("https://energiesdeloire.com/wp-content/uploads/2020/07/11.png");
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: cover;*/
+    background:linear-gradient(to bottom right,#f4af24,#FFFFFF,#f4af24);
 }
 /*#endregion*/
 /*region : Header and Footer */
