@@ -6,7 +6,7 @@
 }
 
 .theme-entry.runtime-view {
-    --view-rounding: 12px;
+    /*--view-rounding: 12px;*/
     --panel-rounding: 12px;
 }
 
@@ -19,8 +19,6 @@
 .theme-entry {
   background: none !important;
 }
-
-
 
 form {
   opacity:0.85!important;
