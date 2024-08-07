@@ -1,18 +1,21 @@
 nav.menu-container {
-	background: $primary;
+	background: #283369;
 	text-align: left;
-	display: none;
+	display: block;
 	width: 100%;
 	transition: all .5s;
 	max-width: 1000px;
 	margin: auto;
 	ul.nav {
 		position: relative;
-		padding: 0; margin: 0;
+		padding: 0; margin: auto;
 		max-width: 1000px;
+		width: 100%;
 		margin: auto;
 		transition: all .5s;
+		overflow: auto;
 		li {
+			float: left;
 			a {
 				text-transform: uppercase;
 				color: white;
@@ -20,29 +23,6 @@ nav.menu-container {
 				font-size: 15px;
 				display: block;
 				font-weight: 400;
-				&:hover {
-					background: $secondary;
-				}
-			}
-			&:last-child {
-				@include mq(xl){
-					float: right;
-				}
-			}
-		}
-	}
-	@include mq(xl){
-		display: block;
-		ul.nav {
-			margin: auto;
-			padding: 0;
-			width: 100%;
-			overflow: auto;
-			li {
-				float: left;
-				a {
-					font-size: 14px;
-				}
 				&.menu-item-has-children {
 					> a:before {
 						content: '▾';
@@ -51,17 +31,11 @@ nav.menu-container {
 						top:12px;
 					}
 				}
-				&#menu-item-67 {
-					a {
-						background: $secondary;
-					}
+				&:hover {
+					background: $secondary;
 				}
-				&.current-menu-item {
-					a {
-						background: darken($primary,10%);
-					}
-				}
-				ul {
+			}
+		ul {
 					display: none;
 					position: absolute;
 					width: 200px;
