@@ -1,3 +1,132 @@
+nav.menu-container {
+	background: $primary;
+	text-align: left;
+	display: none;
+	width: 100%;
+	transition: all .5s;
+	max-width: 1000px;
+	margin: auto;
+	ul.nav {
+		position: relative;
+		padding: 0; margin: 0;
+		max-width: 1000px;
+		margin: auto;
+		transition: all .5s;
+		li {
+			a {
+				text-transform: uppercase;
+				color: white;
+				padding:10px 12px;
+				font-size: 15px;
+				display: block;
+				font-weight: 400;
+				&:hover {
+					background: $secondary;
+				}
+			}
+			&:last-child {
+				@include mq(xl){
+					float: right;
+				}
+			}
+		}
+	}
+	@include mq(xl){
+		display: block;
+		ul.nav {
+			margin: auto;
+			padding: 0;
+			width: 100%;
+			overflow: auto;
+			li {
+				float: left;
+				a {
+					font-size: 14px;
+				}
+				&.menu-item-has-children {
+					> a:before {
+						content: '▾';
+						position: absolute;
+						right: 0;
+						top:12px;
+					}
+				}
+				&#menu-item-67 {
+					a {
+						background: $secondary;
+					}
+				}
+				&.current-menu-item {
+					a {
+						background: darken($primary,10%);
+					}
+				}
+				ul {
+					display: none;
+					position: absolute;
+					width: 200px;
+					z-index: 999;
+					margin: 0;
+					padding: 0;
+					li {
+						background: #333;
+						text-align: left;
+						width: 100%;
+						a {
+							width: 100%;
+							color: white;
+						}
+					}
+				}
+				&:hover > ul {
+					display: inline-block;
+					animation: fadein .25s;
+				}
+			}
+		}
+	}
+	&.active {
+		display: block;
+	}
+}
+
+@mixin mq($point) {
+	@if $point == xl {
+		@media (min-width: 1024px)  { @content; }
+	}
+	@else if $point == l {
+		@media (min-width: 900px) { @content; }
+	}
+	@else if $point == m {
+		@media (min-width: 769px)  { @content; }
+	}
+	@else if $point == s {
+		@media (min-width: 450px)  { @content; }
+	}
+	@else if $point == xs {
+		@media (min-width: 400px)  { @content; }
+	}
+}
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin linearGradient($top, $bottom){
+    background: $top; /* Old browsers */
+    background: -moz-linear-gradient(top,  $top 0%, $bottom 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  $top 0%,$bottom 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  $top 0%,$bottom 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  $top 0%,$bottom 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  $top 0%,$bottom 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#000000',GradientType=0 ); /* IE6-9 */
+}
+
 /*!
  * Font Awesome Free 5.0.6 by @fontawesome - http://fontawesome.com
  * License - http://fontawesome.com/license (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
