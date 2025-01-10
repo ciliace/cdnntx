@@ -10,9 +10,22 @@
   font-size: 16px;
   margin: 0 auto; /* Center alignment */
 }
+
 .line {
   height: 2px;
   background-color: #8b1b59; /* Line color */
   width: 50px; /* Adjust as per spacing needs */
   margin: auto;
+}
+
+.active {
+  background-color: #8b1b59; /* Green for active */
+}
+
+.completed {
+  background-color: #6c757d; /* Grey for completed */
+}
+
+.future {
+  background-color: #d3d3d3; /* Light grey for future */
 }
