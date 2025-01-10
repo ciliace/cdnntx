@@ -19,6 +19,7 @@
 span:has(.line){
   max-width: 100%;
   width: 100%;
+  padding: 0!important;
 }
 
 .active {
