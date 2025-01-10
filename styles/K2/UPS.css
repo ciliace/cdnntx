@@ -2,7 +2,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #007bff; /* Circle color */
+  background-color: #8b1b59; /* Circle color */
   color: white;
   display: flex;
   align-items: center;
@@ -12,7 +12,7 @@
 }
 .line {
   height: 2px;
-  background-color: #007bff; /* Line color */
+  background-color: #8b1b59; /* Line color */
   width: 50px; /* Adjust as per spacing needs */
   margin: auto;
 }
