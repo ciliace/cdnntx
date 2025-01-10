@@ -14,10 +14,10 @@
 .line {
   height: 2px;
   background-color: #8b1b59; /* Line color */
-  width: 100%; /* Adjust as per spacing needs */
+  width: 100%;
 }
-.line.parent{
-  width: -webkit-fill-available; 
+span:has(.line){
+  width: 100%; 
 }
 
 .active {
