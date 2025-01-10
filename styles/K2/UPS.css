@@ -15,7 +15,7 @@
   height: 2px;
   background-color: #8b1b59; /* Line color */
   width: 100%; /* Adjust as per spacing needs */
-  margin: auto;
+  margin: 0;
 }
 
 .active {
