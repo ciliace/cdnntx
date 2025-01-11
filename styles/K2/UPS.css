@@ -11,29 +11,29 @@
   margin: 0 auto; /* Center alignment */
 }
 
-.line {
-  height: 2px;
-  background-color: #8b1b59; /* Line color */
-  width: 100%;
+.line.active {
+  background-color: #8b1b59; /* Active color for lines */
 }
+
+.line.future {
+  background-color: #d3d3d3; /* Future color for lines */
+}
+
 span:has(.line){
   max-width: 100%;
   width: 100%;
   padding: 0!important;
 }
-.circle:hover {
+
+.circle.future:hover {
   background-color: #8b1b59; /* Circle color */
   cursor: pointer; /* Show pointer cursor */
 }
 
-.active {
-  background-color: #8b1b59; /* Green for active */
+.circle.active {
+  background-color: #8b1b59; /* Active color */
 }
 
-.completed {
-  background-color: #6c757d; /* Grey for completed */
-}
-
-.future {
-  background-color: #d3d3d3; /* Light grey for future */
+.circle.future {
+  background-color: #d3d3d3; /* Future color */
 }
