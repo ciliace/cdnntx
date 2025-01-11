@@ -47,11 +47,12 @@ allSections.addEventListener('click', (event) => {
 
     // Show or hide sections
     sections.forEach((section) => {
-      const sectionNumber = parseInt(section.getAttribute('name').split(' ')[1]);
+      const match = section.getAttribute('name').match(/^Section(\d+)$/);
+      const sectionNumber = match ? parseInt(match[1], 10) : null; // Extract the section number
       if (sectionNumber === clickedCircleNumber) {
-        section.style.display = 'inline-grid'; 
+        section.style.display = 'inline-grid'; // Show the associated section
       } else {
-        section.style.display = 'none'; 
+        section.style.display = 'none'; // Hide other sections
       }
     });
     
