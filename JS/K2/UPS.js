@@ -3,7 +3,7 @@ const table = document.querySelector("div[name='Table Sections']");
 
 table.addEventListener('click', (event) => {
   if (event.target.classList.contains('circle')) {
-    const clickedCircleNumber = parseInt(event.target.textContent.trim(), 10); // Get the clicked circle number
+    const clickedCircleNumber = parseInt(event.target.textContent.trim(), 10); 
 
     // Get all circles and lines in order
     const circles = Array.from(table.querySelectorAll('.circle'));
@@ -11,38 +11,35 @@ table.addEventListener('click', (event) => {
 
     // Update circles' classes
     circles.forEach((circle) => {
-      const circleNumber = parseInt(circle.textContent.trim(), 10); // Get the circle number
+      const circleNumber = parseInt(circle.textContent.trim(), 10); 
 
       if (circleNumber <= clickedCircleNumber) {
         circle.classList.remove('future');
-        circle.classList.add('active'); // Keep or make active up to clicked number
+        circle.classList.add('active'); 
       } else {
         circle.classList.remove('active');
-        circle.classList.add('future'); // Deactivate beyond the clicked number
+        circle.classList.add('future'); 
       }
     });
 
     // Update lines' classes
     lines.forEach((line, index) => {
-      const prevCircle = circles[index]; // Circle before the line
-      const nextCircle = circles[index + 1]; // Circle after the line
+      const prevCircle = circles[index]; 
+      const nextCircle = circles[index + 1]; 
 
       // Ensure both circles exist before applying classes
       if (prevCircle && nextCircle) {
         if (prevCircle.classList.contains('active') && nextCircle.classList.contains('active')) {
           line.classList.remove('future');
-          line.classList.add('active'); // Mark the line as active
+          line.classList.add('active'); 
         } else {
           line.classList.remove('active');
-          line.classList.add('future'); // Mark the line as future
+          line.classList.add('future'); 
         }
       }
     });
 
-    const section = document.querySelector("span[name='Section']");
-    $("span[name='Section']").SFCLabel('option', 'text', 'Vermaniac');
-    //section.SFCLabel('option', 'text', '${event.target.textContent.trim()}');
-    console.log(`Circle ${event.target.textContent.trim()} clicked and activated`);
+    $("span[name='Section']").SFCLabel('option', 'text', '${event.target.textContent.trim()}');
   }
 });
 
