@@ -9,7 +9,11 @@ allSections.addEventListener('click', (event) => {
     // Get all circles and lines in order
     const circles = Array.from(allSections.querySelectorAll('.circle'));
     const lines = Array.from(allSections.querySelectorAll('.line'));
-    const sections = Array.from(document.querySelectorAll("div[name^='Section']")); 
+    const sections = Array.from(document.querySelectorAll("div[name^='Section']"))
+      .filter((section) => {
+        const match = section.getAttribute('name').match(/^Section(\d+)$/);
+        return match !== null;
+      });
 
     // Update circles' classes
     circles.forEach((circle) => {
@@ -45,7 +49,7 @@ allSections.addEventListener('click', (event) => {
     sections.forEach((section) => {
       const sectionNumber = parseInt(section.getAttribute('name').split(' ')[1]);
       if (sectionNumber === clickedCircleNumber) {
-        section.style.display = 'grid'; 
+        section.style.display = 'inline-grid'; 
       } else {
         section.style.display = 'none'; 
       }
