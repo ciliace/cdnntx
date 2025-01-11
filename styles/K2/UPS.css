@@ -1,4 +1,4 @@
-//#region Fil d'ariane
+/*#region : Fil d'ariane */
 .circle {
   width: 30px;
   height: 30px;
@@ -44,90 +44,101 @@ span:has(.line){
 .circle.future {
   background-color: #d3d3d3; /* Future color */
 }
-//#endregion
-iframe.content-control-iframe :root {
-    --is-in-iframe: 0;
+/*#endregion*/
+
+/*#region : Background Page */
+.theme-entry {
+    --view-rounding: 25px;
+    --panel-rounding: 25px;
 }
 
-.form .row:first-child > div:first-child {
-    width: 100% !important;
-    position: absolute;
-    top: 0;
-    left: 0;
-    max-width: calc(20% - 10px);
-    /* margin: 0 !important; */
-    padding-top: 20px;
-    padding-left: 10px;
+.theme-entry.runtime-view {
+    /*--view-rounding: 12px;*/
+    --panel-rounding: 12px;
 }
 
-.form .row:first-child > div:first-child span.input-control-img{
-     display: none !important;
+/* html:not([is-in-iframe]) {
+  background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+} */
+
+.theme-entry {
+  background: none !important;
 }
 
-.form .row:first-child > div:first-child > div > div {
-    background: none;
+form {
+  opacity:0.85!important;
+}
+.theme-entry .tab-box.tabs-top .tab-box-body{
+  background-color: transparent;  
+}
+.theme-entry .grid-toolbars,
+.theme-entry .SourceCode-Forms-Controls-Web-DataLabel {
+  border-radius: 24px;
 }
 
-.form .row:first-child > div:first-child .panel-body {
-    border: none;
+html.workspace.workspace-main div.SourceCode-Forms-Controls-Web-ControlPack-Navigation .navigation-topbar {
+  border-bottom: 1px solid #031955;
+  background-color: #031955;
+}
+html.workspace.workspace-main div.SFC.SourceCode-Forms-Controls-Web-ControlPack-Navigation .navigation-topbar-clickarea {
+  width: 310px;
+  background-color: #031955;
+  border: none;
+}
+.panel-body {
+  opacity: 0.8;
 }
 
-.form .row:first-child > div:first-child span {
-    color: #ffffff;
+/* .theme-entry .tab-box.tabs-top ul.tab-box-tabs {
+  padding: 10px 5px 0px 10px;
+} */
+
+.theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab {
+background: none;
 }
 
-.form .row:first-child > div:first-child span:has(label):hover {
-    opacity: 0.2;
+.theme-entry .panel>.panel-body {
+  border-radius: var(--view-rounding);
 }
 
-.form .row:first-child > div:first-child span:has(label.checked),
-.form .row:first-child > div:first-child span:has(label):hover {
-    background-color: #ffffff;
-    
-  border-radius: var(--view-rounding) ;
+.theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab.selected {
+  background-color: #ffffff;
+  color:#000000;
 }
 
-.form .row:first-child > div:first-child span:has(label.checked) span,
-.form .row:first-child > div:first-child span:has(label):hover span {
-    color: #000000;
+.theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab span {
+  background: none !important;
 }
 
-.form .row:first-child > div:nth-child(2) {
-    margin: auto;
-    width: 100% !important;
-    top: 0;
-    right: 0;
-    position: absolute;
-    height: 100%;
-    max-width: calc(80% - 20px);
-    padding-top: 20px;
-    padding-right: 20px;
+.theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab {
+  color: #ffffff;
+}
+
+.theme-entry .tab-box ul.tab-box-tabs a.tab .tab-text {
+  font-family: Arial, Gadget, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 11pt;
 }
 
 .theme-entry .form {
-    padding: 12px;
-    background: none;
+  min-height: 500px;
 }
 
-.theme-entry {
-    //background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg');
-    //background-size: cover;
-    //background-attachment: fixed;
-    --view-rounding: 12px;
-    --panel-rounding: 12px;
-    --tab-background-color: #ffffff;
-    --tab-text-color: #000000;
+/*#endregion*/
+
+/*#region Portal*/
+html .theme-entry .runtime-form {
+  width: 100% !important;
+  max-width: 100% !important;
 }
+/*#endregion*/
 
-.form .row:first-child > div:nth-child(2) div {
-    height: 100% !important;
-    
+
+.theme-entry .form .view .innerpanel > .grid, .theme-entry #pgInnerPanel .view .innerpanel > .grid, .theme-entry .form-tabs > .tab-box-body .view .innerpanel > .grid, .theme-entry #pgTabContent .view .innerpanel > .grid, .theme-entry .form .view .innerpanel > .panel, .theme-entry #pgInnerPanel .view .innerpanel > .panel, .theme-entry .form-tabs > .tab-box-body .view .innerpanel > .panel, .theme-entry #pgTabContent .view .innerpanel > .panel, .theme-entry .form .view-canvas > .grid, .theme-entry #pgInnerPanel .view-canvas > .grid, .theme-entry .form-tabs > .tab-box-body .view-canvas > .grid, .theme-entry #pgTabContent .view-canvas > .grid, .theme-entry .form .view-canvas > .panel, .theme-entry #pgInnerPanel .view-canvas > .panel, .theme-entry .form-tabs > .tab-box-body .view-canvas > .panel, .theme-entry #pgTabContent .view-canvas > .panel {
+  --button-background-color: #031754;
+  --button-border-color: #031754;
+
 }
-
-.form .row:first-child > div:first-child span[name="NAV Space 1"], .form .row:first-child > div:first-child span[name="NAV Space 2"] {
-    margin: 8px 0;
-    height: 0.1px;
-  }
-  
-
-
