@@ -48,7 +48,7 @@ span:has(.line){
 
 /*#region Navigation */ 
 /* Target spans with a name starting with TAB and hide the circle elements */
-span[name^="TAB"] svg circle {
+span[name^="TAB"] svg:has(circle) {
     display: none; /* Hides the circle elements */
 }
 /*#endregion*/
