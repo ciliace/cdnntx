@@ -40,7 +40,8 @@ table.addEventListener('click', (event) => {
     });
 
     const section = document.querySelector("span[name='Section']");
-    section.SFCLabel('option', 'text', '${event.target.textContent.trim()}');
+    $("span[name='Section']").SFCLabel('option', 'text', 'Vermaniac');
+    //section.SFCLabel('option', 'text', '${event.target.textContent.trim()}');
     console.log(`Circle ${event.target.textContent.trim()} clicked and activated`);
   }
 });
