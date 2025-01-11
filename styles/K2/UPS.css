@@ -46,6 +46,13 @@ span:has(.line){
 }
 /*#endregion*/
 
+/*#region Navigation */ 
+/* Target spans with a name starting with TAB and hide the circle elements */
+span[name^="TAB"] svg circle {
+    display: none; /* Hides the circle elements */
+}
+/*#endregion*/
+
 /*#region : Background Page */
 .theme-entry {
     --view-rounding: 25px;
