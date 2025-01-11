@@ -27,13 +27,13 @@ table.addEventListener('click', (event) => {
       const prevCircle = circles[index]; // Circle before the line
       const nextCircle = circles[index + 1]; // Circle after the line
 
-      // If both connected circles are active, make the line active
+      // If both connected circles are active, set line as active
       if (prevCircle.classList.contains('active') && nextCircle.classList.contains('active')) {
         line.classList.remove('future');
-        line.classList.add('active'); // Set line as active
+        line.classList.add('active'); // Mark the line as active
       } else {
         line.classList.remove('active');
-        line.classList.add('future'); // Set line as future
+        line.classList.add('future'); // Mark the line as future
       }
     });
 
