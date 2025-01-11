@@ -11,6 +11,12 @@
   margin: 0 auto; /* Center alignment */
 }
 
+.line {
+  width: 100%;
+  height: 2px;
+  background-color: #d3d3d3;
+}
+
 .line.active {
   background-color: #8b1b59; /* Active color for lines */
 }
