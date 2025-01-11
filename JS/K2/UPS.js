@@ -105,7 +105,3 @@ nextButton.addEventListener('click', () => {
     nextCircle.click();
   }
 });
-Key Changes:
-
-
-
