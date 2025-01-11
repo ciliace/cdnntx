@@ -60,5 +60,30 @@ navSections.addEventListener('click', (event) => {
   }
 });
 
+// Adding Previous and Next button functionality
+const previousButton = document.querySelector("button[name='Previous']");
+const nextButton = document.querySelector("button[name='Next']");
+
+previousButton.addEventListener('click', () => {
+  const circles = Array.from(navSections.querySelectorAll('.circle'));
+  const activeCircle = circles.find(circle => circle.classList.contains('active'));
+  const activeIndex = circles.indexOf(activeCircle);
+
+  if (activeIndex > 0) {
+    const previousCircle = circles[activeIndex - 1];
+    previousCircle.click(); // Trigger the click event of the previous circle
+  }
+});
+
+nextButton.addEventListener('click', () => {
+  const circles = Array.from(navSections.querySelectorAll('.circle'));
+  const activeCircle = circles.find(circle => circle.classList.contains('active'));
+  const activeIndex = circles.indexOf(activeCircle);
+
+  if (activeIndex < circles.length - 1) {
+    const nextCircle = circles[activeIndex + 1];
+    nextCircle.click(); // Trigger the click event of the next circle
+  }
+});
 
 
