@@ -6,8 +6,8 @@ sections.addEventListener('click', (event) => {
     const clickedCircleNumber = parseInt(event.target.textContent.trim(), 10); 
 
     // Get all circles and lines in order
-    const circles = Array.from(sections.querySelectorAll('.circle'));
-    const lines = Array.from(sections.querySelectorAll('.line'));
+    const circles = Array.from(table.querySelectorAll('.circle'));
+    const lines = Array.from(table.querySelectorAll('.line'));
     const sections = Array.from(document.querySelectorAll("div[name^='Section ']")); 
 
     // Update circles' classes
