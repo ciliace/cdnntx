@@ -47,7 +47,7 @@ navSections.addEventListener('click', (event) => {
 
     // Show or hide sections
     sections.forEach((section) => {
-      const match = section.getAttribute('name').match(/^NamSection(\d+)$/);
+      const match = section.getAttribute('name').match(/^NavSection(\d+)$/);
       const sectionNumber = match ? parseInt(match[1], 10) : null; // Extract the section number
       if (sectionNumber === clickedCircleNumber) {
         section.style.display = 'inline-grid'; // Show the associated section
