@@ -7,15 +7,5 @@ table.addEventListener('click', (event) => {
   }
 });
 
-table.addEventListener('mouseover', (event) => {
-  if (event.target.classList.contains('circle')) {
-    event.target.style.border = '2px solid #007bff'; 
-  }
-});
 
-table.addEventListener('mouseout', (event) => {
-  if (event.target.classList.contains('circle')) {
-    event.target.style.border = 'none'; 
-  }
-});
 
