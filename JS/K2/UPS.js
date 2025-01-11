@@ -1,7 +1,7 @@
 
-const sections = document.querySelector("div[name='Sections']");
+const table = document.querySelector("div[name='TableSections']");
 
-sections.addEventListener('click', (event) => {
+table.addEventListener('click', (event) => {
   if (event.target.classList.contains('circle')) {
     const clickedCircleNumber = parseInt(event.target.textContent.trim(), 10); 
 
