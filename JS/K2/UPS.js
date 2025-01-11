@@ -66,7 +66,7 @@ const nextButton = document.querySelector("a[name='Next']");
 
 previousButton.addEventListener('click', () => {
   const circles = Array.from(navSections.querySelectorAll('.circle'));
-  const activeCircle = circles.reverse().find(circle => circle.classList.contains('active'));
+  const activeCircle = [...circles].reverse().find(circle => circle.classList.contains('active'));
   const activeIndex = circles.indexOf(activeCircle);
 
   if (activeIndex > 0) {
@@ -89,7 +89,7 @@ previousButton.addEventListener('click', () => {
 
 nextButton.addEventListener('click', () => {
   const circles = Array.from(navSections.querySelectorAll('.circle'));
-  const activeCircle = circles.reverse().find(circle => circle.classList.contains('active'));
+  const activeCircle = [...circles].reverse().find(circle => circle.classList.contains('active'));
   const activeIndex = circles.indexOf(activeCircle);
 
   if (activeIndex < circles.length - 1) {
