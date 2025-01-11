@@ -44,7 +44,7 @@ table.addEventListener('click', (event) => {
     sections.forEach((section) => {
       const sectionNumber = parseInt(section.getAttribute('name').split(' ')[1]);
       if (sectionNumber === clickedCircleNumber) {
-        section.style.display = 'block'; 
+        section.style.display = 'grid'; 
       } else {
         section.style.display = 'none'; 
       }
