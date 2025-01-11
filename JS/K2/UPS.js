@@ -1,17 +1,17 @@
 
-const allSections = document.querySelector("div[name='AllSections']");
+const navSections = document.querySelector("div[name='NavSections']");
 
-allSections.addEventListener('click', (event) => {
+navSections.addEventListener('click', (event) => {
   if (event.target.classList.contains('circle')) {
-    const allSections = document.querySelector("div[name='AllSections']");
+    const navSections = document.querySelector("div[name='NavSections']");
     const clickedCircleNumber = parseInt(event.target.textContent.trim(), 10); 
 
     // Get all circles and lines in order
-    const circles = Array.from(allSections.querySelectorAll('.circle'));
-    const lines = Array.from(allSections.querySelectorAll('.line'));
-    const sections = Array.from(document.querySelectorAll("div[name^='Section']"))
+    const circles = Array.from(navSections.querySelectorAll('.circle'));
+    const lines = Array.from(navSections.querySelectorAll('.line'));
+    const sections = Array.from(document.querySelectorAll("div[name^='NavSection']"))
       .filter((section) => {
-        const match = section.getAttribute('name').match(/^Section(\d+)$/);
+        const match = section.getAttribute('name').match(/^NavSection(\d+)$/);
         return match !== null;
       });
 
@@ -47,7 +47,7 @@ allSections.addEventListener('click', (event) => {
 
     // Show or hide sections
     sections.forEach((section) => {
-      const match = section.getAttribute('name').match(/^Section(\d+)$/);
+      const match = section.getAttribute('name').match(/^NamSection(\d+)$/);
       const sectionNumber = match ? parseInt(match[1], 10) : null; // Extract the section number
       if (sectionNumber === clickedCircleNumber) {
         section.style.display = 'inline-grid'; // Show the associated section
