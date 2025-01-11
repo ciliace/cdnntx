@@ -39,7 +39,7 @@ table.addEventListener('click', (event) => {
       }
     });
 
-    $("span[name='Section']").SFCLabel('option', 'text', '${event.target.textContent.trim()}');
+    $("span[name='Section']").SFCLabel('option', 'text', clickedCircleNumber);
   }
 });
 
