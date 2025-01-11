@@ -1,14 +1,14 @@
 
-const table = document.querySelector("div[name='TableSections']");
+const allSections = document.querySelector("div[name='AllSections']");
 
-table.addEventListener('click', (event) => {
+allSections.addEventListener('click', (event) => {
   if (event.target.classList.contains('circle')) {
     const clickedCircleNumber = parseInt(event.target.textContent.trim(), 10); 
 
     // Get all circles and lines in order
-    const circles = Array.from(table.querySelectorAll('.circle'));
-    const lines = Array.from(table.querySelectorAll('.line'));
-    const sections = Array.from(document.querySelectorAll("div[name^='Section ']")); 
+    const circles = Array.from(allSections.querySelectorAll('.circle'));
+    const lines = Array.from(allSections.querySelectorAll('.line'));
+    const sections = Array.from(document.querySelectorAll("div[name^='Section']")); 
 
     // Update circles' classes
     circles.forEach((circle) => {
