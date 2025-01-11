@@ -21,6 +21,10 @@ span:has(.line){
   width: 100%;
   padding: 0!important;
 }
+.circle:hover {
+  background-color: #8b1b59; /* Circle color */
+  cursor: pointer; /* Show pointer cursor */
+}
 
 .active {
   background-color: #8b1b59; /* Green for active */
