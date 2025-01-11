@@ -8,6 +8,7 @@ table.addEventListener('click', (event) => {
     // Get all circles and lines in order
     const circles = Array.from(table.querySelectorAll('.circle'));
     const lines = Array.from(table.querySelectorAll('.line'));
+    const sections = Array.from(document.querySelectorAll("div[name^='Section']")); 
 
     // Update circles' classes
     circles.forEach((circle) => {
@@ -39,6 +40,16 @@ table.addEventListener('click', (event) => {
       }
     });
 
+    // Show or hide sections
+    sections.forEach((section) => {
+      const sectionNumber = parseInt(section.getAttribute('name').split(' ')[1]);
+      if (sectionNumber === clickedCircleNumber) {
+        section.style.display = 'block'; 
+      } else {
+        section.style.display = 'none'; 
+      }
+    });
+    
     $("span[name='Section']").SFCLabel('option', 'text', clickedCircleNumber);
   }
 });
