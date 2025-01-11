@@ -1,3 +1,4 @@
+//#region Fil d'ariane
 .circle {
   width: 30px;
   height: 30px;
@@ -43,3 +44,90 @@ span:has(.line){
 .circle.future {
   background-color: #d3d3d3; /* Future color */
 }
+//#endregion
+iframe.content-control-iframe :root {
+    --is-in-iframe: 0;
+}
+
+.form .row:first-child > div:first-child {
+    width: 100% !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: calc(20% - 10px);
+    /* margin: 0 !important; */
+    padding-top: 20px;
+    padding-left: 10px;
+}
+
+.form .row:first-child > div:first-child span.input-control-img{
+     display: none !important;
+}
+
+.form .row:first-child > div:first-child > div > div {
+    background: none;
+}
+
+.form .row:first-child > div:first-child .panel-body {
+    border: none;
+}
+
+.form .row:first-child > div:first-child span {
+    color: #ffffff;
+}
+
+.form .row:first-child > div:first-child span:has(label):hover {
+    opacity: 0.2;
+}
+
+.form .row:first-child > div:first-child span:has(label.checked),
+.form .row:first-child > div:first-child span:has(label):hover {
+    background-color: #ffffff;
+    
+  border-radius: var(--view-rounding) ;
+}
+
+.form .row:first-child > div:first-child span:has(label.checked) span,
+.form .row:first-child > div:first-child span:has(label):hover span {
+    color: #000000;
+}
+
+.form .row:first-child > div:nth-child(2) {
+    margin: auto;
+    width: 100% !important;
+    top: 0;
+    right: 0;
+    position: absolute;
+    height: 100%;
+    max-width: calc(80% - 20px);
+    padding-top: 20px;
+    padding-right: 20px;
+}
+
+.theme-entry .form {
+    padding: 12px;
+    background: none;
+}
+
+.theme-entry {
+    //background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg');
+    //background-size: cover;
+    //background-attachment: fixed;
+    --view-rounding: 12px;
+    --panel-rounding: 12px;
+    --tab-background-color: #ffffff;
+    --tab-text-color: #000000;
+}
+
+.form .row:first-child > div:nth-child(2) div {
+    height: 100% !important;
+    
+}
+
+.form .row:first-child > div:first-child span[name="NAV Space 1"], .form .row:first-child > div:first-child span[name="NAV Space 2"] {
+    margin: 8px 0;
+    height: 0.1px;
+  }
+  
+
+
