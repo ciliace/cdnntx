@@ -3,6 +3,7 @@ const allSections = document.querySelector("div[name='AllSections']");
 
 allSections.addEventListener('click', (event) => {
   if (event.target.classList.contains('circle')) {
+    const allSections = document.querySelector("div[name='AllSections']");
     const clickedCircleNumber = parseInt(event.target.textContent.trim(), 10); 
 
     // Get all circles and lines in order
