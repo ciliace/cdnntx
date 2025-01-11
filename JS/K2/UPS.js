@@ -5,10 +5,11 @@ table.addEventListener('click', (event) => {
   if (event.target.classList.contains('circle')) {
     const clickedCircleNumber = parseInt(event.target.textContent.trim(), 10); // Get the clicked circle number
 
-    // Get all circles in order
+    // Get all circles and lines in order
     const circles = Array.from(table.querySelectorAll('.circle'));
+    const lines = Array.from(table.querySelectorAll('.line'));
 
-    // Loop through each circle and update classes
+    // Update circles' classes
     circles.forEach((circle) => {
       const circleNumber = parseInt(circle.textContent.trim(), 10); // Get the circle number
 
@@ -18,6 +19,19 @@ table.addEventListener('click', (event) => {
       } else {
         circle.classList.remove('active');
         circle.classList.add('future'); // Deactivate beyond the clicked number
+      }
+    });
+
+    // Update lines' classes
+    lines.forEach((line, index) => {
+      const prevCircle = circles[index]; // Circle before the line
+      const nextCircle = circles[index + 1]; // Circle after the line
+
+      // If both connected circles are active, make the line active
+      if (prevCircle.classList.contains('active') && nextCircle.classList.contains('active')) {
+        line.classList.add('active');
+      } else {
+        line.classList.remove('active');
       }
     });
 
