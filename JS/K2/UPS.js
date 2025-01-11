@@ -61,8 +61,8 @@ navSections.addEventListener('click', (event) => {
 });
 
 // Adding Previous and Next button functionality
-const previousButton = document.querySelector("button[name='Previous']");
-const nextButton = document.querySelector("button[name='Next']");
+const previousButton = document.querySelector("a[name='Previous']");
+const nextButton = document.querySelector("a[name='Next']");
 
 previousButton.addEventListener('click', () => {
   const circles = Array.from(navSections.querySelectorAll('.circle'));
