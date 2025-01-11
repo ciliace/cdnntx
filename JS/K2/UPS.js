@@ -29,9 +29,11 @@ table.addEventListener('click', (event) => {
 
       // If both connected circles are active, make the line active
       if (prevCircle.classList.contains('active') && nextCircle.classList.contains('active')) {
-        line.classList.add('active');
+        line.classList.remove('future');
+        line.classList.add('active'); // Set line as active
       } else {
         line.classList.remove('active');
+        line.classList.add('future'); // Set line as future
       }
     });
 
