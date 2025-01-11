@@ -1,4 +1,4 @@
-<script>
+
 const table = document.querySelector("div[name='Table Sections']");
 
 table.addEventListener('click', (event) => {
@@ -18,4 +18,4 @@ table.addEventListener('mouseout', (event) => {
     event.target.style.border = 'none'; 
   }
 });
-</script>
+
