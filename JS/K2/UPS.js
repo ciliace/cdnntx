@@ -60,18 +60,26 @@ navSections.addEventListener('click', (event) => {
   }
 });
 
-// Adding Previous and Next button functionality
-const previousButton = document.querySelector("a[name='Previous']");
-const nextButton = document.querySelector("a[name='Next']");
-
 previousButton.addEventListener('click', () => {
   const circles = Array.from(navSections.querySelectorAll('.circle'));
   const activeCircle = circles.find(circle => circle.classList.contains('active'));
   const activeIndex = circles.indexOf(activeCircle);
 
   if (activeIndex > 0) {
-    const previousCircle = circles[activeIndex - 1];
-    previousCircle.click(); // Trigger the click event of the previous circle
+    const previousCircle = circles[activeIndex];
+    const higherCircles = circles.slice(activeIndex);
+
+    // Make current and higher circles "future"
+    higherCircles.forEach((circle) => {
+      circle.classList.remove('active');
+      circle.classList.add('future');
+    });
+
+    previousCircle.classList.remove('active');
+    previousCircle.classList.add('future');
+
+    // Trigger the click event on the new active circle
+    circles[activeIndex - 1].click();
   }
 });
 
@@ -82,8 +90,22 @@ nextButton.addEventListener('click', () => {
 
   if (activeIndex < circles.length - 1) {
     const nextCircle = circles[activeIndex + 1];
-    nextCircle.click(); // Trigger the click event of the next circle
+    const allPreviousCircles = circles.slice(0, activeIndex + 1);
+
+    // Make next circle and all previous circles "active"
+    allPreviousCircles.forEach((circle) => {
+      circle.classList.remove('future');
+      circle.classList.add('active');
+    });
+
+    nextCircle.classList.remove('future');
+    nextCircle.classList.add('active');
+
+    // Trigger the click event on the new active circle
+    nextCircle.click();
   }
 });
+Key Changes:
+
 
 
