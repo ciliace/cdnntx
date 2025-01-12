@@ -95,9 +95,9 @@ html.workspace.workspace-main div.SFC.SourceCode-Forms-Controls-Web-ControlPack-
   background-color: #031955;
   border: none;
 }
-.panel-body {
-  opacity: 0.8;
-}
+/*.panel-body {
+  opacity: 0.90;
+}*/
 
 /* .theme-entry .tab-box.tabs-top ul.tab-box-tabs {
   padding: 10px 5px 0px 10px;
