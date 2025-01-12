@@ -147,12 +147,12 @@ html .theme-entry .runtime-form {
 .theme-entry .form .view .innerpanel > div {
     min-height: calc(100vh - 48px);
 }
-.panel-body-wrapper > div .Grid-Layout .root-table {
-  display: flex;
-  flex-direction: column;
-  min-height: calc(100vh - 48px);
+.theme-entry .panel .panel-body-wrapper div .root-table {
+    min-height: calc(100vh - 48px);
+    display: flex;
+    flex-direction: column;
 }
-.panel-body-wrapper > div span:last-child .Grid-Layout .root-table {
+.theme-entry .panel .panel-body-wrapper div .root-table span:last-child {
   flex-grow: 1;
 }
 
