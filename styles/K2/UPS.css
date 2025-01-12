@@ -45,7 +45,7 @@ span:has(.line){
   background-color: #d3d3d3; /* Future color */
 }
 /*#endregion*/
-
+/*-----------/
 /*#region Navigation */ 
 /* Target spans with a name starting with TAB and hide the circle elements */
 span[name^="TAB"] svg:has(circle) {
@@ -64,11 +64,11 @@ span[name^="TAB"] svg:has(circle) {
     --panel-rounding: 12px;
 }
 
-/* html:not([is-in-iframe]) {
-  background-image: url('https://i.ibb.co/xFbQ8jh/bg-Login.jpg');
+html:not([is-in-iframe]) {
+  background-image: url('https://ciliace.github.io/cdnntx/images/K2/R%C3%A9seaux.jpg');
   background-size: cover;
   background-attachment: fixed;
-} */
+} 
 
 .theme-entry {
   background: none !important;
