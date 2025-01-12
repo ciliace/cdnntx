@@ -78,6 +78,9 @@ html:not([is-in-iframe]) {
 form {
   opacity:0.95!important;
 }
+.theme-entry .form {
+  background: transparent;
+}
 .theme-entry .tab-box.tabs-top .tab-box-body{
   background-color: transparent;  
 }
