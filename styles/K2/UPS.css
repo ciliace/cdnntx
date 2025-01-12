@@ -1,3 +1,4 @@
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*#region : Fil d'ariane */
 .circle {
   width: 30px;
@@ -45,14 +46,14 @@ span:has(.line){
   background-color: #d3d3d3; /* Future color */
 }
 /*#endregion*/
-/*-----------/
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*#region Navigation */ 
 /* Target spans with a name starting with TAB and hide the circle elements */
 span[name^="TAB"] svg:has(circle) {
     display: none; /* Hides the circle elements */
 }
 /*#endregion*/
-
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*#region : Background Page */
 .theme-entry {
     --view-rounding: 25px;
@@ -75,7 +76,7 @@ html:not([is-in-iframe]) {
 }
 
 form {
-  opacity:0.85!important;
+  opacity:0.90!important;
 }
 .theme-entry .tab-box.tabs-top .tab-box-body{
   background-color: transparent;  
