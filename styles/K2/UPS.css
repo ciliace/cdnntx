@@ -152,7 +152,7 @@ html .theme-entry .runtime-form {
     display: flex;
     flex-direction: column;
 }
-.theme-entry .panel .panel-body-wrapper div .root-table span:last-child {
+.theme-entry .panel .panel-body-wrapper div .root-table > span:last-child {
   flex-grow: 1;
 }
 
