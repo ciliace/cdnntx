@@ -44,7 +44,8 @@ span:has(.line){
 span[name^="TAB"] svg:has(circle) {
     display: none; 
 }
-span[name^="TAB"]:hover svg {
+span[name^="TAB"]:hover svg, 
+span[name^="TAB"]:has(label.checked):hover svg {
     fill: #FFFFFF;
 }
 span[name^="TAB"] svg {
@@ -53,11 +54,15 @@ span[name^="TAB"] svg {
   vertical-align: middle;
 }
 span[name^="TAB"]:hover,
-span[name^="TAB"] label.checked > span{
+span[name^="TAB"]:has(label.checked){
   background-color: #5e053d;
   color: #FFFFFF;
   font-weight: bold;
 }
+span[name^="TAB"] label.checked > span {
+    font-weight: bold;
+}
+
 /*span[name^="TAB"]:not(:hover) label.checked > span {
     color: #5e053d;
 }
