@@ -67,6 +67,8 @@ span[name^="TAB"]:hover {
 
 span[name^="TAB"]:not(:hover) label.checked > span {
     color: #5e053d;
+}
+span[name^="TAB"] label.checked > span {
     font-weight: bold;
 }
 
