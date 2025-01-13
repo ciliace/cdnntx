@@ -52,9 +52,13 @@ span:has(.line){
 span[name^="TAB"] svg:has(circle) {
     display: none; /* Hides the circle elements */
 }
-
+span[name^="TAB"] svg:hover {
+    fill: #FFFFFF;
+}
 span[name^="TAB"]:hover {
-  color #8b1b59;
+  //color: #8b1b59;
+  background-color: #8b1b59;
+  color: #FFFFFF;
 }
 
 /*#endregion*/
