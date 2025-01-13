@@ -56,7 +56,9 @@ span[name^="TAB"]:hover svg {
     fill: #FFFFFF;
 }
 span[name^="TAB"] svg {
-    fill: #5e053d;
+  fill: #5e053d;
+  padding-left: 5px;
+  vertical-aligns: middle;
 }
 span[name^="TAB"]:hover {
   //color: #8b1b59;
