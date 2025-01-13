@@ -4,7 +4,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #8b1b59; /* Circle color */
+  background-color: #5e053d; /* Circle color */
   color: white;
   display: flex;
   align-items: center;
@@ -34,12 +34,12 @@ span:has(.line){
 }
 
 .circle.future:hover {
-  background-color: #8b1b59; /* Circle color */
+  background-color: #5e053d; /* Circle color */
   cursor: pointer; /* Show pointer cursor */
 }
 
 .circle.active {
-  background-color: #8b1b59; /* Active color */
+  background-color: #5e053d; /* Active color */
 }
 
 .circle.future {
@@ -56,11 +56,11 @@ span[name^="TAB"]:hover svg {
     fill: #FFFFFF;
 }
 span[name^="TAB"] svg {
-    fill: #8b1b59;
+    fill: #5e053d;
 }
 span[name^="TAB"]:hover {
   //color: #8b1b59;
-  background-color: #8b1b59;
+  background-color: #5e053d;
   color: #FFFFFF;
 }
 
