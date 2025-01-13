@@ -52,6 +52,11 @@ span:has(.line){
 span[name^="TAB"] svg:has(circle) {
     display: none; /* Hides the circle elements */
 }
+
+span[name^="TAB"]:hover {
+  color #8b1b59;
+}
+
 /*#endregion*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*#region : Background Page */
@@ -163,38 +168,6 @@ html .theme-entry .runtime-form {
 .theme-entry .form .view .innerpanel > .grid, .theme-entry #pgInnerPanel .view .innerpanel > .grid, .theme-entry .form-tabs > .tab-box-body .view .innerpanel > .grid, .theme-entry #pgTabContent .view .innerpanel > .grid, .theme-entry .form .view .innerpanel > .panel, .theme-entry #pgInnerPanel .view .innerpanel > .panel, .theme-entry .form-tabs > .tab-box-body .view .innerpanel > .panel, .theme-entry #pgTabContent .view .innerpanel > .panel, .theme-entry .form .view-canvas > .grid, .theme-entry #pgInnerPanel .view-canvas > .grid, .theme-entry .form-tabs > .tab-box-body .view-canvas > .grid, .theme-entry #pgTabContent .view-canvas > .grid, .theme-entry .form .view-canvas > .panel, .theme-entry #pgInnerPanel .view-canvas > .panel, .theme-entry .form-tabs > .tab-box-body .view-canvas > .panel, .theme-entry #pgTabContent .view-canvas > .panel {
   --button-background-color: #031754;
   --button-border-color: #031754;
-}
-
-.form .row:first-child > div:first-child span {
-    color: #ffffff;
-}
-
-.form .row:first-child > div:first-child span:has(label):hover {
-    opacity: 0.2;
-}
-
-.form .row:first-child > div:first-child span:has(label.checked),
-.form .row:first-child > div:first-child span:has(label):hover {
-    background-color: #ffffff;
-    
-  border-radius: var(--view-rounding) ;
-}
-
-.form .row:first-child > div:first-child span:has(label.checked) span,
-.form .row:first-child > div:first-child span:has(label):hover span {
-    color: #000000;
-}
-
-.form .row:first-child > div:nth-child(2) {
-    margin: auto;
-    width: 100% !important;
-    top: 0;
-    right: 0;
-    position: absolute;
-    height: 100%;
-    max-width: calc(80% - 20px);
-    padding-top: 20px;
-    padding-right: 20px;
 }
 
 
