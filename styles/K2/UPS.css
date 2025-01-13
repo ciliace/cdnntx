@@ -45,7 +45,7 @@ span[name^="TAB"] svg:has(circle) {
     display: none; 
 }
 span[name^="TAB"]:hover svg, 
-span[name^="TAB"]:has(label.checked):hover svg {
+span[name^="TAB"]:has(label.checked) svg {
     fill: #FFFFFF;
 }
 span[name^="TAB"] svg {
