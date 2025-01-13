@@ -12,45 +12,37 @@
   font-size: 16px;
   margin: 0 auto; /* Center alignment */
 }
-
 .line {
   width: 100%;
   height: 2px;
   background-color: #d3d3d3;
 }
-
 .line.active {
   background-color: #8b1b59; /* Active color for lines */
 }
-
 .line.future {
   background-color: #d3d3d3; /* Future color for lines */
 }
-
 span:has(.line){
   max-width: 100%;
   width: 100%;
   padding: 0!important;
 }
-
 .circle.future:hover {
   background-color: #5e053d; /* Circle color */
   cursor: pointer; /* Show pointer cursor */
 }
-
 .circle.active {
   background-color: #5e053d; /* Active color */
 }
-
 .circle.future {
   background-color: #d3d3d3; /* Future color */
 }
 /*#endregion*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*#region Navigation */ 
-/* Target spans with a name starting with TAB and hide the circle elements */
 span[name^="TAB"] svg:has(circle) {
-    display: none; /* Hides the circle elements */
+    display: none; 
 }
 span[name^="TAB"]:hover svg {
     fill: #FFFFFF;
@@ -60,19 +52,18 @@ span[name^="TAB"] svg {
   padding-left: 5px;
   vertical-align: middle;
 }
-span[name^="TAB"]:hover {
+span[name^="TAB"]:hover,
+span[name^="TAB"] label.checked > span{
   background-color: #5e053d;
   color: #FFFFFF;
+  font-weight: bold;
 }
-
-span[name^="TAB"]:not(:hover) label.checked > span {
+/*span[name^="TAB"]:not(:hover) label.checked > span {
     color: #5e053d;
 }
 span[name^="TAB"] label.checked > span {
     font-weight: bold;
-}
-
-
+}*/
 /*#endregion*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*#region : Background Page */
