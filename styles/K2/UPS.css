@@ -55,6 +55,9 @@ span[name^="TAB"] svg:has(circle) {
 span[name^="TAB"]:hover svg {
     fill: #FFFFFF;
 }
+span[name^="TAB"] svg {
+    fill: #8b1b59;
+}
 span[name^="TAB"]:hover {
   //color: #8b1b59;
   background-color: #8b1b59;
