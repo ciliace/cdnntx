@@ -52,7 +52,7 @@ span:has(.line){
 span[name^="TAB"] svg:has(circle) {
     display: none; /* Hides the circle elements */
 }
-span[name^="TAB"] svg:hover {
+span[name^="TAB"]:hover svg {
     fill: #FFFFFF;
 }
 span[name^="TAB"]:hover {
