@@ -99,8 +99,8 @@ form {
 .form .row:first-child > * {
     margin-bottom: 0 !important;
     position: relative;
-    left: 225px;
-    width: calc(100% - 225px);
+    left: 230px;
+    width: calc(100% - 230px);
 }
 .theme-entry .row:nth-child(2) .view .innerpanel > div {
   border-top-left-radius: 0; 
@@ -112,7 +112,7 @@ form {
     margin-top: 0 !important;
 }
 .theme-entry .row:nth-child(2) .view:first-child .innerpanel > div {
-  top:-128px;
+  top:-122px;
   border-top-left-radius: 10px; 
   border-top-right-radius: 10px;
 }
