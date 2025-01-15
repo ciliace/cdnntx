@@ -89,33 +89,6 @@ form {
 .theme-entry .tab-box.tabs-top .tab-box-body{
   background-color: transparent;  
 }
-.theme-entry .row:first-child .view .innerpanel > div {
-  border-top-left-radius: 10px; 
-  border-top-right-radius: 10px;
-  border-bottom-left-radius: 0; 
-  border-bottom-right-radius: 0; 
-}
-
-.form .row:first-child > * {
-  margin-bottom: 0 !important;
-  position: relative;
-  left: 230px;
-  calc(100% - 230px) !important;
-}
-.theme-entry .row:nth-child(2) .view .innerpanel > div {
-  border-top-left-radius: 0; 
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 10px; 
-  border-bottom-right-radius: 10px; 
-}
-.form .row:nth-child(2) > * {
-    margin-top: 0 !important;
-}
-.theme-entry .row:nth-child(2) .view:first-child .innerpanel > div {
-  top:-122px;
-  border-top-left-radius: 10px; 
-  border-top-right-radius: 10px;
-}
 
 /*###########################*/
 html.workspace.workspace-main div.SourceCode-Forms-Controls-Web-ControlPack-Navigation .navigation-topbar {
