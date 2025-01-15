@@ -72,26 +72,14 @@ span[name^="TAB"] label.checked > span {
 /*#endregion*/
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*#region : Background Page */
-.theme-entry {
-    --view-rounding: 25px;
-    --panel-rounding: 25px;
-}
-
-.theme-entry.runtime-view {
-    /*--view-rounding: 12px;*/
-    --panel-rounding: 12px;
-}
-
 html:not([is-in-iframe]) {
   background-image: url('https://ciliace.github.io/cdnntx/images/K2/R%C3%A9seaux.jpg');
   background-size: cover;
   background-attachment: fixed;
 } 
-
 .theme-entry {
   background: none !important;
 }
-
 form {
   opacity:0.95!important;
 }
@@ -101,10 +89,11 @@ form {
 .theme-entry .tab-box.tabs-top .tab-box-body{
   background-color: transparent;  
 }
-/*.theme-entry .grid-toolbars,
-.theme-entry .SourceCode-Forms-Controls-Web-DataLabel {
-  border-radius: 24px;
-}*/
+
+.theme-entry .row:first-child .view .innerpanel > div {
+  border-top-left-radius: 10px; /* Adjust the value as needed */
+  border-top-right-radius: 10px;
+}
 
 html.workspace.workspace-main div.SourceCode-Forms-Controls-Web-ControlPack-Navigation .navigation-topbar {
   border-bottom: 1px solid #031955;
