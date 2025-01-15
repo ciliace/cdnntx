@@ -89,12 +89,14 @@ form {
 .theme-entry .tab-box.tabs-top .tab-box-body{
   background-color: transparent;  
 }
-
 .theme-entry .row:first-child .view .innerpanel > div {
   border-top-left-radius: 10px; /* Adjust the value as needed */
   border-top-right-radius: 10px;
 }
-
+.form .row:first-child > * {
+    margin-bottom: 0 !important;
+}
+/*###########################*/
 html.workspace.workspace-main div.SourceCode-Forms-Controls-Web-ControlPack-Navigation .navigation-topbar {
   border-bottom: 1px solid #031955;
   background-color: #031955;
