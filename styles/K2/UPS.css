@@ -97,10 +97,10 @@ form {
 }
 
 .form .row:first-child > * {
-    margin-bottom: 0 !important;
-    position: relative;
-    left: 230px;
-    width: calc(100% - 230px);
+  margin-bottom: 0 !important;
+  position: relative;
+  left: 230px;
+  calc(100% - 230px) !important;
 }
 .theme-entry .row:nth-child(2) .view .innerpanel > div {
   border-top-left-radius: 0; 
