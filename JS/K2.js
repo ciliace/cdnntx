@@ -1,6 +1,8 @@
 $(document).ready(function () {
     const connection = new signalR.HubConnectionBuilder()
-        .withUrl("https://notifications.penha.fr/notificationhub")
+        .withUrl("https://notifications.penha.fr/notificationhub", {
+            withCredentials: true
+        })
         .build();
 
     connection.on("ReceiveMessage", function (user, message) {
