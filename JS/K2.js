@@ -18,7 +18,7 @@ $(function () {
             console.log("Connected to SignalR hub!");
 
             // Manually define sendNotification function
-            window.sendNotification = function (message) {
+            window.sendNotification = function (message, type) {
                 hubProxy.invoke("SendNotification", message, type)
                     .done(function () {
                         console.log("Notification sent successfully.");
@@ -33,7 +33,7 @@ $(function () {
         });
 
     // ✅ Function to show browser notifications
-    function showBrowserNotification(message) {
+    function showBrowserNotification(message, type) {
         if (!("Notification" in window)) {
             console.warn("This browser does not support notifications.");
             return;
