@@ -5,28 +5,32 @@ $(function () {
     var connection = $.hubConnection("https://notifications.penha.fr");
     var hubProxy = connection.createHubProxy("notificationhub");
 
+    // Define `sendNotification` globally (before connection starts)
+    window.sendNotification = function (message, type = "info") {
+        if (connection.state !== $.signalR.connectionState.connected) {
+            console.warn("Cannot send notification: Not connected to SignalR.");
+            return;
+        }
+        hubProxy.invoke("SendNotification", message, type)
+            .done(function () {
+                console.log("Notification sent successfully.");
+            })
+            .fail(function (error) {
+                console.error("Error sending notification:", error);
+            });
+    };
+
     // Define the function to receive notifications
     hubProxy.on("ReceiveNotification", function (message, type) {
         console.log(`New ${type} notification received:`, message);
-        showToast(message, type || "info"); // ✅ Uses correct type
-        showBrowserNotification(message, type || "info"); // ✅ Uses correct type
+        showToast(message, type || "info");
+        showBrowserNotification(message, type || "info");
     });
 
     // Start connection
     connection.start()
         .done(function () {
             console.log("Connected to SignalR hub!");
-
-            // Manually define sendNotification function
-            window.sendNotification = function (message, type = "info") {
-                hubProxy.invoke("SendNotification", message, type) // ✅ Correct usage
-                    .done(function () {
-                        console.log("Notification sent successfully.");
-                    })
-                    .fail(function (error) {
-                        console.error("Error sending notification:", error);
-                    });
-            };
         })
         .fail(function (error) {
             console.error("Failed to connect to SignalR:", error);
@@ -49,7 +53,6 @@ $(function () {
                 body: message
             });
 
-            // Make notifications interactive
             notification.onclick = () => window.focus();
         } else if (Notification.permission !== "denied") {
             Notification.requestPermission().then(permission => {
