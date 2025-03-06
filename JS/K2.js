@@ -31,19 +31,31 @@ $(document).ready(function () {
             console.error("Failed to connect to SignalR:", error);
         });
 
-    function showBrowserNotification(message) {
-        if (Notification.permission === "granted") {
-            new Notification("New Notification", { body: message });
-        } else if (Notification.permission !== "denied") {
-            Notification.requestPermission().then(permission => {
-                if (permission === "granted") {
-                    new Notification("New Notification", { body: message });
-                }
-            });
-        }
-    }
+
 
 });
+function showBrowserNotification(message) {
+    // Check if browser supports notifications
+    if (!("Notification" in window)) {
+        console.warn("This browser does not support notifications.");
+        return;
+    }
+
+    // Check permission
+    if (Notification.permission === "granted") {
+        new Notification("New Notification", { body: message });
+    } else if (Notification.permission !== "denied") {
+        Notification.requestPermission().then(permission => {
+            if (permission === "granted") {
+                new Notification("New Notification", { body: message });
+            } else {
+                console.warn("User denied notifications.");
+            }
+        });
+    } else {
+        console.warn("Notifications are blocked.");
+    }
+}
 function showToast(message, type) {
     toastr[type](message);
 }
