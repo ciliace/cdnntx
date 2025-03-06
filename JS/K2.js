@@ -6,10 +6,10 @@ $(function () {
     var hubProxy = connection.createHubProxy("notificationhub");
 
     // Define the function to receive notifications
-    hubProxy.on("ReceiveNotification", function (message, type = "info") {
-        console.log("New notification received:", message);
-        showToast(message, 'info'); // Call the showToast function
-        showBrowserNotification(message);
+    hubProxy.on("ReceiveNotification", function (message, type) {
+        console.log(`New ${type} notification received:`, message);
+        showToast(message, type || "info"); // ✅ Uses correct type
+        showBrowserNotification(message, type || "info"); // ✅ Uses correct type
     });
 
     // Start connection
@@ -19,7 +19,7 @@ $(function () {
 
             // Manually define sendNotification function
             window.sendNotification = function (message, type = "info") {
-                hubProxy.invoke("SendNotification", message, type)
+                hubProxy.invoke("SendNotification", message, type) // ✅ Correct usage
                     .done(function () {
                         console.log("Notification sent successfully.");
                     })
@@ -38,18 +38,17 @@ $(function () {
             console.warn("This browser does not support notifications.");
             return;
         }
-    
+
         let iconUrl = "https://your-icon-url.com/default.png";
         if (type === "success") iconUrl = "https://your-icon-url.com/success.png";
         if (type === "error") iconUrl = "https://your-icon-url.com/error.png";
         if (type === "warning") iconUrl = "https://your-icon-url.com/warning.png";
-    
+
         if (Notification.permission === "granted") {
             let notification = new Notification("New Notification", {
-                body: message//,
-                //icon: iconUrl
+                body: message
             });
-    
+
             // Make notifications interactive
             notification.onclick = () => window.focus();
         } else if (Notification.permission !== "denied") {
@@ -64,8 +63,9 @@ $(function () {
             console.warn("Notifications are blocked.");
         }
     }
-
 });
+
+// ✅ Toastr notification function
 function showToast(message, type) {
     toastr[type](message);
 }
