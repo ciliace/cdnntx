@@ -6,7 +6,7 @@ $(function () {
     var hubProxy = connection.createHubProxy("notificationhub");
 
     // Define the function to receive notifications
-    hubProxy.on("ReceiveNotification", function (message) {
+    hubProxy.on("ReceiveNotification", function (message, type = "info") {
         console.log("New notification received:", message);
         showToast(message, 'info'); // Call the showToast function
         showBrowserNotification(message);
@@ -19,7 +19,7 @@ $(function () {
 
             // Manually define sendNotification function
             window.sendNotification = function (message, type) {
-                hubProxy.invoke("SendNotification", message, type)
+                hubProxy.invoke("SendNotification", message, type = "info")
                     .done(function () {
                         console.log("Notification sent successfully.");
                     })
@@ -38,13 +38,24 @@ $(function () {
             console.warn("This browser does not support notifications.");
             return;
         }
-
+    
+        let iconUrl = "https://your-icon-url.com/default.png";
+        if (type === "success") iconUrl = "https://your-icon-url.com/success.png";
+        if (type === "error") iconUrl = "https://your-icon-url.com/error.png";
+        if (type === "warning") iconUrl = "https://your-icon-url.com/warning.png";
+    
         if (Notification.permission === "granted") {
-            new Notification("New Notification", { body: message });
+            let notification = new Notification("New Notification", {
+                body: message//,
+                //icon: iconUrl
+            });
+    
+            // Make notifications interactive
+            notification.onclick = () => window.focus();
         } else if (Notification.permission !== "denied") {
             Notification.requestPermission().then(permission => {
                 if (permission === "granted") {
-                    new Notification("New Notification", { body: message });
+                    showBrowserNotification(message, type);
                 } else {
                     console.warn("User denied notifications.");
                 }
