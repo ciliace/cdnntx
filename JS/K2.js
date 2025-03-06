@@ -6,7 +6,9 @@ $(document).ready(function () {
     // Define the function that will be called when a notification is received
     hubProxy.on("ReceiveNotification", function (message) {
         console.log("New notification:", message);
-        alert("New Notification: " + message);
+        //alert("New Notification: " + message);
+        showBrowserNotification(message);
+        
     });
 
     // Start the connection
@@ -28,7 +30,18 @@ $(document).ready(function () {
         .fail(function (error) {
             console.error("Failed to connect to SignalR:", error);
         });
-    
+
+    function showBrowserNotification(message) {
+        if (Notification.permission === "granted") {
+            new Notification("New Notification", { body: message });
+        } else if (Notification.permission !== "denied") {
+            Notification.requestPermission().then(permission => {
+                if (permission === "granted") {
+                    new Notification("New Notification", { body: message });
+                }
+            });
+        }
+    }
 
 });
 function showToast(message, type) {
