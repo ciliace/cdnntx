@@ -9,6 +9,7 @@ $(function () {
     hubProxy.on("ReceiveNotification", function (message) {
         console.log("New notification received:", message);
         showToast(message, 'info'); // Call the showToast function
+        K2.views.myListView.load();
         showBrowserNotification(message);
     });
 
@@ -26,7 +27,6 @@ $(function () {
                     .fail(function (error) {
                         console.error("Error sending notification:", error);
                     });
-                K2.views.myListView.load();
             };
         })
         .fail(function (error) {
