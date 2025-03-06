@@ -19,7 +19,7 @@ $(function () {
 
             // Manually define sendNotification function
             window.sendNotification = function (message) {
-                hubProxy.invoke("SendNotification", message)
+                hubProxy.invoke("SendNotification", message, type)
                     .done(function () {
                         console.log("Notification sent successfully.");
                     })
