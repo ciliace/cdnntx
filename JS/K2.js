@@ -29,7 +29,8 @@ $(document).ready(function () {
             console.error("Failed to connect to SignalR:", error);
         });
     
-    function showToast(message, type) {
-        toastr[type](message);
-    }
+
 });
+function showToast(message, type) {
+    toastr[type](message);
+}
