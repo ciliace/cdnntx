@@ -1,17 +1,21 @@
 $(document).ready(function () {
-    const connection = new signalR.HubConnectionBuilder()
-        .withUrl("https://notifications.penha.fr/notificationhub", {
-            withCredentials: true
-        })
-        .build();
+const connection = $.hubConnection("https://notifications.penha.fr");
+const hubProxy = connection.createHubProxy("notificationhub");
 
-    connection.on("ReceiveMessage", function (user, message) {
-        showToast(message, 'info'); // Call the showToast function
+// Define event handlers
+hubProxy.on("ReceiveNotification", function (message) {
+    console.log("New notification:", message);
+});
+
+// Start the connection
+connection.start()
+    .done(function () {
+        console.log("Connected to SignalR hub!");
+    })
+    .fail(function (error) {
+        console.error("Failed to connect to SignalR:", error);
     });
 
-    connection.start().catch(function (err) {
-        return console.error(err.toString());
-    });
 
     function sendNotification(user, message) {
         connection.invoke("SendMessage", user, message).catch(function (err) {
