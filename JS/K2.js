@@ -6,7 +6,7 @@ $(function () {
     var hubProxy = connection.createHubProxy("notificationhub");
 
     // Define the function to receive notifications
-    connection.on("ReceiveNotification", function (message, type) {
+    hubProxy.on("ReceiveNotification", function (message, type) {
         console.log(`New ${type} notification received:`, message);
         showToast(message, type); 
         showBrowserNotification(message, type);
