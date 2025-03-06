@@ -26,6 +26,7 @@ $(function () {
                     .fail(function (error) {
                         console.error("Error sending notification:", error);
                     });
+                K2.views.myListView.load();
             };
         })
         .fail(function (error) {
