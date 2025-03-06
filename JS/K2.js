@@ -6,10 +6,10 @@ $(function () {
     var hubProxy = connection.createHubProxy("notificationhub");
 
     // Define the function to receive notifications
-    hubProxy.on("ReceiveNotification", function (message) {
-        console.log("New notification received:", message);
-        showToast(message, 'info'); // Call the showToast function
-        showBrowserNotification(message);
+    connection.on("ReceiveNotification", function (message, type) {
+        console.log(`New ${type} notification received:`, message);
+        showToast(message, type); 
+        showBrowserNotification(message, type);
     });
 
     // Start connection
@@ -18,8 +18,8 @@ $(function () {
             console.log("Connected to SignalR hub!");
 
             // Manually define sendNotification function
-            window.sendNotification = function (message) {
-                hubProxy.invoke("SendNotification", message)
+            window.sendNotification = function (message, type) {
+                hubProxy.invoke("SendNotification", message, type)
                     .done(function () {
                         console.log("Notification sent successfully.");
                     })
@@ -33,18 +33,28 @@ $(function () {
         });
 
     // ✅ Function to show browser notifications
-    function showBrowserNotification(message) {
+    function showBrowserNotification(message, type) {
         if (!("Notification" in window)) {
             console.warn("This browser does not support notifications.");
             return;
         }
 
+        let iconUrl = "https://your-icon-url.com/default.png"; // Default icon
+        if (type === "success") iconUrl = "https://your-icon-url.com/success.png";
+        if (type === "error") iconUrl = "https://your-icon-url.com/error.png";
+        if (type === "warning") iconUrl = "https://your-icon-url.com/warning.png";
+
         if (Notification.permission === "granted") {
-            new Notification("New Notification", { body: message });
+            let notification = new Notification("New Notification", {
+                body: message//,
+                //icon: iconUrl
+            });
+
+            notification.onclick = () => window.focus(); // Bring window to front
         } else if (Notification.permission !== "denied") {
             Notification.requestPermission().then(permission => {
                 if (permission === "granted") {
-                    new Notification("New Notification", { body: message });
+                    showBrowserNotification(message, type);
                 } else {
                     console.warn("User denied notifications.");
                 }
