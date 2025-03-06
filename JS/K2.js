@@ -8,6 +8,7 @@ $(function () {
     // Define the function to receive notifications
     hubProxy.on("ReceiveNotification", function (message) {
         console.log("New notification received:", message);
+        showToast(message, 'info'); // Call the showToast function
         showBrowserNotification(message);
     });
 
@@ -16,7 +17,7 @@ $(function () {
         .done(function () {
             console.log("Connected to SignalR hub!");
 
-            // ✅ Define `sendNotification` globally after connection is established
+            // Manually define sendNotification function
             window.sendNotification = function (message) {
                 hubProxy.invoke("SendNotification", message)
                     .done(function () {
@@ -52,6 +53,7 @@ $(function () {
             console.warn("Notifications are blocked.");
         }
     }
+
 });
 function showToast(message, type) {
     toastr[type](message);
