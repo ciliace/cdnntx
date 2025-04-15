@@ -18,7 +18,23 @@
             "in": "path",
             "required": true,
             "type": "string"
-          }
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "dataFields": {
+                  "type": "object",
+                  "description": "Workflow data fields to set",
+                  "additionalProperties": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
         ],
         "responses": {
           "204": {
