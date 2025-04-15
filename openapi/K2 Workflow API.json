@@ -1,0 +1,46 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "K2 Workflow Finish Server Event",
+    "version": "1.0"
+  },
+  "host": "demo.penha.fr",
+  "basePath": "/api/workflow/v1",
+  "schemes": ["https"],
+  "paths": {
+    "/workflows/instances/{id}/actions": {
+      "post": {
+        "summary": "Complete Server Event",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "integer"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "activityInstanceId": {
+                  "type": "integer"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "No Content"
+          }
+        }
+      }
+    }
+  }
+}
