@@ -8,9 +8,10 @@
   "basePath": "/api/workflow/v1",
   "schemes": ["https"],
   "paths": {
-    "/serverEvents/{id}/finish" {
+    "/serverEvents/{id}/finish": {
       "post": {
         "summary": "Complete Server Event",
+        "operationId": "CompleteServerEvent",
         "parameters": [
           {
             "name": "id",
