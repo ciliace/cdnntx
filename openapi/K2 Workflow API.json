@@ -8,31 +8,16 @@
   "basePath": "/api/workflow/v1",
   "schemes": ["https"],
   "paths": {
-    "/workflows/instances/{id}/actions": {
+    "/serverEvents/{id}/finish" {
       "post": {
         "summary": "Complete Server Event",
+        "operationId": "CompleteServerEvent",
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "integer"
-          },
-          {
-            "name": "body",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "name": {
-                  "type": "string"
-                },
-                "activityInstanceId": {
-                  "type": "integer"
-                }
-              }
-            }
           }
         ],
         "responses": {
