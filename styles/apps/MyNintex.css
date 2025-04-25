@@ -1,0 +1,6 @@
+#countup-display {
+    font-size: 2rem;
+    font-family: monospace;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+}
