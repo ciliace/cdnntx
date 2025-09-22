@@ -54,7 +54,10 @@ form {
 .theme-entry #pgTabContent .view-canvas > .panel {
   --input-focus-border-color: #be0075;
   --button-focus-border-color: #be0075;
-  --button-hover-background-color: #be0075;
+  --button-hover-background-color: #850052;
+  --button-focus-background-color: #be0075;
+  --button-focus-border-color: #be0075;
+  --button-focus-text-color: white;
 }
 
 .theme-entry {
