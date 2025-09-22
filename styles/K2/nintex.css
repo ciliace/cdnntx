@@ -13,6 +13,7 @@ form {
 }
 .theme-entry .form {
   background: transparent;
+  padding: 12px 10% !important;
 }
 .theme-entry .tab-box.tabs-top .tab-box-body{
   background-color: transparent;  
