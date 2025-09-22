@@ -28,7 +28,9 @@ form {
     border-radius: var(--view-rounding) var(--view-rounding) 0 0;
     color: white;
 }
-buttons a.picker-resolve:hover {
+.theme-entry .input-control.select-box .input-control-buttons a:hover,
+.theme-entry .input-control.select-box .input-control-buttons a.picker-search:hover,
+.theme-entry .input-control.select-box .input-control-buttons a.picker-resolve:hover {
     background-color: #be0075;
     border-color: #be0075;
     color: #fff;
