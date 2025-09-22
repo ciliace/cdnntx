@@ -21,7 +21,7 @@ form {
 
 .theme-entry .view .panel-header-wrapper, .theme-entry .view-canvas .panel-header-wrapper, .theme-entry .view .grid-header-wrapper, .theme-entry .view-canvas .grid-header-wrapper {
     border-radius: var(--view-rounding) var(--view-rounding) 0 0;
-    background-color: #793991;
+    background-color: #be0075;
 }
 .theme-entry .view .grid-header, .theme-entry .view-canvas .grid-header, .theme-entry .view .panel-header, .theme-entry .view-canvas .panel-header {
     background: var(--view-header-background-color);
