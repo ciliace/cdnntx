@@ -28,5 +28,10 @@ form {
     border-radius: var(--view-rounding) var(--view-rounding) 0 0;
     color: white;
 }
+buttons a.picker-resolve:hover {
+    background-color: #be0075;
+    border-color: #be0075;
+    color: #fff;
+}
 /*#endregion : Background Page */
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
