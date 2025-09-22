@@ -36,8 +36,23 @@ form {
     color: #fff;
 }
 
-:root {
-  --input-focus-border-color: #be0075 !important;
+.theme-entry .form .view .innerpanel > .grid, 
+.theme-entry #pgInnerPanel .view .innerpanel > .grid, 
+.theme-entry .form-tabs > .tab-box-body .view .innerpanel > .grid, 
+.theme-entry #pgTabContent .view .innerpanel > .grid, 
+.theme-entry .form .view .innerpanel > .panel, 
+.theme-entry #pgInnerPanel .view .innerpanel > .panel, 
+.theme-entry .form-tabs > .tab-box-body .view .innerpanel > .panel, 
+.theme-entry #pgTabContent .view .innerpanel > .panel, 
+.theme-entry .form .view-canvas > .grid, 
+.theme-entry #pgInnerPanel .view-canvas > .grid, 
+.theme-entry .form-tabs > .tab-box-body .view-canvas > .grid, 
+.theme-entry #pgTabContent .view-canvas > .grid, 
+.theme-entry .form .view-canvas > .panel, 
+.theme-entry #pgInnerPanel .view-canvas > .panel, 
+.theme-entry .form-tabs > .tab-box-body .view-canvas > .panel, 
+.theme-entry #pgTabContent .view-canvas > .panel {
+  --input-focus-border-color: #be0075;
 }
 /*#endregion : Background Page */
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
