@@ -36,6 +36,8 @@ form {
     color: #fff;
 }
 
---input-focus-border-color: #00bfff;
+:root {
+  --input-focus-border-color: #be0075 !important;
+}
 /*#endregion : Background Page */
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
