@@ -18,5 +18,10 @@ form {
 .theme-entry .tab-box.tabs-top .tab-box-body{
   background-color: transparent;  
 }
+
+.theme-entry .view .panel-header-wrapper, .theme-entry .view-canvas .panel-header-wrapper, .theme-entry .view .grid-header-wrapper, .theme-entry .view-canvas .grid-header-wrapper {
+    border-radius: var(--view-rounding) var(--view-rounding) 0 0;
+    background-color: #793991;
+}
 /*#endregion : Background Page */
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
