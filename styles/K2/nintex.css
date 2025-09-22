@@ -55,11 +55,8 @@ form {
   --input-focus-border-color: #be0075;
 }
 
-
-
 .theme-entry {
     --error-text-color: #b71c1c;
-    color: var(--normal-text-color);
     --normal-text-color: #253237;
     --description-text-color: #253237;
     --paragraph-text-color: #253237;
@@ -426,6 +423,7 @@ form {
     --progress-step-paused-hover-background-color: #117299;
     --progress-step-in-error-hover-background-color: #c77272;
     --progress-step-in-progress-hover-background-color: #117299;
+    --menu-item-selected-background-color: #be0075;
 }
 
 /*#endregion : Background Page */
