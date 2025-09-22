@@ -60,6 +60,7 @@ form {
   --button-focus-text-color: white;
   --button-background-color: #be0075;
   --button-text-color: white;
+  --button-hover-text-color: white;
 }
 
 .theme-entry {
