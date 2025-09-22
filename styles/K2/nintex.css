@@ -73,7 +73,7 @@ span[name^="TAB"] label.checked > span {
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*#region : Background Page */
 html:not([is-in-iframe]) {
-  background-image: url('https://ciliace.github.io/cdnntx/images/K2/R%C3%A9seaux.jpg');
+  background-image: url('https://ciliace.github.io/cdnntx/images/purple-pattern.webp');
   background-size: cover;
   background-attachment: fixed;
 } 
