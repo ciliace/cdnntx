@@ -53,6 +53,7 @@ form {
 .theme-entry .form-tabs > .tab-box-body .view-canvas > .panel, 
 .theme-entry #pgTabContent .view-canvas > .panel {
   --input-focus-border-color: #be0075;
+  --button-focus-border-color: #be0075;
 }
 
 .theme-entry {
