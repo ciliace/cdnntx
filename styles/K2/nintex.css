@@ -35,5 +35,8 @@ form {
     border-color: #be0075;
     color: #fff;
 }
+.theme-entry input.SFC.SourceCode-Forms-Controls-Web-TextBox.focus {
+    border-bottom-color: #be0075;
+}
 /*#endregion : Background Page */
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
