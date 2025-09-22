@@ -58,6 +58,7 @@ form {
   --button-focus-background-color: #be0075;
   --button-focus-border-color: #be0075;
   --button-focus-text-color: white;
+  --button-background-color: #be0075;
 }
 
 .theme-entry {
