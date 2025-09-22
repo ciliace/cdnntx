@@ -23,5 +23,10 @@ form {
     border-radius: var(--view-rounding) var(--view-rounding) 0 0;
     background-color: #793991;
 }
+.theme-entry .view .grid-header, .theme-entry .view-canvas .grid-header, .theme-entry .view .panel-header, .theme-entry .view-canvas .panel-header {
+    background: var(--view-header-background-color);
+    border-radius: var(--view-rounding) var(--view-rounding) 0 0;
+    color: white;
+}
 /*#endregion : Background Page */
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
