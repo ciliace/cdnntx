@@ -143,10 +143,10 @@ form {
     --button-background-color: #949494;
     --button-border-color: #949494;
     --button-text-color: white;
-    --button-hover-background-color: #aeaeae;
+    --button-hover-background-color: #850052;
     --button-hover-border-color: #aeaeae;
     --button-hover-text-color: white;
-    --button-focus-background-color: #949494;
+    --button-focus-background-color: #be0075;
     --button-focus-border-color: #be0075;
     --button-focus-text-color: white;
     --button-focus-shadow-color: none;
@@ -424,12 +424,6 @@ form {
     --progress-step-in-error-hover-background-color: #c77272;
     --progress-step-in-progress-hover-background-color: #117299;
     --menu-item-selected-background-color: #be0075;
-}
-
-.theme-entry a.SourceCode-Forms-Controls-Web-Button:focus {
-    background: #be0075;
-    border-color: var(--button-focus-border-color);
-    color: var(--button-focus-text-color);
 }
 
 /*#endregion : Background Page */
