@@ -426,5 +426,11 @@ form {
     --menu-item-selected-background-color: #be0075;
 }
 
+.theme-entry a.SourceCode-Forms-Controls-Web-Button:focus {
+    background: #be0075;
+    border-color: var(--button-focus-border-color);
+    color: var(--button-focus-text-color);
+}
+
 /*#endregion : Background Page */
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
