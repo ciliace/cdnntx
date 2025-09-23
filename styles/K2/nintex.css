@@ -61,6 +61,7 @@ form {
   --button-background-color: #be0075;
   --button-text-color: white;
   --button-hover-text-color: white;
+  --radio-checked-color: #be0075;
 }
 
 .theme-entry {
