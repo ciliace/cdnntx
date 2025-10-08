@@ -1,0 +1,167 @@
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+/*#region : Fil d'ariane */
+.circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #5e053d; /* Circle color */
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  margin: 0 auto; /* Center alignment */
+}
+.line {
+  width: 100%;
+  height: 2px;
+  background-color: #d3d3d3;
+}
+.line.active {
+  background-color: #8b1b59; /* Active color for lines */
+}
+.line.future {
+  background-color: #d3d3d3; /* Future color for lines */
+}
+span:has(.line){
+  max-width: 100%;
+  width: 100%;
+  padding: 0!important;
+}
+.circle.future:hover {
+  background-color: #5e053d; /* Circle color */
+  cursor: pointer; /* Show pointer cursor */
+}
+.circle.active {
+  background-color: #5e053d; /* Active color */
+}
+.circle.future {
+  background-color: #d3d3d3; /* Future color */
+}
+/*#endregion*/
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+/*#region Navigation */ 
+span[name^="TAB"] svg:has(circle) {
+    display: none; 
+}
+span[name^="TAB"]:hover svg, 
+span[name^="TAB"]:has(label.checked) svg {
+    fill: #FFFFFF;
+}
+span[name^="TAB"] svg {
+  fill: #5e053d;
+  padding-left: 5px;
+  vertical-align: middle;
+}
+span[name^="TAB"]:hover,
+span[name^="TAB"]:has(label.checked){
+  background-color: #5e053d;
+  color: #FFFFFF;
+  font-weight: bold;
+}
+span[name^="TAB"] label.checked > span {
+    font-weight: bold;
+}
+
+/*span[name^="TAB"]:not(:hover) label.checked > span {
+    color: #5e053d;
+}
+span[name^="TAB"] label.checked > span {
+    font-weight: bold;
+}*/
+/*#endregion*/
+/*-------------------------------------------------------------------------------------------------------------------------------------*/
+/*#region : Background Page */
+html:not([is-in-iframe]) {
+  background-image: url('https://ciliace.github.io/cdnntx/images/K2/R%C3%A9seaux.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+} 
+.theme-entry {
+  background: none !important;
+}
+form {
+  opacity:0.95!important;
+}
+.theme-entry .form {
+  background: transparent;
+}
+.theme-entry .tab-box.tabs-top .tab-box-body{
+  background-color: transparent;  
+}
+
+/*###########################*/
+html.workspace.workspace-main div.SourceCode-Forms-Controls-Web-ControlPack-Navigation .navigation-topbar {
+  border-bottom: 1px solid #031955;
+  background-color: #031955;
+}
+html.workspace.workspace-main div.SFC.SourceCode-Forms-Controls-Web-ControlPack-Navigation .navigation-topbar-clickarea {
+  width: 310px;
+  background-color: #031955;
+  border: none;
+}
+/*.panel-body {
+  opacity: 0.90;
+}*/
+
+/* .theme-entry .tab-box.tabs-top ul.tab-box-tabs {
+  padding: 10px 5px 0px 10px;
+} */
+
+.theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab {
+background: none;
+}
+
+.theme-entry .panel>.panel-body {
+  border-radius: var(--view-rounding);
+}
+
+.theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab.selected {
+  background-color: #ffffff;
+  color:#000000;
+}
+
+.theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab span {
+  background: none !important;
+}
+
+.theme-entry .form-tabs.tab-box ul.tab-box-tabs li a.tab {
+  color: #ffffff;
+}
+
+.theme-entry .tab-box ul.tab-box-tabs a.tab .tab-text {
+  font-family: Arial, Gadget, sans-serif;
+  font-weight: bold;
+  font-style: normal;
+  font-size: 11pt;
+}
+
+.theme-entry .form {
+  min-height: 500px;
+}
+
+/*#endregion*/
+
+/*#region Portal*/
+html .theme-entry .runtime-form {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+/*#endregion*/
+
+.theme-entry .form .row:not(:first-child) .view, .theme-entry .form .row:not(:first-child) .view .innerpanel > div {
+    min-height: calc(100vh - 48px);
+}
+.theme-entry .row:not(:first-child) .panel .panel-body-wrapper div .root-table {
+    min-height: calc(100vh - 48px);
+    display: flex;
+    flex-direction: column;
+}
+.theme-entry .row:not(:first-child) .panel .panel-body-wrapper div .root-table > span:last-child {
+  flex-grow: 1;
+}
+
+.theme-entry .form .view .innerpanel > .grid, .theme-entry #pgInnerPanel .view .innerpanel > .grid, .theme-entry .form-tabs > .tab-box-body .view .innerpanel > .grid, .theme-entry #pgTabContent .view .innerpanel > .grid, .theme-entry .form .view .innerpanel > .panel, .theme-entry #pgInnerPanel .view .innerpanel > .panel, .theme-entry .form-tabs > .tab-box-body .view .innerpanel > .panel, .theme-entry #pgTabContent .view .innerpanel > .panel, .theme-entry .form .view-canvas > .grid, .theme-entry #pgInnerPanel .view-canvas > .grid, .theme-entry .form-tabs > .tab-box-body .view-canvas > .grid, .theme-entry #pgTabContent .view-canvas > .grid, .theme-entry .form .view-canvas > .panel, .theme-entry #pgInnerPanel .view-canvas > .panel, .theme-entry .form-tabs > .tab-box-body .view-canvas > .panel, .theme-entry #pgTabContent .view-canvas > .panel {
+  --button-background-color: #031754;
+  --button-border-color: #031754;
+}
