@@ -29,11 +29,11 @@ span:has(.line){
   padding: 0!important;
 }
 .circle.future:hover {
-  background-color: #5e053d; /* Circle color */
+  background-color: #9e1515; /* Circle color */
   cursor: pointer; /* Show pointer cursor */
 }
 .circle.active {
-  background-color: #5e053d; /* Active color */
+  background-color: #9e1515; /* Active color */
 }
 .circle.future {
   background-color: #d3d3d3; /* Future color */
@@ -55,7 +55,7 @@ span[name^="TAB"] svg {
 }
 span[name^="TAB"]:hover,
 span[name^="TAB"]:has(label.checked){
-  background-color: #5e053d;
+  background-color: #9e1515;
   color: #FFFFFF;
   font-weight: bold;
 }
