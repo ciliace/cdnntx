@@ -152,11 +152,13 @@ html .theme-entry .runtime-form {
 .theme-entry .form .row:not(:first-child) .view, .theme-entry .form .row:not(:first-child) .view .innerpanel > div {
     min-height: calc(100vh - 48px);
 }
+/*
 .theme-entry .row:not(:first-child) .panel .panel-body-wrapper div .root-table {
     min-height: calc(100vh - 48px);
     display: flex;
     flex-direction: column;
 }
+
 .theme-entry .row:not(:first-child) .panel .panel-body-wrapper div .root-table > span:last-child {
   flex-grow: 1;
 }
@@ -165,3 +167,4 @@ html .theme-entry .runtime-form {
   --button-background-color: #031754;
   --button-border-color: #031754;
 }
+*/
