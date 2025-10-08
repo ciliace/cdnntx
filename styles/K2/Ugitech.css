@@ -4,7 +4,7 @@
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  background-color: #9e1515; /* Circle color */
+  background-color: #ce1c25; /* Circle color */
   color: white;
   display: flex;
   align-items: center;
@@ -29,11 +29,11 @@ span:has(.line){
   padding: 0!important;
 }
 .circle.future:hover {
-  background-color: #9e1515; /* Circle color */
+  background-color: #ce1c25; /* Circle color */
   cursor: pointer; /* Show pointer cursor */
 }
 .circle.active {
-  background-color: #9e1515; /* Active color */
+  background-color: #ce1c25; /* Active color */
 }
 .circle.future {
   background-color: #d3d3d3; /* Future color */
@@ -55,7 +55,7 @@ span[name^="TAB"] svg {
 }
 span[name^="TAB"]:hover,
 span[name^="TAB"]:has(label.checked){
-  background-color: #9e1515;
+  background-color: #ce1c25;
   color: #FFFFFF;
   font-weight: bold;
 }
