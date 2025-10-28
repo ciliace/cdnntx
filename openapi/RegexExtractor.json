@@ -1,125 +1,28 @@
 {
   "swagger": "2.0",
-  "info": {
-    "version": "1.0.0",
-    "title": "Regex Extractor (Azure Function)",
-    "description": "Extracts structured rows from a pipe-delimited BOM table using a robust regex. Supports: (1) multipart/form-data for an actual file upload, (2) application/json with Base64 in 'content', and (3) application/octet-stream for raw bytes with query params. Default table pattern (one line) when mode=table: ^\\|(?<Order>\\d+)\\|(?<Pos>[^|]*)\\|(?<Type>[^|]*)\\|(?<Article>[^|]*)\\|(?<Lot>[^|]*)\\|(?<Designation>[^|]*)\\|(?<UQ1>[^|]*)\\|(?<QteNec>[^|]*)\\|(?<QtePrelev>[^|]*)\\|(?<Origine>[^|]*)\\|(?<DateBes>\\d{2}\\.\\d{2}\\.\\d{4}|[^|]*)\\|(?<Activite>[^|]*)\\|(?<Poste>[^|]*)\\|(?<Div>[^|]*)\\|(?<ES>[^|]*)\\|(?<Statut>[^|]*)\\|(?<DescrPosteTrav>[^|]*)\\|(?<DesOp>[^|]*)\\|(?<Empl>[^|]*)\\|(?<GAc>[^|]*)\\|(?<GrpeMar>[^|]*)\\|(?<Nomenclat>[^|]*)\\|(?<PosTr>[^|]*)\\|(?<NoRes>[^|]*)\\|(?<TP>[^|]*)\\|(?<Res_DA>[^|]*)\\|(?<TyBes>[^|]*)\\|(?<TyMag>[^|]*)\\|(?<CategNcl>[^|]*)\\|(?<UQ2>[^|]*)\\|\\s*$"
-  },
+  "info": { "version": "1.0.0", "title": "Regex Extractor (JSON only)" },
   "host": "nac-byc.azurewebsites.net",
   "basePath": "/",
   "schemes": ["https"],
+  "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
-    "/api/regex-extractor-multipart": {
-      "post": {
-        "summary": "Extract using multipart/form-data (actual file upload)",
-        "consumes": ["multipart/form-data"],
-        "parameters": [
-          {
-            "name": "mode",
-            "in": "formData",
-            "type": "string",
-            "enum": ["table", "custom"],
-            "default": "table",
-            "description": "table = use built-in table pattern; custom = use provided 'pattern' and 'flags'."
-          },
-          {
-            "name": "pattern",
-            "in": "formData",
-            "type": "string",
-            "required": false,
-            "description": "Regex pattern (only used when mode=custom). Use named groups to shape output."
-          },
-          {
-            "name": "flags",
-            "in": "formData",
-            "type": "string",
-            "required": false,
-            "default": "gmu",
-            "description": "Regex flags (e.g., \"gmu\", \"gm\", \"i,m\"). Flags are normalized; 'g' is always enforced."
-          },
-          {
-            "name": "file",
-            "in": "formData",
-            "type": "file",
-            "required": true,
-            "description": "Binary file part named 'file' (actual upload). Do NOT send Base64 here."
-          }          
-        ],
-        "responses": {
-          "200": {
-            "description": "Successful extraction",
-            "schema": { "$ref": "#/definitions/ExtractionResponse" }
-          },
-          "400": { "description": "Bad request (missing file or invalid form)", "schema": { "$ref": "#/definitions/ErrorResponse" } },
-          "415": { "description": "Unsupported Media Type" },
-          "500": { "description": "Server error", "schema": { "$ref": "#/definitions/ErrorResponse" } }
-        }
-      }
-    },
     "/api/regex-extractor-json": {
       "post": {
-        "summary": "Extract using application/json (Base64 in 'content')",
-        "consumes": ["application/json"],
+        "summary": "Extract using application/json (Base64 in 'payloadBase64')",
         "parameters": [
-          { "in": "body", "name": "body", "required": true, "schema": { "$ref": "#/definitions/JsonRequest" } }
-        ],
-        "responses": {
-          "200": { "description": "Successful extraction", "schema": { "$ref": "#/definitions/ExtractionResponse" } },
-          "400": { "description": "Bad request", "schema": { "$ref": "#/definitions/ErrorResponse" } },
-          "415": { "description": "Unsupported Media Type" },
-          "500": { "description": "Server error", "schema": { "$ref": "#/definitions/ErrorResponse" } }
-        }
-      }
-    },
-    "/api/regex-extractor-octet": {
-      "post": {
-        "summary": "Extract using application/octet-stream (raw bytes + query params)",
-        "consumes": ["application/octet-stream"],
-        "parameters": [
-          {
-            "name": "mode",
-            "in": "query",
-            "type": "string",
-            "enum": ["table", "custom"],
-            "default": "table",
-            "description": "table = use built-in table pattern; custom = use provided 'pattern' and 'flags'."
-          },
-          {
-            "name": "pattern",
-            "in": "query",
-            "type": "string",
-            "required": false,
-            "description": "Regex pattern (only used when mode=custom). URL-encode if needed."
-          },
-          {
-            "name": "flags",
-            "in": "query",
-            "type": "string",
-            "required": false,
-            "default": "gmu",
-            "description": "Regex flags (normalized; 'g' always enforced)."
-          },
-          {
-            "name": "filename",
-            "in": "query",
-            "type": "string",
-            "required": false,
-            "description": "Optional original filename to echo in the response."
-          },
           {
             "name": "body",
             "in": "body",
             "required": true,
-            "schema": { "type": "string", "format": "byte" },
-            "description": "Raw file bytes (UTF-8 text expected)."
+            "schema": { "$ref": "#/definitions/JsonRequest" }
           }
         ],
         "responses": {
-          "200": { "description": "Successful extraction", "schema": { "$ref": "#/definitions/ExtractionResponse" } },
-          "400": { "description": "Bad request", "schema": { "$ref": "#/definitions/ErrorResponse" } },
+          "200": { "description": "OK", "schema": { "$ref": "#/definitions/ExtractionResponse" } },
+          "400": { "description": "Bad Request", "schema": { "$ref": "#/definitions/ErrorResponse" } },
           "415": { "description": "Unsupported Media Type" },
-          "500": { "description": "Server error", "schema": { "$ref": "#/definitions/ErrorResponse" } }
+          "500": { "description": "Server Error", "schema": { "$ref": "#/definitions/ErrorResponse" } }
         }
       }
     }
@@ -129,55 +32,27 @@
       "type": "object",
       "required": ["mode"],
       "properties": {
-        "mode": {
+        "mode":      { "type": "string", "enum": ["table","custom"], "default": "table" },
+        "pattern":   { "type": "string", "description": "Used when mode=custom" },
+        "flags":     { "type": "string", "default": "gmu" },
+        "text":      { "type": "string", "description": "Optional raw text (mutually exclusive with payloadBase64)" },
+        "payloadBase64": {
           "type": "string",
-          "enum": ["table", "custom"],
-        "default": "table",
-          "description": "table = use built-in table pattern; custom = use provided 'pattern' and 'flags'."
+          "description": "Raw Base64 (not URL-encoded). Do NOT wrap in <file>."
         },
-        "pattern": {
-          "type": "string",
-          "description": "Regex pattern (only used when mode=custom)."
-        },
-        "flags": {
-          "type": "string",
-          "default": "gmu",
-          "description": "Regex flags (normalized; 'g' always enforced)."
-        },
-        "text": {
-          "type": "string",
-          "description": "UTF-8 text to parse (mutually exclusive with 'content')."
-        },
-        "content": {
-          "type": "string",
-          "format": "byte",
-          "description": "Base64-encoded file content (raw Base64, not URL-encoded)."
-        },
-        "encoding": {
-          "type": "string",
-          "enum": ["base64"],
-          "default": "base64",
-          "description": "Encoding for 'content'. Only 'base64' is supported."
-        },
-        "filename": {
-          "type": "string",
-          "description": "Optional filename to echo in response."
-        }
+        "filename":  { "type": "string" }
       }
     },
     "ExtractionResponse": {
       "type": "object",
-      "required": ["line_count", "order_lines", "meta"],
+      "required": ["line_count","order_lines","meta"],
       "properties": {
-        "filename": { "type": "string", "x-nullable": true },
-        "line_count": { "type": "integer", "format": "int32" },
-        "order_lines": {
-          "type": "array",
-          "items": { "$ref": "#/definitions/OrderLine" }
-        },
+        "filename":  { "type": "string" },
+        "line_count":{ "type": "integer", "format": "int32" },
+        "order_lines": { "type": "array", "items": { "$ref": "#/definitions/OrderLine" } },
         "meta": {
           "type": "object",
-          "required": ["mode", "used_flags", "used_pattern"],
+          "required": ["mode","used_flags","used_pattern"],
           "properties": {
             "mode": { "type": "string" },
             "used_flags": { "type": "string" },
@@ -188,46 +63,23 @@
     },
     "OrderLine": {
       "type": "object",
-      "description": "One parsed row. All fields are trimmed strings; may be empty.",
       "properties": {
-        "Order": { "type": "string" },
-        "Pos": { "type": "string" },
-        "Type": { "type": "string" },
-        "Article": { "type": "string" },
-        "Lot": { "type": "string" },
-        "Designation": { "type": "string" },
-        "UQ1": { "type": "string" },
-        "QteNec": { "type": "string" },
-        "QtePrelev": { "type": "string" },
-        "Origine": { "type": "string" },
-        "DateBes": { "type": "string", "description": "dd.MM.yyyy or empty" },
-        "Activite": { "type": "string" },
-        "Poste": { "type": "string" },
-        "Div": { "type": "string" },
-        "ES": { "type": "string" },
-        "Statut": { "type": "string" },
-        "DescrPosteTrav": { "type": "string" },
-        "DesOp": { "type": "string" },
-        "Empl": { "type": "string" },
-        "GAc": { "type": "string" },
-        "GrpeMar": { "type": "string" },
-        "Nomenclat": { "type": "string" },
-        "PosTr": { "type": "string" },
-        "NoRes": { "type": "string" },
-        "TP": { "type": "string" },
-        "Res_DA": { "type": "string" },
-        "TyBes": { "type": "string" },
-        "TyMag": { "type": "string" },
-        "CategNcl": { "type": "string" },
-        "UQ2": { "type": "string" }
+        "Order": { "type": "string" }, "Pos": { "type": "string" }, "Type": { "type": "string" },
+        "Article": { "type": "string" }, "Lot": { "type": "string" }, "Designation": { "type": "string" },
+        "UQ1": { "type": "string" }, "QteNec": { "type": "string" }, "QtePrelev": { "type": "string" },
+        "Origine": { "type": "string" }, "DateBes": { "type": "string" }, "Activite": { "type": "string" },
+        "Poste": { "type": "string" }, "Div": { "type": "string" }, "ES": { "type": "string" },
+        "Statut": { "type": "string" }, "DescrPosteTrav": { "type": "string" }, "DesOp": { "type": "string" },
+        "Empl": { "type": "string" }, "GAc": { "type": "string" }, "GrpeMar": { "type": "string" },
+        "Nomenclat": { "type": "string" }, "PosTr": { "type": "string" }, "NoRes": { "type": "string" },
+        "TP": { "type": "string" }, "Res_DA": { "type": "string" }, "TyBes": { "type": "string" },
+        "TyMag": { "type": "string" }, "CategNcl": { "type": "string" }, "UQ2": { "type": "string" }
       }
     },
     "ErrorResponse": {
       "type": "object",
       "required": ["error"],
-      "properties": {
-        "error": { "type": "string" }
-      }
+      "properties": { "error": { "type": "string" } }
     }
   }
 }
