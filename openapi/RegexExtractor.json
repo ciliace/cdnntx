@@ -3,7 +3,7 @@
   "info": {
     "version": "1.0.0",
     "title": "Regex Extractor (Azure Function)",
-    "description": "Extracts structured rows from a pipe-delimited BOM table using a robust regex. Supports three content types: multipart/form-data (upload file + fields), application/json (text or base64 content), and application/octet-stream (raw file body; pattern/flags via query). Default table pattern (single line) used when mode=table: ^\\|(?<Order>\\d+)\\|(?<Pos>[^|]*)\\|(?<Type>[^|]*)\\|(?<Article>[^|]*)\\|(?<Lot>[^|]*)\\|(?<Designation>[^|]*)\\|(?<UQ1>[^|]*)\\|(?<QteNec>[^|]*)\\|(?<QtePrelev>[^|]*)\\|(?<Origine>[^|]*)\\|(?<DateBes>\\d{2}\\.\\d{2}\\.\\d{4}|[^|]*)\\|(?<Activite>[^|]*)\\|(?<Poste>[^|]*)\\|(?<Div>[^|]*)\\|(?<ES>[^|]*)\\|(?<Statut>[^|]*)\\|(?<DescrPosteTrav>[^|]*)\\|(?<DesOp>[^|]*)\\|(?<Empl>[^|]*)\\|(?<GAc>[^|]*)\\|(?<GrpeMar>[^|]*)\\|(?<Nomenclat>[^|]*)\\|(?<PosTr>[^|]*)\\|(?<NoRes>[^|]*)\\|(?<TP>[^|]*)\\|(?<Res_DA>[^|]*)\\|(?<TyBes>[^|]*)\\|(?<TyMag>[^|]*)\\|(?<CategNcl>[^|]*)\\|(?<UQ2>[^|]*)\\|\\s*$"
+    "description": "Extracts structured rows from a pipe-delimited BOM table using a robust regex. Supports: (1) multipart/form-data for an actual file upload, (2) application/json with Base64 in 'content', and (3) application/octet-stream for raw bytes with query params. Default table pattern (one line) when mode=table: ^\\|(?<Order>\\d+)\\|(?<Pos>[^|]*)\\|(?<Type>[^|]*)\\|(?<Article>[^|]*)\\|(?<Lot>[^|]*)\\|(?<Designation>[^|]*)\\|(?<UQ1>[^|]*)\\|(?<QteNec>[^|]*)\\|(?<QtePrelev>[^|]*)\\|(?<Origine>[^|]*)\\|(?<DateBes>\\d{2}\\.\\d{2}\\.\\d{4}|[^|]*)\\|(?<Activite>[^|]*)\\|(?<Poste>[^|]*)\\|(?<Div>[^|]*)\\|(?<ES>[^|]*)\\|(?<Statut>[^|]*)\\|(?<DescrPosteTrav>[^|]*)\\|(?<DesOp>[^|]*)\\|(?<Empl>[^|]*)\\|(?<GAc>[^|]*)\\|(?<GrpeMar>[^|]*)\\|(?<Nomenclat>[^|]*)\\|(?<PosTr>[^|]*)\\|(?<NoRes>[^|]*)\\|(?<TP>[^|]*)\\|(?<Res_DA>[^|]*)\\|(?<TyBes>[^|]*)\\|(?<TyMag>[^|]*)\\|(?<CategNcl>[^|]*)\\|(?<UQ2>[^|]*)\\|\\s*$"
   },
   "host": "nac-byc.azurewebsites.net",
   "basePath": "/",
@@ -12,7 +12,7 @@
   "paths": {
     "/api/regex-extractor-multipart": {
       "post": {
-        "summary": "Extract using multipart/form-data",
+        "summary": "Extract using multipart/form-data (actual file upload)",
         "consumes": ["multipart/form-data"],
         "parameters": [
           {
@@ -43,7 +43,7 @@
             "in": "formData",
             "type": "file",
             "required": true,
-            "description": "Text file containing the BOM/table to parse (UTF-8)."
+            "description": "Binary file part named 'file' (actual upload). Do NOT send Base64 here."
           }
         ],
         "responses": {
@@ -55,50 +55,42 @@
                 "filename": "BOM_4681934.txt",
                 "line_count": 35,
                 "order_lines": [
-                  {
-                    "Order": "1",
-                    "Pos": "A1",
-                    "Type": "T",
-                    "Article": "ABC123",
-                    "Designation": "Widget",
-                    "UQ1": "PZ"
-                  }
+                  { "Order": "1", "Pos": "A1", "Type": "T", "Article": "ABC123", "Designation": "Widget", "UQ1": "PZ" }
                 ],
-                "meta": {
-                  "mode": "table",
-                  "used_flags": "gmu",
-                  "used_pattern": "^(?:...)$"
-                }
+                "meta": { "mode": "table", "used_flags": "gmu", "used_pattern": "^(?:...)$" }
               }
             }
           },
-          "400": { "description": "Bad request (missing file, etc.)", "schema": { "$ref": "#/definitions/ErrorResponse" } },
+          "400": { "description": "Bad request (missing file or invalid form)", "schema": { "$ref": "#/definitions/ErrorResponse" } },
+          "415": { "description": "Unsupported Media Type" },
           "500": { "description": "Server error", "schema": { "$ref": "#/definitions/ErrorResponse" } }
         }
       }
     },
     "/api/regex-extractor-json": {
       "post": {
-        "summary": "Extract using application/json",
+        "summary": "Extract using application/json (Base64 in 'content')",
         "consumes": ["application/json"],
         "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": { "$ref": "#/definitions/JsonRequest" }
-          }
+          { "in": "body", "name": "body", "required": true, "schema": { "$ref": "#/definitions/JsonRequest" } }
         ],
         "responses": {
           "200": { "description": "Successful extraction", "schema": { "$ref": "#/definitions/ExtractionResponse" } },
           "400": { "description": "Bad request", "schema": { "$ref": "#/definitions/ErrorResponse" } },
+          "415": { "description": "Unsupported Media Type" },
           "500": { "description": "Server error", "schema": { "$ref": "#/definitions/ErrorResponse" } }
-        }
+        },
+        "x-code-samples": [
+          {
+            "lang": "json",
+            "source": "{\n  \"mode\": \"table\",\n  \"encoding\": \"base64\",\n  \"filename\": \"BOM_4681934.txt\",\n  \"content\": \"<BASE64_HERE>\"\n}"
+          }
+        ]
       }
     },
     "/api/regex-extractor-octet": {
       "post": {
-        "summary": "Extract using application/octet-stream",
+        "summary": "Extract using application/octet-stream (raw bytes + query params)",
         "consumes": ["application/octet-stream"],
         "parameters": [
           {
@@ -142,6 +134,7 @@
         "responses": {
           "200": { "description": "Successful extraction", "schema": { "$ref": "#/definitions/ExtractionResponse" } },
           "400": { "description": "Bad request", "schema": { "$ref": "#/definitions/ErrorResponse" } },
+          "415": { "description": "Unsupported Media Type" },
           "500": { "description": "Server error", "schema": { "$ref": "#/definitions/ErrorResponse" } }
         }
       }
@@ -155,7 +148,7 @@
         "mode": {
           "type": "string",
           "enum": ["table", "custom"],
-          "default": "table",
+        "default": "table",
           "description": "table = use built-in table pattern; custom = use provided 'pattern' and 'flags'."
         },
         "pattern": {
@@ -173,13 +166,14 @@
         },
         "content": {
           "type": "string",
-          "description": "Base64 or hex-encoded content to parse (mutually exclusive with 'text')."
+          "format": "byte",
+          "description": "Base64-encoded file content (raw Base64, not URL-encoded)."
         },
         "encoding": {
           "type": "string",
-          "enum": ["base64", "hex"],
+          "enum": ["base64"],
           "default": "base64",
-          "description": "Encoding used for 'content'."
+          "description": "Encoding for 'content'. Only 'base64' is supported."
         },
         "filename": {
           "type": "string",
