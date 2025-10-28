@@ -58,7 +58,7 @@
         }
       }
     },
-    "/api/Order/Summary": {
+    "/api/OrderSummary": {
       "post": {
         "summary": "Extract Order Summary from uploaded file",
         "operationId": "GetOrderSummary",
@@ -108,7 +108,7 @@
         }
       }
     },
-    "/api/Order/Lines": {
+    "/api/OrderLines": {
       "post": {
         "summary": "Extract Order Lines from uploaded file",
         "operationId": "GetOrderLines",
