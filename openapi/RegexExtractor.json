@@ -77,6 +77,15 @@
       "required": ["line_count", "order_lines", "meta"],
       "properties": {
         "filename": { "type": "string" },
+        "order": {
+            "type": ["string", "null"],
+            "description": "Single order number when uniquely determined from content or filename; otherwise null."
+        },
+        "orders_all": {
+            "type": "array",
+            "items": { "type": "string" },
+            "description": "Unique list of all Order values found in the parsed lines."
+        },
         "line_count": { "type": "integer", "format": "int32" },
         "order_lines": {
           "type": "array",
