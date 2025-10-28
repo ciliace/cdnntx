@@ -69,9 +69,166 @@
           "500": { "description": "Server Error", "schema": { "$ref": "#/definitions/ErrorResponse" } }
         }
       }
+    },
+    "/api/Order/Summary": {
+      "post": {
+        "summary": "Extract Order Summary from uploaded file",
+        "operationId": "GetOrderSummary",
+        "consumes": ["multipart/form-data"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "Binary file part named 'file' (UTF-8 text content).",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "mode",
+            "in": "formData",
+            "description": "Parsing mode. 'table' uses the built-in pattern; 'custom' uses 'pattern' and 'flags'.",
+            "required": false,
+            "type": "string",
+            "enum": ["table", "custom"],
+            "default": "table"
+          },
+          {
+            "name": "pattern",
+            "in": "formData",
+            "description": "Custom regex pattern (used only when mode=custom).",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "flags",
+            "in": "formData",
+            "description": "Regex flags (normalized; 'g' always enforced). Example: gmu",
+            "required": false,
+            "type": "string",
+            "default": "gmu"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful extraction",
+            "schema": { "$ref": "#/definitions/OrderSummaryResponse" },
+            "examples": {
+              "application/json": {
+                "Filename": "BOM_4681934.txt",
+                "Order": "4681934",
+                "Date": "2024-06-26",
+                "OrderLineCount": 35
+              }
+            }
+          },
+          "400": { "description": "Bad Request", "schema": { "$ref": "#/definitions/ErrorResponse" } },
+          "415": { "description": "Unsupported Media Type" },
+          "500": { "description": "Server Error", "schema": { "$ref": "#/definitions/ErrorResponse" } }
+        }
+      }
+    },
+    "/api/Order/Lines": {
+      "post": {
+        "summary": "Extract Order Lines from uploaded file",
+        "operationId": "GetOrderLines",
+        "consumes": ["multipart/form-data"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "Binary file part named 'file' (UTF-8 text content).",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "mode",
+            "in": "formData",
+            "description": "Parsing mode. 'table' uses the built-in pattern; 'custom' uses 'pattern' and 'flags'.",
+            "required": false,
+            "type": "string",
+            "enum": ["table", "custom"],
+            "default": "table"
+          },
+          {
+            "name": "pattern",
+            "in": "formData",
+            "description": "Custom regex pattern (used only when mode=custom).",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "flags",
+            "in": "formData",
+            "description": "Regex flags (normalized; 'g' always enforced). Example: gmu",
+            "required": false,
+            "type": "string",
+            "default": "gmu"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful extraction",
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/OrderLine" }
+            },
+            "examples": {
+              "application/json": [
+                {
+                  "Order": "4681934",
+                  "Pos": "0001",
+                  "Type": "T",
+                  "Article": "",
+                  "Lot": "",
+                  "Designation": "Mettre date d'EXP sur la packing list",
+                  "UQ1": "PZ",
+                  "QteNec": "1",
+                  "QtePrelev": "0",
+                  "Origine": "40021671",
+                  "DateBes": "2024-06-26",
+                  "Activite": "0010",
+                  "Poste": "23",
+                  "Div": "PL70",
+                  "ES": "",
+                  "Statut": "IMPR LANC",
+                  "DescrPosteTrav": "1Bottles (Emul/vacuum Fill) - B",
+                  "DesOp": "Filling",
+                  "Empl": "",
+                  "GAc": "",
+                  "GrpeMar": "",
+                  "Nomenclat": "00490033",
+                  "PosTr": "W7FIL-B",
+                  "NoRes": "41491135",
+                  "TP": "",
+                  "Res_DA": "3",
+                  "TyBes": "AR",
+                  "TyMag": "",
+                  "CategNcl": "M",
+                  "UQ2": "PZ"
+                }
+              ]
+            }
+          },
+          "400": { "description": "Bad Request", "schema": { "$ref": "#/definitions/ErrorResponse" } },
+          "415": { "description": "Unsupported Media Type" },
+          "500": { "description": "Server Error", "schema": { "$ref": "#/definitions/ErrorResponse" } }
+        }
+      }
     }
   },
   "definitions": {
+    "OrderSummaryResponse": {
+      "type": "object",
+      "required": ["Filename", "Order", "OrderLineCount"],
+      "properties": {
+        "Filename": { "type": "string" },
+        "Order": { "type": "string", "description": "Best-guess order id (from lines or filename)" },
+        "Date": { "type": "string", "format": "date", "description": "ISO 8601 date e.g. 2024-06-26" },
+        "OrderLineCount": { "type": "integer", "format": "int32" }
+      }
+    },
     "ExtractionResponse": {
       "type": "object",
       "required": ["line_count", "order_lines", "meta"],
@@ -112,7 +269,7 @@
     },
     "OrderLine": {
       "type": "object",
-      "description": "One parsed row. All fields are trimmed strings; may be empty.",
+      "required": ["Order", "Pos", "Type"],
       "properties": {
         "Order": { "type": "string" },
         "Pos": { "type": "string" },
@@ -121,10 +278,10 @@
         "Lot": { "type": "string" },
         "Designation": { "type": "string" },
         "UQ1": { "type": "string" },
-        "QteNec": { "type": "string" },
-        "QtePrelev": { "type": "string" },
+        "QteNec": { "type": "string", "description": "Invariant decimal string, e.g., 1873.136" },
+        "QtePrelev": { "type": "string", "description": "Invariant decimal string" },
         "Origine": { "type": "string" },
-        "DateBes": { "type": "string", "description": "dd.MM.yyyy or empty" },
+        "DateBes": { "type": "string", "format": "date", "description": "ISO 8601 date, e.g., 2024-06-26" },
         "Activite": { "type": "string" },
         "Poste": { "type": "string" },
         "Div": { "type": "string" },
