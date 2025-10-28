@@ -151,8 +151,40 @@
           "200": {
             "description": "Successful extraction",
             "schema": {
-              "type": "array",
-              "items": { "$ref": "#/definitions/OrderLine" }
+              "type": "object",
+              "required": ["items"],
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": { "$ref": "#/definitions/OrderLine" }
+                },
+                "count": { "type": "integer", "format": "int32" },
+                "filename": { "type": "string" }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "filename": "BOM_4681934.txt",
+                "count": 2,
+                "items": [
+                  {
+                    "Id": "4681934-0001",
+                    "Order": "4681934",
+                    "Pos": "0001",
+                    "Type": "T",
+                    "Designation": "Mettre date d'EXP sur la packing list",
+                    "DateBes": "2024-06-26"
+                  },
+                  {
+                    "Id": "4681934-0002",
+                    "Order": "4681934",
+                    "Pos": "0002",
+                    "Type": "T",
+                    "Designation": "Format Date EXP : \"DD/MM/YYYY\"",
+                    "DateBes": "2024-06-26"
+                  }
+                ]
+              }
             }
           },
           "400": { "description": "Bad Request", "schema": { "$ref": "#/definitions/ErrorResponse" } },
@@ -167,8 +199,8 @@
       "type": "object",
       "properties": {
         "Filename": { "type": "string" },
-        "Order": { "type": "string", "description": "Best-guess order id (from lines or filename)" },
-        "Date": { "type": "string", "format": "date", "description": "ISO 8601 date e.g. 2024-06-26" },
+        "Order": { "type": "string"},
+        "Date": { "type": "string", "format": "date" },
         "OrderLineCount": { "type": "integer", "format": "int32" }
       }
     },
@@ -212,6 +244,7 @@
     "OrderLine": {
       "type": "object",
       "properties": {
+        "Id": { "type": "string" },
         "Order": { "type": "string" },
         "Pos": { "type": "string" },
         "Type": { "type": "string" },
