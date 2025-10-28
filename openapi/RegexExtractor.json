@@ -1,25 +1,67 @@
 {
   "swagger": "2.0",
-  "info": { "version": "1.0.0", "title": "Regex Extractor (JSON only)" },
+  "info": {
+    "version": "1.0.0",
+    "title": "Regex Extractor",
+    "description": "Accepts multipart/form-data with a binary file part named 'file'. Optional fields: mode, pattern, flags. Returns parsed lines."
+  },
   "host": "nac-byc.azurewebsites.net",
   "basePath": "/",
   "schemes": ["https"],
-  "consumes": ["application/json"],
+  "consumes": ["multipart/form-data"],
   "produces": ["application/json"],
   "paths": {
-    "/api/regex-extractor-json": {
+    "/api/RegexExtractor": {
       "post": {
-        "summary": "Extract using application/json (Base64 in 'payloadBase64')",
+        "summary": "Extract from uploaded file",
         "parameters": [
           {
-            "name": "body",
-            "in": "body",
+            "name": "file",
+            "in": "formData",
+            "description": "Binary file part named 'file' (UTF-8 text content).",
             "required": true,
-            "schema": { "$ref": "#/definitions/JsonRequest" }
+            "type": "file"
+          },
+          {
+            "name": "mode",
+            "in": "formData",
+            "description": "Parsing mode. 'table' uses the built-in pattern; 'custom' uses your 'pattern' and 'flags'.",
+            "required": false,
+            "type": "string",
+            "enum": ["table", "custom"],
+            "default": "table"
+          },
+          {
+            "name": "pattern",
+            "in": "formData",
+            "description": "Custom regex pattern (used only when mode=custom). Use named groups to shape output.",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "flags",
+            "in": "formData",
+            "description": "Regex flags (normalized; 'g' always enforced). Example: gmu",
+            "required": false,
+            "type": "string",
+            "default": "gmu"
           }
         ],
         "responses": {
-          "200": { "description": "OK", "schema": { "$ref": "#/definitions/ExtractionResponse" } },
+          "200": {
+            "description": "Successful extraction",
+            "schema": { "$ref": "#/definitions/ExtractionResponse" },
+            "examples": {
+              "application/json": {
+                "filename": "BOM_4681934.txt",
+                "line_count": 35,
+                "order_lines": [
+                  { "Order": "1", "Pos": "A1", "Type": "T", "Article": "ABC123", "Designation": "Widget", "UQ1": "PZ" }
+                ],
+                "meta": { "mode": "table", "used_flags": "gmu", "used_pattern": "^(?:...)$" }
+              }
+            }
+          },
           "400": { "description": "Bad Request", "schema": { "$ref": "#/definitions/ErrorResponse" } },
           "415": { "description": "Unsupported Media Type" },
           "500": { "description": "Server Error", "schema": { "$ref": "#/definitions/ErrorResponse" } }
@@ -28,31 +70,19 @@
     }
   },
   "definitions": {
-    "JsonRequest": {
-      "type": "object",
-      "required": ["mode"],
-      "properties": {
-        "mode":      { "type": "string", "enum": ["table","custom"], "default": "table" },
-        "pattern":   { "type": "string", "description": "Used when mode=custom" },
-        "flags":     { "type": "string", "default": "gmu" },
-        "text":      { "type": "string", "description": "Optional raw text (mutually exclusive with payloadBase64)" },
-        "payloadBase64": {
-          "type": "string",
-          "description": "Raw Base64 (not URL-encoded). Do NOT wrap in <file>."
-        },
-        "filename":  { "type": "string" }
-      }
-    },
     "ExtractionResponse": {
       "type": "object",
-      "required": ["line_count","order_lines","meta"],
+      "required": ["line_count", "order_lines", "meta"],
       "properties": {
-        "filename":  { "type": "string" },
-        "line_count":{ "type": "integer", "format": "int32" },
-        "order_lines": { "type": "array", "items": { "$ref": "#/definitions/OrderLine" } },
+        "filename": { "type": "string" },
+        "line_count": { "type": "integer", "format": "int32" },
+        "order_lines": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/OrderLine" }
+        },
         "meta": {
           "type": "object",
-          "required": ["mode","used_flags","used_pattern"],
+          "required": ["mode", "used_flags", "used_pattern"],
           "properties": {
             "mode": { "type": "string" },
             "used_flags": { "type": "string" },
@@ -63,23 +93,46 @@
     },
     "OrderLine": {
       "type": "object",
+      "description": "One parsed row. All fields are trimmed strings; may be empty.",
       "properties": {
-        "Order": { "type": "string" }, "Pos": { "type": "string" }, "Type": { "type": "string" },
-        "Article": { "type": "string" }, "Lot": { "type": "string" }, "Designation": { "type": "string" },
-        "UQ1": { "type": "string" }, "QteNec": { "type": "string" }, "QtePrelev": { "type": "string" },
-        "Origine": { "type": "string" }, "DateBes": { "type": "string" }, "Activite": { "type": "string" },
-        "Poste": { "type": "string" }, "Div": { "type": "string" }, "ES": { "type": "string" },
-        "Statut": { "type": "string" }, "DescrPosteTrav": { "type": "string" }, "DesOp": { "type": "string" },
-        "Empl": { "type": "string" }, "GAc": { "type": "string" }, "GrpeMar": { "type": "string" },
-        "Nomenclat": { "type": "string" }, "PosTr": { "type": "string" }, "NoRes": { "type": "string" },
-        "TP": { "type": "string" }, "Res_DA": { "type": "string" }, "TyBes": { "type": "string" },
-        "TyMag": { "type": "string" }, "CategNcl": { "type": "string" }, "UQ2": { "type": "string" }
+        "Order": { "type": "string" },
+        "Pos": { "type": "string" },
+        "Type": { "type": "string" },
+        "Article": { "type": "string" },
+        "Lot": { "type": "string" },
+        "Designation": { "type": "string" },
+        "UQ1": { "type": "string" },
+        "QteNec": { "type": "string" },
+        "QtePrelev": { "type": "string" },
+        "Origine": { "type": "string" },
+        "DateBes": { "type": "string", "description": "dd.MM.yyyy or empty" },
+        "Activite": { "type": "string" },
+        "Poste": { "type": "string" },
+        "Div": { "type": "string" },
+        "ES": { "type": "string" },
+        "Statut": { "type": "string" },
+        "DescrPosteTrav": { "type": "string" },
+        "DesOp": { "type": "string" },
+        "Empl": { "type": "string" },
+        "GAc": { "type": "string" },
+        "GrpeMar": { "type": "string" },
+        "Nomenclat": { "type": "string" },
+        "PosTr": { "type": "string" },
+        "NoRes": { "type": "string" },
+        "TP": { "type": "string" },
+        "Res_DA": { "type": "string" },
+        "TyBes": { "type": "string" },
+        "TyMag": { "type": "string" },
+        "CategNcl": { "type": "string" },
+        "UQ2": { "type": "string" }
       }
     },
     "ErrorResponse": {
       "type": "object",
       "required": ["error"],
-      "properties": { "error": { "type": "string" } }
+      "properties": {
+        "error": { "type": "string" }
+      }
     }
   }
 }
