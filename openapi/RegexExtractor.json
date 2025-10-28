@@ -148,17 +148,11 @@
           }
         ],
         "responses": {
-         "200": {
+          "200": {
             "description": "Successful extraction",
             "schema": {
-              "type": "object",
-              "properties": {
-                "items": {
-                  "type": "array",
-                  "items": { "$ref": "#/definitions/OrderLine" }
-                }
-              },
-              "required": ["items"]
+              "type": "array",
+              "items": { "$ref": "#/definitions/OrderLine" }
             }
           },
           "400": { "description": "Bad Request", "schema": { "$ref": "#/definitions/ErrorResponse" } },
