@@ -211,7 +211,7 @@
         }
       }
     },
-    "OrderLines": {
+    "OrderLine": {
       "type": "object",
       "required": ["Order", "Pos", "Type"],
       "properties": {
