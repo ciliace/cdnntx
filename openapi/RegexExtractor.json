@@ -44,22 +44,12 @@
             "type": "file",
             "required": true,
             "description": "Binary file part named 'file' (actual upload). Do NOT send Base64 here."
-          }
+          }          
         ],
         "responses": {
           "200": {
             "description": "Successful extraction",
-            "schema": { "$ref": "#/definitions/ExtractionResponse" },
-            "examples": {
-              "application/json": {
-                "filename": "BOM_4681934.txt",
-                "line_count": 35,
-                "order_lines": [
-                  { "Order": "1", "Pos": "A1", "Type": "T", "Article": "ABC123", "Designation": "Widget", "UQ1": "PZ" }
-                ],
-                "meta": { "mode": "table", "used_flags": "gmu", "used_pattern": "^(?:...)$" }
-              }
-            }
+            "schema": { "$ref": "#/definitions/ExtractionResponse" }
           },
           "400": { "description": "Bad request (missing file or invalid form)", "schema": { "$ref": "#/definitions/ErrorResponse" } },
           "415": { "description": "Unsupported Media Type" },
@@ -79,13 +69,7 @@
           "400": { "description": "Bad request", "schema": { "$ref": "#/definitions/ErrorResponse" } },
           "415": { "description": "Unsupported Media Type" },
           "500": { "description": "Server error", "schema": { "$ref": "#/definitions/ErrorResponse" } }
-        },
-        "x-code-samples": [
-          {
-            "lang": "json",
-            "source": "{\n  \"mode\": \"table\",\n  \"encoding\": \"base64\",\n  \"filename\": \"BOM_4681934.txt\",\n  \"content\": \"<BASE64_HERE>\"\n}"
-          }
-        ]
+        }
       }
     },
     "/api/regex-extractor-octet": {
