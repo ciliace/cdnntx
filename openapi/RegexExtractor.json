@@ -148,11 +148,17 @@
           }
         ],
         "responses": {
-          "200": {
+         "200": {
             "description": "Successful extraction",
             "schema": {
-              "type": "array",
-              "items": { "$ref": "#/definitions/OrderLine" }
+              "type": "object",
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": { "$ref": "#/definitions/OrderLine" }
+                }
+              },
+              "required": ["items"]
             }
           },
           "400": { "description": "Bad Request", "schema": { "$ref": "#/definitions/ErrorResponse" } },
@@ -165,7 +171,6 @@
   "definitions": {
     "OrderSummary": {
       "type": "object",
-      "required": ["Filename", "Order", "OrderLineCount"],
       "properties": {
         "Filename": { "type": "string" },
         "Order": { "type": "string", "description": "Best-guess order id (from lines or filename)" },
@@ -175,7 +180,6 @@
     },
     "ExtractionResponse": {
       "type": "object",
-      "required": ["line_count", "order_lines", "meta"],
       "properties": {
         "filename": { "type": "string" },
         "order": {
@@ -213,7 +217,6 @@
     },
     "OrderLine": {
       "type": "object",
-      "required": ["Order", "Pos", "Type"],
       "properties": {
         "Order": { "type": "string" },
         "Pos": { "type": "string" },
