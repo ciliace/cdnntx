@@ -3,7 +3,7 @@
   "info": {
     "version": "1.0.0",
     "title": "Regex Extractor",
-    "description": "Accepts multipart/form-data with a binary file part named 'file'. Optional fields: mode, pattern, flags. Returns parsed lines."
+    "description": "Accepts multipart/form-data with a binary file part named 'file'. Optional fields: mode, pattern, flags. Returns parsed lines, plus raw JSON strings (compact and pretty)."
   },
   "host": "nac-byc.azurewebsites.net",
   "basePath": "/",
@@ -58,7 +58,9 @@
                 "order_lines": [
                   { "Order": "1", "Pos": "A1", "Type": "T", "Article": "ABC123", "Designation": "Widget", "UQ1": "PZ" }
                 ],
-                "meta": { "mode": "table", "used_flags": "gmu", "used_pattern": "^(?:...)$" }
+                "meta": { "mode": "table", "used_flags": "gmu", "used_pattern": "^(?:...)$" },
+                "raw_json_compact": "{\"filename\":\"BOM_4681934.txt\",\"line_count\":35,...}",
+                "raw_json_pretty": "{\n  \"filename\": \"BOM_4681934.txt\",\n  \"line_count\": 35,\n  ...\n}"
               }
             }
           },
@@ -88,6 +90,14 @@
             "used_flags": { "type": "string" },
             "used_pattern": { "type": "string" }
           }
+        },
+        "raw_json_compact": {
+          "type": "string",
+          "description": "Entire successful response serialized as a single-line JSON string."
+        },
+        "raw_json_pretty": {
+          "type": "string",
+          "description": "Entire successful response serialized as pretty-printed JSON."
         }
       }
     },
@@ -131,7 +141,15 @@
       "type": "object",
       "required": ["error"],
       "properties": {
-        "error": { "type": "string" }
+        "error": { "type": "string" },
+        "raw_json_compact": {
+          "type": "string",
+          "description": "Entire error payload serialized as a single-line JSON string."
+        },
+        "raw_json_pretty": {
+          "type": "string",
+          "description": "Entire error payload serialized as pretty-printed JSON."
+        }
       }
     }
   }
