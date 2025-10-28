@@ -50,19 +50,7 @@
         "responses": {
           "200": {
             "description": "Successful extraction",
-            "schema": { "$ref": "#/definitions/ExtractionResponse" },
-            "examples": {
-              "application/json": {
-                "filename": "BOM_4681934.txt",
-                "line_count": 35,
-                "order_lines": [
-                  { "Order": "1", "Pos": "A1", "Type": "T", "Article": "ABC123", "Designation": "Widget", "UQ1": "PZ" }
-                ],
-                "meta": { "mode": "table", "used_flags": "gmu", "used_pattern": "^(?:...)$" },
-                "raw_json_compact": "{\"filename\":\"BOM_4681934.txt\",\"line_count\":35,...}",
-                "raw_json_pretty": "{\n  \"filename\": \"BOM_4681934.txt\",\n  \"line_count\": 35,\n  ...\n}"
-              }
-            }
+            "schema": { "$ref": "#/definitions/ExtractionResponse" }
           },
           "400": { "description": "Bad Request", "schema": { "$ref": "#/definitions/ErrorResponse" } },
           "415": { "description": "Unsupported Media Type" },
@@ -112,15 +100,7 @@
         "responses": {
           "200": {
             "description": "Successful extraction",
-            "schema": { "$ref": "#/definitions/OrderSummaryResponse" },
-            "examples": {
-              "application/json": {
-                "Filename": "BOM_4681934.txt",
-                "Order": "4681934",
-                "Date": "2024-06-26",
-                "OrderLineCount": 35
-              }
-            }
+            "schema": { "$ref": "#/definitions/OrderSummary" }
           },
           "400": { "description": "Bad Request", "schema": { "$ref": "#/definitions/ErrorResponse" } },
           "415": { "description": "Unsupported Media Type" },
@@ -173,42 +153,6 @@
             "schema": {
               "type": "array",
               "items": { "$ref": "#/definitions/OrderLine" }
-            },
-            "examples": {
-              "application/json": [
-                {
-                  "Order": "4681934",
-                  "Pos": "0001",
-                  "Type": "T",
-                  "Article": "",
-                  "Lot": "",
-                  "Designation": "Mettre date d'EXP sur la packing list",
-                  "UQ1": "PZ",
-                  "QteNec": "1",
-                  "QtePrelev": "0",
-                  "Origine": "40021671",
-                  "DateBes": "2024-06-26",
-                  "Activite": "0010",
-                  "Poste": "23",
-                  "Div": "PL70",
-                  "ES": "",
-                  "Statut": "IMPR LANC",
-                  "DescrPosteTrav": "1Bottles (Emul/vacuum Fill) - B",
-                  "DesOp": "Filling",
-                  "Empl": "",
-                  "GAc": "",
-                  "GrpeMar": "",
-                  "Nomenclat": "00490033",
-                  "PosTr": "W7FIL-B",
-                  "NoRes": "41491135",
-                  "TP": "",
-                  "Res_DA": "3",
-                  "TyBes": "AR",
-                  "TyMag": "",
-                  "CategNcl": "M",
-                  "UQ2": "PZ"
-                }
-              ]
             }
           },
           "400": { "description": "Bad Request", "schema": { "$ref": "#/definitions/ErrorResponse" } },
@@ -219,7 +163,7 @@
     }
   },
   "definitions": {
-    "OrderSummaryResponse": {
+    "OrderSummary": {
       "type": "object",
       "required": ["Filename", "Order", "OrderLineCount"],
       "properties": {
@@ -267,7 +211,7 @@
         }
       }
     },
-    "OrderLine": {
+    "OrderLines": {
       "type": "object",
       "required": ["Order", "Pos", "Type"],
       "properties": {
