@@ -97,16 +97,9 @@
         "responses": {
           "200": {
             "description": "Successful extraction",
-            "schema": { "$ref": "#/definitions/OrderLinesResponse" },
-            "examples": {
-              "application/json": {
-                "filename": "BOM_4681934.txt",
-                "count": 2,
-                "items": [
-                  { "Id": "4681934-0001", "Order": "4681934", "Pos": "0001", "Type": "T", "Designation": "Mettre date d'EXP sur la packing list", "DateBes": "2024-06-26" },
-                  { "Id": "4681934-0002", "Order": "4681934", "Pos": "0002", "Type": "T", "Designation": "Format Date EXP : \"DD/MM/YYYY\"", "DateBes": "2024-06-26" }
-                ]
-              }
+            "schema": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/OrderLine" }
             }
           },
           "400": { "description": "Bad Request", "schema": { "$ref": "#/definitions/ErrorResponse" } },
