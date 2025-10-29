@@ -1,0 +1,212 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Regex Extractor",
+    "description": "Accepts multipart/form-data with a binary file part named 'file'. Optional fields: mode, pattern, flags. Returns parsed lines, plus raw JSON strings (compact and pretty)."
+  },
+  "host": "nac-byc.azurewebsites.net",
+  "basePath": "/",
+  "schemes": ["https"],
+  "consumes": ["multipart/form-data"],
+  "produces": ["application/json"],
+  "paths": {
+    "/api/OrderSummary": {
+      "post": {
+        "summary": "Extract Order Summary from uploaded file",
+        "operationId": "GetOrderSummary",
+        "consumes": ["multipart/form-data"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "Binary file part named 'file' (UTF-8 text content).",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "mode",
+            "in": "formData",
+            "description": "Parsing mode. 'table' uses the built-in pattern; 'custom' uses 'pattern' and 'flags'.",
+            "required": false,
+            "type": "string",
+            "enum": ["table", "custom"],
+            "default": "table"
+          },
+          {
+            "name": "pattern",
+            "in": "formData",
+            "description": "Custom regex pattern (used only when mode=custom).",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "flags",
+            "in": "formData",
+            "description": "Regex flags (normalized; 'g' always enforced). Example: gmu",
+            "required": false,
+            "type": "string",
+            "default": "gmu"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful extraction",
+            "schema": { "$ref": "#/definitions/OrderSummary" }
+          },
+          "400": { "description": "Bad Request", "schema": { "$ref": "#/definitions/ErrorResponse" } },
+          "415": { "description": "Unsupported Media Type" },
+          "500": { "description": "Server Error", "schema": { "$ref": "#/definitions/ErrorResponse" } }
+        }
+      }
+    },
+    "/api/OrderLines": {
+      "post": {
+        "summary": "Extract Order Lines from uploaded file",
+        "operationId": "GetOrderLines",
+        "consumes": ["multipart/form-data"],
+        "produces": ["application/json"],
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "description": "Binary file part named 'file' (UTF-8 text content).",
+            "required": true,
+            "type": "file"
+          },
+          {
+            "name": "mode",
+            "in": "formData",
+            "description": "Parsing mode. 'table' uses the built-in pattern; 'custom' uses 'pattern' and 'flags'.",
+            "required": false,
+            "type": "string",
+            "enum": ["table", "custom"],
+            "default": "table"
+          },
+          {
+            "name": "pattern",
+            "in": "formData",
+            "description": "Custom regex pattern (used only when mode=custom).",
+            "required": false,
+            "type": "string"
+          },
+          {
+            "name": "flags",
+            "in": "formData",
+            "description": "Regex flags (normalized; 'g' always enforced). Example: gmu",
+            "required": false,
+            "type": "string",
+            "default": "gmu"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful extraction",
+            "schema": {
+              "type": "object",
+              "required": ["items"],
+              "properties": {
+                "items": {
+                  "type": "array",
+                  "items": { "$ref": "#/definitions/OrderLine" }
+                },
+                "count": { "type": "integer", "format": "int32" },
+                "filename": { "type": "string" }
+              }
+            },
+            "examples": {
+              "application/json": {
+                "filename": "BOM_4681934.txt",
+                "count": 2,
+                "items": [
+                  {
+                    "Id": "4681934-0001",
+                    "Order": "4681934",
+                    "Pos": "0001",
+                    "Type": "T",
+                    "Designation": "Mettre date d'EXP sur la packing list",
+                    "DateBes": "2024-06-26"
+                  },
+                  {
+                    "Id": "4681934-0002",
+                    "Order": "4681934",
+                    "Pos": "0002",
+                    "Type": "T",
+                    "Designation": "Format Date EXP : \"DD/MM/YYYY\"",
+                    "DateBes": "2024-06-26"
+                  }
+                ]
+              }
+            }
+          },
+          "400": { "description": "Bad Request", "schema": { "$ref": "#/definitions/ErrorResponse" } },
+          "415": { "description": "Unsupported Media Type" },
+          "500": { "description": "Server Error", "schema": { "$ref": "#/definitions/ErrorResponse" } }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "OrderSummary": {
+      "type": "object",
+      "properties": {
+        "Filename": { "type": "string" },
+        "Order": { "type": "string"},
+        "Date": { "type": "string", "format": "date" },
+        "OrderLineCount": { "type": "integer", "format": "int32" }
+      }
+    },
+    "OrderLine": {
+      "type": "object",
+      "properties": {
+        "Id": { "type": "string" },
+        "Order": { "type": "string" },
+        "Pos": { "type": "string" },
+        "Type": { "type": "string" },
+        "Article": { "type": "string" },
+        "Lot": { "type": "string" },
+        "Designation": { "type": "string" },
+        "UQ1": { "type": "string" },
+        "QteNec": { "type": "string" },
+        "QtePrelev": { "type": "string" },
+        "Origine": { "type": "string" },
+        "DateBes": { "type": "string" },
+        "Activite": { "type": "string" },
+        "Poste": { "type": "string" },
+        "Div": { "type": "string" },
+        "ES": { "type": "string" },
+        "Statut": { "type": "string" },
+        "DescrPosteTrav": { "type": "string" },
+        "DesOp": { "type": "string" },
+        "Empl": { "type": "string" },
+        "GAc": { "type": "string" },
+        "GrpeMar": { "type": "string" },
+        "Nomenclat": { "type": "string" },
+        "PosTr": { "type": "string" },
+        "NoRes": { "type": "string" },
+        "TP": { "type": "string" },
+        "Res_DA": { "type": "string" },
+        "TyBes": { "type": "string" },
+        "TyMag": { "type": "string" },
+        "CategNcl": { "type": "string" },
+        "UQ2": { "type": "string" }
+      }
+    },
+    "ErrorResponse": {
+      "type": "object",
+      "required": ["error"],
+      "properties": {
+        "error": { "type": "string" },
+        "raw_json_compact": {
+          "type": "string",
+          "description": "Entire error payload serialized as a single-line JSON string."
+        },
+        "raw_json_pretty": {
+          "type": "string",
+          "description": "Entire error payload serialized as pretty-printed JSON."
+        }
+      }
+    }
+  }
+}
