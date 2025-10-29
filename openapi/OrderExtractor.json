@@ -116,7 +116,16 @@
         "Filename": { "type": "string" },
         "Order": { "type": "string"},
         "Date": { "type": "string", "format": "date" },
-        "OrderLineCount": { "type": "integer", "format": "int32" }
+        "OrderLineCount": { "type": "integer", "format": "int32" },
+        "Lot": { "type": "string" },
+        "Origin": { "type": "string" },
+        "Article": { "type": "string" },
+        "Division": { "type": "string" },
+        "ArticleDescription": { "type": "string" },
+        "Status": { "type": "string" },
+        "Activity": { "type": "string" },
+        "RequiredDate": { "type": "string" },
+        "WorkStationDescription": { "type": "string" },
       }
     },
     "OrderLine": {
