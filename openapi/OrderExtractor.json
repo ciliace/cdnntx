@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "Regex Extractor",
-    "description": "Accepts multipart/form-data with a binary file part named 'file'. Optional fields: mode, pattern, flags. Returns parsed lines, plus raw JSON strings (compact and pretty)."
+    "title": "Order Extractor",
+    "description": "Accepts multipart/form-data with a binary file part named 'file'. Optional fields: mode, pattern, flags. Returns parsed lines.."
   },
   "host": "nac-byc.azurewebsites.net",
   "basePath": "/",
@@ -13,6 +13,7 @@
   "paths": {
     "/api/OrderSummary": {
       "post": {
+        "tags": ["Order"],
         "summary": "Extract Order Summary from uploaded file",
         "operationId": "GetOrderSummary",
         "consumes": ["multipart/form-data"],
@@ -21,14 +22,12 @@
           {
             "name": "file",
             "in": "formData",
-            "description": "Binary file part named 'file' (UTF-8 text content).",
             "required": true,
             "type": "file"
           },
           {
             "name": "mode",
             "in": "formData",
-            "description": "Parsing mode. 'table' uses the built-in pattern; 'custom' uses 'pattern' and 'flags'.",
             "required": false,
             "type": "string",
             "enum": ["table", "custom"],
@@ -37,14 +36,12 @@
           {
             "name": "pattern",
             "in": "formData",
-            "description": "Custom regex pattern (used only when mode=custom).",
             "required": false,
             "type": "string"
           },
           {
             "name": "flags",
             "in": "formData",
-            "description": "Regex flags (normalized; 'g' always enforced). Example: gmu",
             "required": false,
             "type": "string",
             "default": "gmu"
@@ -63,6 +60,7 @@
     },
     "/api/OrderLines": {
       "post": {
+        "tags": ["Order"],
         "summary": "Extract Order Lines from uploaded file",
         "operationId": "GetOrderLines",
         "consumes": ["multipart/form-data"],
@@ -71,14 +69,12 @@
           {
             "name": "file",
             "in": "formData",
-            "description": "Binary file part named 'file' (UTF-8 text content).",
             "required": true,
             "type": "file"
           },
           {
             "name": "mode",
             "in": "formData",
-            "description": "Parsing mode. 'table' uses the built-in pattern; 'custom' uses 'pattern' and 'flags'.",
             "required": false,
             "type": "string",
             "enum": ["table", "custom"],
@@ -87,14 +83,12 @@
           {
             "name": "pattern",
             "in": "formData",
-            "description": "Custom regex pattern (used only when mode=custom).",
             "required": false,
             "type": "string"
           },
           {
             "name": "flags",
             "in": "formData",
-            "description": "Regex flags (normalized; 'g' always enforced). Example: gmu",
             "required": false,
             "type": "string",
             "default": "gmu"
@@ -103,39 +97,14 @@
         "responses": {
           "200": {
             "description": "Successful extraction",
-            "schema": {
-              "type": "object",
-              "required": ["items"],
-              "properties": {
-                "items": {
-                  "type": "array",
-                  "items": { "$ref": "#/definitions/OrderLine" }
-                },
-                "count": { "type": "integer", "format": "int32" },
-                "filename": { "type": "string" }
-              }
-            },
+            "schema": { "$ref": "#/definitions/OrderLinesResponse" },
             "examples": {
               "application/json": {
                 "filename": "BOM_4681934.txt",
                 "count": 2,
                 "items": [
-                  {
-                    "Id": "4681934-0001",
-                    "Order": "4681934",
-                    "Pos": "0001",
-                    "Type": "T",
-                    "Designation": "Mettre date d'EXP sur la packing list",
-                    "DateBes": "2024-06-26"
-                  },
-                  {
-                    "Id": "4681934-0002",
-                    "Order": "4681934",
-                    "Pos": "0002",
-                    "Type": "T",
-                    "Designation": "Format Date EXP : \"DD/MM/YYYY\"",
-                    "DateBes": "2024-06-26"
-                  }
+                  { "Id": "4681934-0001", "Order": "4681934", "Pos": "0001", "Type": "T", "Designation": "Mettre date d'EXP sur la packing list", "DateBes": "2024-06-26" },
+                  { "Id": "4681934-0002", "Order": "4681934", "Pos": "0002", "Type": "T", "Designation": "Format Date EXP : \"DD/MM/YYYY\"", "DateBes": "2024-06-26" }
                 ]
               }
             }
@@ -191,6 +160,18 @@
         "TyMag": { "type": "string" },
         "CategNcl": { "type": "string" },
         "UQ2": { "type": "string" }
+      }
+    },
+    "OrderLinesResponse": {
+      "type": "object",
+      "required": ["items"],
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/OrderLine" }
+        },
+        "count":   { "type": "integer", "format": "int32" },
+        "filename":{ "type": "string" }
       }
     },
     "ErrorResponse": {
