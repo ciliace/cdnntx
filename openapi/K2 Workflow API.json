@@ -8,37 +8,6 @@
   "basePath": "/api/workflow/v1",
   "schemes": ["https"],
   "paths": {
-    "/me/sendMail": {
-      "post": {
-        "operationId": "SendMail_Me",
-        "summary": "Send mail as the signed-in user",
-        "description": "Sends a message using Microsoft Graph.",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/SendMailRequest"
-            }
-          }
-        ],
-        "responses": {
-          "202": {
-            "description": "Accepted"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      }
-    },
     "/serverEvents/{id}/finish": {
       "post": {
         "summary": "Complete Server Event",
