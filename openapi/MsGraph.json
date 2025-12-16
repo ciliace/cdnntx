@@ -69,6 +69,47 @@
         }
       }
     },
+    "/v1.0/users/{id}/sendMail": {
+      "post": {
+        "operationId": "SendMail_User",
+        "summary": "Send mail as a specific user",
+        "description": "Sends a message as the specified user (requires appropriate permissions).",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "description": "User ID or UPN (user principal name)."
+          },
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SendMailRequest"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
     "/v1.0/sites/{Tenant}.sharepoint.com:/sites/{Site}/": {
       "get": {
         "responses": {
@@ -336,7 +377,20 @@
       }
     }
   },
-  "definitions": {},
+  "definitions": {
+    "SendMailRequest": {
+      "type": "object",
+      "required": ["message"],
+      "properties": {
+        "message": {
+          "$ref": "#/definitions/Message"
+        },
+        "saveToSentItems": {
+          "type": "boolean",
+          "default": true
+        }
+      }
+  },
   "parameters": {},
   "responses": {},
   "securityDefinitions": {
