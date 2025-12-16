@@ -38,6 +38,37 @@
         ]
       }
     },
+     "/v1.0/me/sendMail": {
+      "post": {
+        "operationId": "SendMail_Me",
+        "summary": "Send mail as the signed-in user",
+        "description": "Sends a message using Microsoft Graph.",
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/SendMailRequest"
+            }
+          }
+        ],
+        "responses": {
+          "202": {
+            "description": "Accepted"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        }
+      }
+    },
     "/v1.0/sites/{Tenant}.sharepoint.com:/sites/{Site}/": {
       "get": {
         "responses": {
