@@ -378,18 +378,32 @@
     }
   },
   "definitions": {
-    "SendMailRequest": {
-      "type": "object",
-      "required": ["message"],
-      "properties": {
-        "message": {
-          "$ref": "#/definitions/Message"
-        },
-        "saveToSentItems": {
-          "type": "boolean",
-          "default": true
+    "Message": {
+    "type": "object",
+    "required": ["subject", "body", "toRecipients"],
+    "properties": {
+      "subject": { "type": "string" },
+      "body": {
+        "type": "object",
+        "required": ["contentType", "content"],
+        "properties": {
+          "contentType": { "type": "string", "enum": ["Text", "HTML"] },
+          "content": { "type": "string" }
+        }
+      },
+      "toRecipients": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "emailAddress": {
+              "type": "object",
+              "properties": { "address": { "type": "string" } }
+            }
+          }
         }
       }
+    }
   },
   "parameters": {},
   "responses": {},
