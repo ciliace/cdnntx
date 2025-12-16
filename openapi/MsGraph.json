@@ -1,0 +1,330 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "MS Graph Connector",
+    "description": "MS Graph connector",
+    "version": "1.2"
+  },
+  "host": "graph.microsoft.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/v1.0/me": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "Get My Profile",
+        "description": "Get My Profile",
+        "operationId": "GetMyProfile",
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": false,
+            "type": "string",
+            "default": "application/json",
+            "x-ms-visibility": "internal"
+          }
+        ]
+      }
+    },
+    "/v1.0/sites/{Tenant}.sharepoint.com:/sites/{Site}/": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "Get Site ID",
+        "description": "Connect to a SharePoint site",
+        "operationId": "GetSiteID",
+        "parameters": [
+          {
+            "name": "Tenant",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "default": "tenant.sharepoint.com",
+            "description": "The tenant url of your SharePoint site, e.g. tenant.sharepoint.com",
+            "x-ms-summary": "The tenant url of your SharePoint site, e.g. tenant.sharepoint.com"
+          },
+          {
+            "name": "Site",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "default": "MySite",
+            "description": "Your site. https://mycompany.sharepoint.com/sites/ThisPartOnly",
+            "x-ms-summary": "Your site. https://mycompany.sharepoint.com/sites/ThisPartOnly"
+          }
+        ]
+      }
+    },
+    "/v1.0/sites/{SiteID}/lists": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "Get Lists in Site",
+        "description": "Get Lists in site",
+        "operationId": "GetListsInSP",
+        "parameters": [
+          {
+            "name": "SiteID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "default": "",
+            "description": "Site ID",
+            "x-ms-summary": "Site ID"
+          }
+        ]
+      }
+    },
+    "/v1.0/sites/{SiteID}/lists/{DocumentLibrary}/drive/root:/{FileName}:/workbook/worksheets('{SheetName}')/range(address='{Range}')": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "string"
+            }
+          }
+        },
+        "summary": "Read Excel file from SharePoint Library",
+        "description": "Read Excel file from SharePoint Library",
+        "operationId": "ReadExcelFileFromLibrary2",
+        "parameters": [
+          {
+            "name": "SiteID",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "default": "",
+            "description": "Site ID",
+            "x-ms-summary": "Site ID"
+          },
+          {
+            "name": "DocumentLibrary",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "default": "MySite",
+            "description": "Library. https://mycompany.sharepoint.com/sites/MySite/ThisPartOnly",
+            "x-ms-summary": "Library. https://mycompany.sharepoint.com/sites/MySite/ThisPartOnly"
+          },
+          {
+            "name": "FileName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "default": "Myfile.xlsx",
+            "description": "filename",
+            "x-ms-summary": "Filename"
+          },
+          {
+            "name": "SheetName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "default": "SheetName",
+            "description": "Name of the sheet",
+            "x-ms-summary": "Name of the sheet"
+          },
+          {
+            "name": "Range",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "default": "A1:J10",
+            "description": "Range",
+            "x-ms-summary": "Range"
+          }
+        ]
+      }
+    },
+    "/v1.0/groups": {
+      "get": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "@odata.context": {
+                  "type": "string",
+                  "description": "@odata.context"
+                },
+                "value": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "description": "id"
+                      },
+                      "deletedDateTime": {
+                        "type": "string",
+                        "description": "deletedDateTime"
+                      },
+                      "classification": {
+                        "type": "string",
+                        "description": "classification"
+                      },
+                      "createdDateTime": {
+                        "type": "string",
+                        "description": "createdDateTime"
+                      },
+                      "creationOptions": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "creationOptions"
+                      },
+                      "description": {
+                        "type": "string",
+                        "description": "description"
+                      },
+                      "displayName": {
+                        "type": "string",
+                        "description": "displayName"
+                      },
+                      "groupTypes": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "groupTypes"
+                      },
+                      "mail": {
+                        "type": "string",
+                        "description": "mail"
+                      },
+                      "mailEnabled": {
+                        "type": "boolean",
+                        "description": "mailEnabled"
+                      },
+                      "mailNickname": {
+                        "type": "string",
+                        "description": "mailNickname"
+                      },
+                      "onPremisesLastSyncDateTime": {
+                        "type": "string",
+                        "description": "onPremisesLastSyncDateTime"
+                      },
+                      "onPremisesSecurityIdentifier": {
+                        "type": "string",
+                        "description": "onPremisesSecurityIdentifier"
+                      },
+                      "onPremisesSyncEnabled": {
+                        "type": "string",
+                        "description": "onPremisesSyncEnabled"
+                      },
+                      "preferredDataLocation": {
+                        "type": "string",
+                        "description": "preferredDataLocation"
+                      },
+                      "proxyAddresses": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "proxyAddresses"
+                      },
+                      "renewedDateTime": {
+                        "type": "string",
+                        "description": "renewedDateTime"
+                      },
+                      "resourceBehaviorOptions": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "resourceBehaviorOptions"
+                      },
+                      "resourceProvisioningOptions": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "resourceProvisioningOptions"
+                      },
+                      "securityEnabled": {
+                        "type": "boolean",
+                        "description": "securityEnabled"
+                      },
+                      "visibility": {
+                        "type": "string",
+                        "description": "visibility"
+                      },
+                      "onPremisesProvisioningErrors": {
+                        "type": "array",
+                        "items": {
+                          "type": "string"
+                        },
+                        "description": "onPremisesProvisioningErrors"
+                      }
+                    }
+                  },
+                  "description": "value"
+                }
+              }
+            },
+            "headers": {
+              "Content-type": {
+                "description": "Content-type",
+                "type": "string"
+              }
+            }
+          }
+        },
+        "operationId": "ListGroups",
+        "parameters": [],
+        "summary": "List groups",
+        "description": "List all the groups available in an organization, including but not limited to Office 365 Groups."
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {
+    "oauth2_auth": {
+      "type": "oauth2",
+      "flow": "accessCode",
+      "authorizationUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/authorize",
+      "tokenUrl": "https://login.microsoftonline.com/common/oauth2/v2.0/token",
+      "scopes": {
+        "People.Read.All Group.Read.All": "People.Read.All Group.Read.All"
+      }
+    }
+  },
+  "security": [
+    {
+      "oauth2_auth": [
+        "People.Read.All Group.Read.All"
+      ]
+    }
+  ],
+  "tags": []
+}
