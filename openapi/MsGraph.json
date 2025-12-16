@@ -378,6 +378,14 @@
     }
   },
   "definitions": {
+    "SendMailRequest": {
+    "type": "object",
+    "required": ["message"],
+    "properties": {
+      "message": { "$ref": "#/definitions/Message" },
+      "saveToSentItems": { "type": "boolean", "default": true }
+    }
+  },
     "Message": {
     "type": "object",
     "required": ["subject", "body", "toRecipients"],
