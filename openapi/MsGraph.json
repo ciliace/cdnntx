@@ -10,8 +10,8 @@
   "schemes": [
     "https"
   ],
-  "consumes": [],
-  "produces": [],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
   "paths": {
     "/v1.0/me": {
       "get": {
@@ -43,67 +43,19 @@
         "operationId": "SendMailFromMe",
         "summary": "Send mail From Me",
         "description": "Send mail From Me",
+        "consumes": ["application/json"],
         "parameters": [
           {
             "in": "body",
             "name": "body",
+            "required": true,
             "schema": {
               "$ref": "#/definitions/SendMailRequest"
             }
           }
         ],
         "responses": {
-          "202": {
-            "description": "Accepted"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          }
-        }
-      }
-    },
-    "/v1.0/users/{id}/sendMail": {
-      "post": {
-        "operationId": "SendMailFromUser",
-        "summary": "Send mail From User",
-        "description": "Send mail From User",
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "type": "string",
-            "description": "User ID or UPN"
-          },
-          {
-            "in": "body",
-            "name": "body",
-            "schema": {
-              "$ref": "#/definitions/SendMailRequest"
-            }
-          }
-        ],
-        "responses": {
-          "202": {
-            "description": "Accepted"
-          },
-          "400": {
-            "description": "Bad Request"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "403": {
-            "description": "Forbidden"
-          },
-          "404": {
-            "description": "Not Found"
-          }
+          "202": { "description": "Accepted" }
         }
       }
     },
@@ -376,39 +328,39 @@
   },
   "definitions": {
     "SendMailRequest": {
-    "type": "object",
-    "required": ["message"],
-    "properties": {
-      "message": { "$ref": "#/definitions/Message" },
-      "saveToSentItems": { "type": "boolean", "default": true }
-    }
-  },
+      "type": "object",
+      "required": ["message"],
+      "properties": {
+        "message": { "$ref": "#/definitions/Message" },
+        "saveToSentItems": { "type": "boolean", "default": true }
+      }
+    },
     "Message": {
-    "type": "object",
-    "required": ["subject", "body", "toRecipients"],
-    "properties": {
-      "subject": { "type": "string" },
-      "body": {
-        "type": "object",
-        "required": ["contentType", "content"],
-        "properties": {
-          "contentType": { "type": "string", "enum": ["Text", "HTML"] },
-          "content": { "type": "string" }
-        }
-      },
-      "toRecipients": {
-        "type": "array",
-        "items": {
+      "type": "object",
+      "required": ["subject", "body", "toRecipients"],
+      "properties": {
+        "subject": { "type": "string" },
+        "body": {
           "type": "object",
+          "required": ["contentType", "content"],
           "properties": {
-            "emailAddress": {
-              "type": "object",
-              "properties": { "address": { "type": "string" } }
+            "contentType": { "type": "string", "enum": ["Text", "HTML"] },
+            "content": { "type": "string" }
+          }
+        },
+        "toRecipients": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "emailAddress": {
+                "type": "object",
+                "properties": { "address": { "type": "string" } }
+              }
             }
           }
         }
       }
-    }
     }
   },
   "parameters": {},
