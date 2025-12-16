@@ -38,7 +38,7 @@
         ]
       }
     },
-     "/v1.0/me/sendMail": {
+    "/v1.0/me/sendMail": {
       "post": {
         "operationId": "SendMailFromMe",
         "summary": "Send mail From Me",
@@ -47,7 +47,6 @@
           {
             "in": "body",
             "name": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/SendMailRequest"
             }
@@ -78,14 +77,12 @@
           {
             "name": "id",
             "in": "path",
-            "required": true,
             "type": "string",
             "description": "User ID or UPN"
           },
           {
             "in": "body",
             "name": "body",
-            "required": true,
             "schema": {
               "$ref": "#/definitions/SendMailRequest"
             }
