@@ -372,7 +372,8 @@
       "authorizationUrl": "https://login.microsoftonline.com/5a2beb23-b1a5-4fc5-90b2-2520f82f9a3b/oauth2/v2.0/authorize",
       "tokenUrl": "https://login.microsoftonline.com/5a2beb23-b1a5-4fc5-90b2-2520f82f9a3b/oauth2/v2.0/token",
       "scopes": {
-        "People.Read.All Group.Read.All": "People.Read.All Group.Read.All",
+        "People.Read.All": "People.Read.All",
+        "Group.Read.All": "Group.Read.All",
         "Mail.Send": "Send mail as a user",
         "Mail.Read": "Read user mail",
         "User.Read": "Sign in and read user profile"
@@ -382,7 +383,7 @@
   "security": [
     {
       "oauth2_auth": [
-        "People.Read.All Group.Read.All", "Mail.Send", "Mail.Read", "User.Read"
+        "People.Read.All", "Group.Read.All", "Mail.Send", "Mail.Read", "User.Read"
       ]
     }
   ],
