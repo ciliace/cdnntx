@@ -437,7 +437,7 @@ form {
 
 /*#endregion : Background Page */
 
-div.row:has(#TableHidden){
-  display:none;
+.row:has(div[name="RowToHide"]) {
+    display: none;
 }
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
