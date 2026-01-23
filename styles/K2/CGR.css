@@ -13,6 +13,7 @@
   --heading-font: "Inter", sans-serif;
 
   --crg-color:#01657c;
+  --crg-color-primary:#01657c;
 }
 
 body {
@@ -928,7 +929,7 @@ body.theme-entry,
     border-width: 0px;
     border-radius: 8px;
     margin-bottom: 0px;
-    box-shadow: 0px 0 4px #335e68 !important;
+    box-shadow: 0px 0 4px var(--crg-color-primary)!important;
 }
 #form1 .panel-header-text span {
     font-weight: bold;
@@ -2657,7 +2658,7 @@ html.mobile, html.mobile body {
     border-color: transparent !important;
     color: #ffffff !important;
     padding: 12px 6px !important;
-    background: #335e68 !important;
+    background: var(--crg-color-primary)!important;
     border-radius: 8px !important;
     font-weight: 500 !important;
     margin-bottom: 3px;
@@ -3241,7 +3242,7 @@ tr.highlighted span.runtime-list-item,tr.selected span.runtime-list-item {
 .theme-entry a.SourceCode-Forms-Controls-Web-Button
 
 {
-    background: #335e68 !important; 
+    background: var(--crg-color-primary)!important; 
 }
 .theme-entry form .tab-box ul.tab-box-tabs a.tab {
     border-color: transparent !important;
@@ -3258,7 +3259,7 @@ tr.highlighted span.runtime-list-item,tr.selected span.runtime-list-item {
     height: 45px;
     border-style: solid;
     border-width: 1px 1px 0;
-background: #335e68 !important;
+background: var(--crg-color-primary)!important;
 
 }
 .theme-entry a.tab {
@@ -3268,11 +3269,11 @@ background: #335e68 !important;
     height: 45px;
     border-style: solid;
     border-width: 1px 1px 0;
-background: #335e68 !important;
+background: var(--crg-color-primary)!important;
 }
 
 .theme-entry .input-control.radio.style-aware.checked .svg-radio-btn-checked {
-    fill: #335e68 !important;
+    fill: var(--crg-color-primary)!important;
 }
 .theme-entry .input-control.radio.style-aware svg .svg-radio-btn-checked {
     fill: lightgrey;
@@ -3283,13 +3284,13 @@ background: #335e68 !important;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
-    color: #335e68 !important;
+    color: var(--crg-color-primary)!important;
     display: inline-block;
     text-decoration: none;
     vertical-align: top;
     float: none;
-    background-color: #335e68 !important;
-    border-color: #335e68 !important;
+    background-color: var(--crg-color-primary)!important;
+    border-color: var(--crg-color-primary)!important;
 }
 
 td span.runtime-list-item span.Approved {
@@ -3626,11 +3627,11 @@ td span.runtime-list-item span.Approved:after {
     color: #fff;
 }
 .theme-entry .grid table.grid-content-table tr.selected>td, .theme-entry .grid table.grid-content-table.zebra-stripes tr.selected:not(.action-row)>td {
-    background-color: #335e68 !important;
+    background-color: var(--crg-color-primary)!important;
 }
 .theme-entry .grid .grid-column-headers
  {
-    background-color: #335e68 !important;
+    background-color: var(--crg-color-primary)!important;
 }
 
 	span.Security {
