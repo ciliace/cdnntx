@@ -11,6 +11,8 @@
 
   --default-font: "Inter", "Helvetica Neue", Arial, sans-serif;
   --heading-font: "Inter", sans-serif;
+
+  --crg-color:#01657c;
 }
 
 body {
@@ -898,7 +900,7 @@ body.theme-entry,
 .theme-entry select,
 .theme-entry option {
  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
-  color: #343e41;
+  color: var(--crg-color);
   font-size: 14px !important;
 }
 
