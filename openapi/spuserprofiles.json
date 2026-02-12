@@ -3,15 +3,15 @@
   "info": {
     "title": "SharePoint PeopleManager (User Profiles)",
     "version": "1.0.0",
-    "description": "Swagger for SharePoint On-Prem PeopleManager REST endpoints. Works well with K2 REST Service Instance."
+    "description": "Swagger for SharePoint PeopleManager REST endpoints. Works well with K2 REST Service Instance."
   },
   "schemes": ["https"],
   "host": "sp.penha.fr",
-  "basePath": "",
+  "basePath": "/_api",
   "consumes": ["application/json"],
   "produces": ["application/json"],
   "paths": {
-    "/_api/SP.UserProfiles.PeopleManager/GetMyProperties": {
+    "/SP.UserProfiles.PeopleManager/GetMyProperties": {
       "get": {
         "operationId": "GetMyProperties",
         "summary": "Get current user's profile properties",
@@ -32,8 +32,7 @@
         }
       }
     },
-
-    "/_api/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)": {
+    '/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)": {
       "get": {
         "operationId": "GetPropertiesFor",
         "summary": "Get profile properties for a specified account (recommended @v pattern)",
@@ -61,8 +60,7 @@
         }
       }
     },
-
-    "/_api/SP.UserProfiles.PeopleManager/GetUserProfilePropertyFor(accountName=@v, propertyName=@p)": {
+    "/SP.UserProfiles.PeopleManager/GetUserProfilePropertyFor(accountName=@v, propertyName=@p)": {
       "get": {
         "operationId": "GetUserProfilePropertyFor",
         "summary": "Get a single user profile property value",
@@ -98,7 +96,6 @@
       }
     }
   },
-
   "definitions": {
     "PersonPropertiesEnvelope": {
       "type": "object",
@@ -106,7 +103,6 @@
         "d": { "$ref": "#/definitions/PersonProperties" }
       }
     },
-
     "PersonProperties": {
       "type": "object",
       "properties": {
@@ -141,7 +137,6 @@
         }
       }
     },
-
     "UserProfileProperty": {
       "type": "object",
       "properties": {
@@ -150,7 +145,6 @@
         "ValueType": { "type": "string" }
       }
     },
-
     "StringEnvelope": {
       "type": "object",
       "properties": {
