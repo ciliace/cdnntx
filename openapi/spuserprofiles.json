@@ -32,7 +32,7 @@
         }
       }
     },
-    '/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)": {
+    "/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)": {
       "get": {
         "operationId": "GetPropertiesFor",
         "summary": "Get profile properties for a specified account (recommended @v pattern)",
