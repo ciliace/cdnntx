@@ -8,85 +8,67 @@
   "schemes": ["https"],
   "host": "sp.penha.fr",
   "basePath": "/_api",
-  "consumes": ["application/json"],
-  "produces": ["application/json"],
   "paths": {
     "/SP.UserProfiles.PeopleManager/GetMyProperties": {
-      "get": {
-        "operationId": "GetMyProperties",
-        "summary": "Get current user's profile properties",
-        "parameters": [
-          {
-            "name": "Accept",
-            "in": "header",
-            "required": false,
-            "type": "string",
-            "default": "application/json;odata=verbose"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": { "$ref": "#/definitions/PersonPropertiesEnvelope" }
-          }
+        "get": {
+            "operationId": "GetMyProperties",
+            "summary": "Get current user's profile properties",
+            "consumes": ["application/json"],
+            "produces": ["application/json"],
+            "parameters": [],
+            "responses": {
+                "200": {
+                    "description": "OK",
+                    "schema": { 
+                        "type": "object",
+                        "properties": {
+                            "d": { 
+                                "type": "object",
+                                "properties": {
+                                    "AccountName": { "type": "string" },
+                                    "DirectReports": {
+                                        "type": "array",
+                                        "items": { "type": "string" }
+                                    },
+                                    "DisplayName": { "type": "string" },
+                                    "Email": { "type": "string" },
+                                    "ExtendedManagers": {
+                                    "type": "array",
+                                    "items": { "type": "string" }
+                                    },
+                                    "ExtendedReports": {
+                                        "type": "array",
+                                        "items": { "type": "string" }
+                                    },
+                                    "IsFollowed": { "type": "boolean" },
+                                    "LatestPost": { "type": "string" },
+                                    "Peers": {
+                                        "type": "array",
+                                        "items": { "type": "string" }
+                                    },
+                                    "PersonalSiteHostUrl": { "type": "string" },
+                                    "PersonalUrl": { "type": "string" },
+                                    "PictureUrl": { "type": "string" },
+                                    "Title": { "type": "string" },
+                                    "UserProfileProperties": {
+                                        "type": "array",
+                                        "items": { 
+                                            "type": "object",
+                                            "properties": {
+                                                "Key": { "type": "string" },
+                                                "Value": { "type": "string" },
+                                                "ValueType": { "type": "string" }
+                                            }
+                                         }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
-      }
     }
   },
-  "definitions": {
-    "PersonPropertiesEnvelope": {
-      "type": "object",
-      "properties": {
-        "d": { "$ref": "#/definitions/PersonProperties" }
-      }
-    },
-    "PersonProperties": {
-      "type": "object",
-      "properties": {
-        "AccountName": { "type": "string" },
-        "DirectReports": {
-          "type": "array",
-          "items": { "type": "string" }
-        },
-        "DisplayName": { "type": "string" },
-        "Email": { "type": "string" },
-        "ExtendedManagers": {
-          "type": "array",
-          "items": { "type": "string" }
-        },
-        "ExtendedReports": {
-          "type": "array",
-          "items": { "type": "string" }
-        },
-        "IsFollowed": { "type": "boolean" },
-        "LatestPost": { "type": "string" },
-        "Peers": {
-          "type": "array",
-          "items": { "type": "string" }
-        },
-        "PersonalSiteHostUrl": { "type": "string" },
-        "PersonalUrl": { "type": "string" },
-        "PictureUrl": { "type": "string" },
-        "Title": { "type": "string" },
-        "UserProfileProperties": {
-          "type": "array",
-          "items": { "$ref": "#/definitions/UserProfileProperty" }
-        }
-      }
-    },
-    "UserProfileProperty": {
-      "type": "object",
-      "properties": {
-        "Key": { "type": "string" },
-        "Value": { "type": "string" },
-        "ValueType": { "type": "string" }
-      }
-    },
-    "StringEnvelope": {
-      "type": "object",
-      "properties": {
-        "d": { "type": "string" }
-      }
-    }
-  }
+  "definitions": {}
 }
