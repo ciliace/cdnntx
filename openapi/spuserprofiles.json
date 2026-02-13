@@ -27,129 +27,49 @@
         "responses": {
           "200": {
             "description": "OK",
-            "schema": { "$ref": "#/definitions/PersonPropertiesEnvelope" }
-          }
-        }
-      }
-    },
-    "/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)": {
-      "get": {
-        "operationId": "GetPropertiesFor",
-        "summary": "Get profile properties for a specified account (recommended @v pattern)",
-        "parameters": [
-          {
-            "name": "@v",
-            "in": "query",
-            "required": true,
-            "type": "string",
-            "description": "Account name (e.g. PENHA\\cecilia or i:0#.w|PENHA\\cecilia depending on your farm)"
-          },
-          {
-            "name": "Accept",
-            "in": "header",
-            "required": false,
-            "type": "string",
-            "default": "application/json;odata=verbose"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": { "$ref": "#/definitions/PersonPropertiesEnvelope" }
-          }
-        }
-      }
-    },
-    "/SP.UserProfiles.PeopleManager/GetUserProfilePropertyFor(accountName=@v, propertyName=@p)": {
-      "get": {
-        "operationId": "GetUserProfilePropertyFor",
-        "summary": "Get a single user profile property value",
-        "parameters": [
-          {
-            "name": "@v",
-            "in": "query",
-            "required": true,
-            "type": "string",
-            "description": "Account name (e.g. PENHA\\cecilia or i:0#.w|PENHA\\cecilia)"
-          },
-          {
-            "name": "@p",
-            "in": "query",
-            "required": true,
-            "type": "string",
-            "description": "Property name (e.g. WorkEmail, Department, Title, CellPhone, Manager)"
-          },
-          {
-            "name": "Accept",
-            "in": "header",
-            "required": false,
-            "type": "string",
-            "default": "application/json;odata=verbose"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "schema": { "$ref": "#/definitions/StringEnvelope" }
+            "schema": { 
+                "type": "object",
+                "properties": {
+                    "d": { 
+                        "type": "object",
+                        "properties": {
+                            "AccountName": { "type": "string" },
+                            "DirectReports": {
+                            "type": "array",
+                            "items": { "type": "string" }
+                            },
+                            "DisplayName": { "type": "string" },
+                            "Email": { "type": "string" },
+                            "ExtendedManagers": {
+                            "type": "array",
+                            "items": { "type": "string" }
+                            },
+                            "ExtendedReports": {
+                            "type": "array",
+                            "items": { "type": "string" }
+                            },
+                            "IsFollowed": { "type": "boolean" },
+                            "LatestPost": { "type": "string" },
+                            "Peers": {
+                            "type": "array",
+                            "items": { "type": "string" }
+                            },
+                            "PersonalSiteHostUrl": { "type": "string" },
+                            "PersonalUrl": { "type": "string" },
+                            "PictureUrl": { "type": "string" },
+                            "Title": { "type": "string" },
+                            "UserProfileProperties": {
+                            "type": "array",
+                            "items": { "$ref": "#/definitions/UserProfileProperty" }
+                            }
+                        }
+                     }
+                }
+             }
           }
         }
       }
     }
   },
-  "definitions": {
-    "PersonPropertiesEnvelope": {
-      "type": "object",
-      "properties": {
-        "d": { "$ref": "#/definitions/PersonProperties" }
-      }
-    },
-    "PersonProperties": {
-      "type": "object",
-      "properties": {
-        "AccountName": { "type": "string" },
-        "DirectReports": {
-          "type": "array",
-          "items": { "type": "string" }
-        },
-        "DisplayName": { "type": "string" },
-        "Email": { "type": "string" },
-        "ExtendedManagers": {
-          "type": "array",
-          "items": { "type": "string" }
-        },
-        "ExtendedReports": {
-          "type": "array",
-          "items": { "type": "string" }
-        },
-        "IsFollowed": { "type": "boolean" },
-        "LatestPost": { "type": "string" },
-        "Peers": {
-          "type": "array",
-          "items": { "type": "string" }
-        },
-        "PersonalSiteHostUrl": { "type": "string" },
-        "PersonalUrl": { "type": "string" },
-        "PictureUrl": { "type": "string" },
-        "Title": { "type": "string" },
-        "UserProfileProperties": {
-          "type": "array",
-          "items": { "$ref": "#/definitions/UserProfileProperty" }
-        }
-      }
-    },
-    "UserProfileProperty": {
-      "type": "object",
-      "properties": {
-        "Key": { "type": "string" },
-        "Value": { "type": "string" },
-        "ValueType": { "type": "string" }
-      }
-    },
-    "StringEnvelope": {
-      "type": "object",
-      "properties": {
-        "d": { "type": "string" }
-      }
-    }
-  }
+  "definitions": {}
 }
