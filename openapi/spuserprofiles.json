@@ -27,49 +27,66 @@
         "responses": {
           "200": {
             "description": "OK",
-            "schema": { 
-                "type": "object",
-                "properties": {
-                    "d": { 
-                        "type": "object",
-                        "properties": {
-                            "AccountName": { "type": "string" },
-                            "DirectReports": {
-                            "type": "array",
-                            "items": { "type": "string" }
-                            },
-                            "DisplayName": { "type": "string" },
-                            "Email": { "type": "string" },
-                            "ExtendedManagers": {
-                            "type": "array",
-                            "items": { "type": "string" }
-                            },
-                            "ExtendedReports": {
-                            "type": "array",
-                            "items": { "type": "string" }
-                            },
-                            "IsFollowed": { "type": "boolean" },
-                            "LatestPost": { "type": "string" },
-                            "Peers": {
-                            "type": "array",
-                            "items": { "type": "string" }
-                            },
-                            "PersonalSiteHostUrl": { "type": "string" },
-                            "PersonalUrl": { "type": "string" },
-                            "PictureUrl": { "type": "string" },
-                            "Title": { "type": "string" },
-                            "UserProfileProperties": {
-                            "type": "array",
-                            "items": { "$ref": "#/definitions/UserProfileProperty" }
-                            }
-                        }
-                     }
-                }
-             }
+            "schema": { "$ref": "#/definitions/PersonPropertiesEnvelope" }
           }
         }
       }
     }
   },
-  "definitions": {}
+  "definitions": {
+    "PersonPropertiesEnvelope": {
+      "type": "object",
+      "properties": {
+        "d": { "$ref": "#/definitions/PersonProperties" }
+      }
+    },
+    "PersonProperties": {
+      "type": "object",
+      "properties": {
+        "AccountName": { "type": "string" },
+        "DirectReports": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "DisplayName": { "type": "string" },
+        "Email": { "type": "string" },
+        "ExtendedManagers": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "ExtendedReports": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "IsFollowed": { "type": "boolean" },
+        "LatestPost": { "type": "string" },
+        "Peers": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "PersonalSiteHostUrl": { "type": "string" },
+        "PersonalUrl": { "type": "string" },
+        "PictureUrl": { "type": "string" },
+        "Title": { "type": "string" },
+        "UserProfileProperties": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/UserProfileProperty" }
+        }
+      }
+    },
+    "UserProfileProperty": {
+      "type": "object",
+      "properties": {
+        "Key": { "type": "string" },
+        "Value": { "type": "string" },
+        "ValueType": { "type": "string" }
+      }
+    },
+    "StringEnvelope": {
+      "type": "object",
+      "properties": {
+        "d": { "type": "string" }
+      }
+    }
+  }
 }
