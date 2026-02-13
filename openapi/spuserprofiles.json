@@ -24,7 +24,7 @@
         }
       }
     },
-    "/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)": {
+    "/SP.UserProfiles.PeopleManager/GetPropertiesFor(accountName=@v)?@v='{accountName}'": {
       "get": {
         "operationId": "GetPropertiesFor",
         "summary": "Get profile properties for a specified account",
@@ -32,11 +32,11 @@
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "@v",
-            "in": "query",
+            "name": "accountName",
+            "in": "path",
             "required": true,
             "type": "string",
-            "description": "Account name (e.g. PENHA\\cecilia or i:0#.w|PENHA\\cecilia depending on your farm)"
+            "description": "Account name (e.g. domain\\user)"
           }
         ],
         "responses": {
@@ -47,7 +47,7 @@
         }
       }
     },
-    "/SP.UserProfiles.PeopleManager/GetUserProfilePropertyFor(accountName=@v, propertyName=@p)": {
+    "/SP.UserProfiles.PeopleManager/GetUserProfilePropertyFor(accountName=@v, propertyName=@p)?@v='{accountName}'&@v='{propertyName}'": {
       "get": {
         "operationId": "GetUserProfilePropertyFor",
         "summary": "Get a single user profile property value",
@@ -55,15 +55,15 @@
         "produces": ["application/json"],
         "parameters": [
           {
-            "name": "@v",
-            "in": "query",
+            "name": "accountName",
+            "in": "path",
             "required": true,
             "type": "string",
             "description": "Account name (e.g. PENHA\\cecilia or i:0#.w|PENHA\\cecilia)"
           },
           {
-            "name": "@p",
-            "in": "query",
+            "name": "propertyName",
+            "in": "path",
             "required": true,
             "type": "string",
             "description": "Property name (e.g. WorkEmail, Department, Title, CellPhone, Manager)"
