@@ -1,7 +1,8 @@
 /*-------------------------------------------------------------------------------------------------------------------------------------*/
 /*#region : Background Page */
 html:not([is-in-iframe]) {
-  background-image: url('https://ciliace.github.io/cdnntx/images/purple-pattern.webp');
+  /*background-image: url('https://ciliace.github.io/cdnntx/images/purple-pattern.webp');*/
+  background-image: url('https://ciliace.github.io/cdnntx/images/Purchase%20Requisition.png');
   background-size: cover;
   background-attachment: fixed;
 } 
