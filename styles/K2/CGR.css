@@ -13,7 +13,7 @@
   --heading-font: "Inter", sans-serif;
 
   --crg-color:#01657c;
-  --crg-color-button-primary:#01657c;
+  --crg-color-button-primary:linear-gradient(46.65deg, #0f60a7 0%, #23588b 100%) !important;
   --crg-color-button-primary-hover:#d52902;
 }
 
