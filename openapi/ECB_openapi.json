@@ -1,0 +1,413 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Frankfurter Exchange Rates API",
+    "description": "A free, open-source currency data API that tracks reference exchange rates published by the European Central Bank. No API key required, no usage caps.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://frankfurter.dev"
+    },
+    "license": {
+      "name": "MIT",
+      "url": "https://github.com/lineofflight/frankfurter/blob/master/LICENSE"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.frankfurter.dev/v1",
+      "description": "Frankfurter public API"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Rates",
+      "description": "Exchange rate endpoints"
+    },
+    {
+      "name": "Currencies",
+      "description": "Supported currency metadata"
+    }
+  ],
+  "paths": {
+    "/latest": {
+      "get": {
+        "tags": ["Rates"],
+        "summary": "Get latest exchange rates",
+        "description": "Fetch the latest working day's exchange rates, updated daily around 16:00 CET. Defaults to EUR as the base currency.",
+        "operationId": "getLatestRates",
+        "parameters": [
+          {
+            "name": "base",
+            "in": "query",
+            "required": false,
+            "description": "Base currency code (ISO 4217). Defaults to EUR.",
+            "schema": {
+              "type": "string",
+              "default": "EUR",
+              "example": "CHF"
+            }
+          },
+          {
+            "name": "symbols",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of target currency codes to filter the response.",
+            "schema": {
+              "type": "string",
+              "example": "USD,EUR,GBP"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with latest exchange rates",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RatesResponse"
+                },
+                "examples": {
+                  "chf_base": {
+                    "summary": "CHF as base currency",
+                    "value": {
+                      "base": "CHF",
+                      "date": "2026-03-12",
+                      "rates": {
+                        "USD": 1.1245,
+                        "EUR": 1.0412,
+                        "GBP": 0.8734
+                      }
+                    }
+                  },
+                  "eur_base_chf_symbol": {
+                    "summary": "EUR base, CHF as target",
+                    "value": {
+                      "base": "EUR",
+                      "date": "2026-03-12",
+                      "rates": {
+                        "CHF": 0.9324
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Currency not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid currency code or parameter",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{date}": {
+      "get": {
+        "tags": ["Rates"],
+        "summary": "Get historical exchange rates for a specific date",
+        "description": "Retrieve exchange rates for a specific past date. Dates are stored in UTC.",
+        "operationId": "getHistoricalRates",
+        "parameters": [
+          {
+            "name": "date",
+            "in": "path",
+            "required": true,
+            "description": "Date in YYYY-MM-DD format.",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2025-01-15"
+            }
+          },
+          {
+            "name": "base",
+            "in": "query",
+            "required": false,
+            "description": "Base currency code (ISO 4217). Defaults to EUR.",
+            "schema": {
+              "type": "string",
+              "default": "EUR",
+              "example": "CHF"
+            }
+          },
+          {
+            "name": "symbols",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of target currency codes to filter the response.",
+            "schema": {
+              "type": "string",
+              "example": "USD,EUR,GBP"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with historical exchange rates",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/RatesResponse"
+                },
+                "example": {
+                  "base": "CHF",
+                  "date": "2025-01-15",
+                  "rates": {
+                    "USD": 1.1102,
+                    "EUR": 1.0385,
+                    "GBP": 0.8691
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No data available for the given date (e.g. weekend or pre-1999)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid date format or currency code",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/{startDate}..{endDate}": {
+      "get": {
+        "tags": ["Rates"],
+        "summary": "Get exchange rates over a date range (time series)",
+        "description": "Fetch exchange rates over a period. Leave endDate empty to fetch up to the present day (e.g. `2025-01-01..`).",
+        "operationId": "getTimeSeriesRates",
+        "parameters": [
+          {
+            "name": "startDate",
+            "in": "path",
+            "required": true,
+            "description": "Start date in YYYY-MM-DD format.",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2025-01-01"
+            }
+          },
+          {
+            "name": "endDate",
+            "in": "path",
+            "required": true,
+            "description": "End date in YYYY-MM-DD format. Can be empty to fetch up to present.",
+            "schema": {
+              "type": "string",
+              "format": "date",
+              "example": "2025-03-01"
+            }
+          },
+          {
+            "name": "base",
+            "in": "query",
+            "required": false,
+            "description": "Base currency code (ISO 4217). Defaults to EUR.",
+            "schema": {
+              "type": "string",
+              "default": "EUR",
+              "example": "CHF"
+            }
+          },
+          {
+            "name": "symbols",
+            "in": "query",
+            "required": false,
+            "description": "Comma-separated list of target currency codes to filter the response.",
+            "schema": {
+              "type": "string",
+              "example": "USD,EUR"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with time series exchange rates",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TimeSeriesResponse"
+                },
+                "example": {
+                  "base": "CHF",
+                  "start_date": "2025-01-01",
+                  "end_date": "2025-03-01",
+                  "rates": {
+                    "2025-01-02": { "USD": 1.1102, "EUR": 1.0385 },
+                    "2025-01-03": { "USD": 1.1089, "EUR": 1.0371 },
+                    "2025-01-06": { "USD": 1.1115, "EUR": 1.0398 }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid date format or currency code",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/currencies": {
+      "get": {
+        "tags": ["Currencies"],
+        "summary": "Get supported currencies",
+        "description": "Returns all supported currency codes and their full names.",
+        "operationId": "getCurrencies",
+        "responses": {
+          "200": {
+            "description": "Successful response with all supported currencies",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CurrenciesResponse"
+                },
+                "example": {
+                  "AUD": "Australian Dollar",
+                  "BGN": "Bulgarian Lev",
+                  "BRL": "Brazilian Real",
+                  "CAD": "Canadian Dollar",
+                  "CHF": "Swiss Franc",
+                  "EUR": "Euro",
+                  "GBP": "British Pound",
+                  "USD": "US Dollar"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "RatesResponse": {
+        "type": "object",
+        "required": ["base", "date", "rates"],
+        "properties": {
+          "base": {
+            "type": "string",
+            "description": "Base currency code (ISO 4217)",
+            "example": "CHF"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "description": "Date of the exchange rates",
+            "example": "2026-03-12"
+          },
+          "rates": {
+            "type": "object",
+            "description": "Map of currency codes to exchange rate values relative to the base currency",
+            "additionalProperties": {
+              "type": "number",
+              "format": "float"
+            },
+            "example": {
+              "USD": 1.1245,
+              "EUR": 1.0412,
+              "GBP": 0.8734
+            }
+          }
+        }
+      },
+      "TimeSeriesResponse": {
+        "type": "object",
+        "required": ["base", "start_date", "end_date", "rates"],
+        "properties": {
+          "base": {
+            "type": "string",
+            "description": "Base currency code (ISO 4217)",
+            "example": "CHF"
+          },
+          "start_date": {
+            "type": "string",
+            "format": "date",
+            "description": "Start date of the time series",
+            "example": "2025-01-01"
+          },
+          "end_date": {
+            "type": "string",
+            "format": "date",
+            "description": "End date of the time series",
+            "example": "2025-03-01"
+          },
+          "rates": {
+            "type": "object",
+            "description": "Map of dates to rate objects",
+            "additionalProperties": {
+              "type": "object",
+              "additionalProperties": {
+                "type": "number",
+                "format": "float"
+              }
+            },
+            "example": {
+              "2025-01-02": { "USD": 1.1102, "EUR": 1.0385 },
+              "2025-01-03": { "USD": 1.1089, "EUR": 1.0371 }
+            }
+          }
+        }
+      },
+      "CurrenciesResponse": {
+        "type": "object",
+        "description": "Map of ISO 4217 currency codes to full currency names",
+        "additionalProperties": {
+          "type": "string"
+        },
+        "example": {
+          "CHF": "Swiss Franc",
+          "EUR": "Euro",
+          "USD": "US Dollar",
+          "GBP": "British Pound"
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string",
+            "description": "Human-readable error description",
+            "example": "not found"
+          }
+        }
+      }
+    }
+  }
+}
