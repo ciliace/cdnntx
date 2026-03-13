@@ -45,21 +45,16 @@
     "RatesResponse": {
       "type": "object",
       "properties": {
-        "amount": {
-          "type": "number",
-          "format": "float"
-        },
-        "base": {
-          "type": "string"
-        },
-        "date": {
-          "type": "string"
-        },
-        "CHF": {
-          "type": "number",
-          "format": "float",
-          "x-path": "rates.CHF"
-        }
+        "amount": { "type": "number", "format": "float" },
+        "base":   { "type": "string" },
+        "date":   { "type": "string" },
+        "rates":  { "$ref": "#/definitions/RatesDetail" }
+      }
+    },
+    "RatesDetail": {
+      "type": "object",
+      "properties": {
+        "CHF": { "type": "number", "format": "float" }
       }
     }
   }
