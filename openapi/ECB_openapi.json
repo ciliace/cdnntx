@@ -47,8 +47,7 @@
       "properties": {
         "amount": { "type": "number", "format": "float" },
         "base":   { "type": "string" },
-        "date":   { "type": "string" },
-        "rates":  { "type": "string" }
+        "date":   { "type": "string" }
       }
     }
   }
