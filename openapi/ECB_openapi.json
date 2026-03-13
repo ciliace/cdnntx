@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Frankfurter Exchange Rates API",
-    "description": "A free, open-source currency data API that tracks reference exchange rates published by the European Central Bank. No API key required, no usage caps.",
+    "description": "European Central Bank exchange rates. No API key required.",
     "version": "1.0.0"
   },
   "host": "api.frankfurter.dev",
@@ -12,83 +12,55 @@
   "paths": {
     "/latest": {
       "get": {
-        "summary": "Get latest exchange rates",
-        "description": "Fetch the latest working day's exchange rates, updated daily around 16:00 CET. Defaults to EUR as the base currency.",
+        "summary": "Get latest CHF exchange rate",
         "operationId": "getLatestRates",
         "parameters": [
           {
             "name": "base",
             "in": "query",
             "required": false,
-            "description": "Base currency code (ISO 4217). Defaults to EUR.",
             "type": "string",
-            "default": "EUR",
-            "x-example": "CHF"
+            "default": "EUR"
           },
           {
             "name": "symbols",
             "in": "query",
             "required": false,
-            "description": "Comma-separated list of target currency codes to filter the response.",
             "type": "string",
-            "x-example": "USD,EUR,GBP"
+            "default": "CHF"
           }
         ],
         "responses": {
           "200": {
-            "description": "Successful response with latest exchange rates",
+            "description": "Successful response",
             "schema": {
-              "type": "object",
-              "properties": {
-                "base": {
-                  "type": "string",
-                  "description": "Base currency code (ISO 4217)"
-                },
-                "date": {
-                  "type": "string",
-                  "format": "date",
-                  "description": "Date of the exchange rates"
-                },
-                "rates": {
-                  "type": "object",
-                  "description": "Map of currency codes to exchange rate values relative to the base currency",
-                  "additionalProperties": {
-                    "type": "number",
-                    "format": "float"
-                  }
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Currency not found",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "message": {
-                  "type": "string",
-                  "description": "Human-readable error description",
-                  "example": "not found"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Invalid currency code or parameter",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "message": {
-                  "type": "string",
-                  "description": "Human-readable error description",
-                  "example": "not found"
-                }
-              }
+              "$ref": "#/definitions/RatesResponse"
             }
           }
         }
       }
     }
   },
-  "definitions": {}
+  "definitions": {
+    "RatesResponse": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "format": "float"
+        },
+        "base": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "CHF": {
+          "type": "number",
+          "format": "float",
+          "x-path": "rates.CHF"
+        }
+      }
+    }
+  }
 }
