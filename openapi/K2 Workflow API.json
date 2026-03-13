@@ -1,46 +1,64 @@
 {
   "swagger": "2.0",
   "info": {
-    "title": "K2 Workflow Finish Server Event",
-    "version": "1.0"
+    "title": "Frankfurter Exchange Rates API",
+    "description": "European Central Bank exchange rates. No API key required.",
+    "version": "1.0.0"
   },
-  "host": "demo.penha.fr",
-  "basePath": "/api/workflow/v1",
+  "host": "api.frankfurter.dev",
+  "basePath": "/v1",
   "schemes": ["https"],
+  "produces": ["application/json"],
   "paths": {
-    "/serverEvents/{id}/finish": {
-      "post": {
-        "summary": "Complete Server Event",
-        "operationId": "CompleteServerEvent",
+    "/latest": {
+      "get": {
+        "summary": "Get latest CHF exchange rate",
+        "operationId": "getLatestRates",
         "parameters": [
           {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
+            "name": "base",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "default": "EUR"
           },
           {
-            "name": "body",
-            "in": "body",
+            "name": "symbols",
+            "in": "query",
             "required": false,
-            "schema": {
-              "type": "object",
-              "properties": {
-                "dataFields": {
-                  "type": "object",
-                  "description": "Workflow data fields to set",
-                  "additionalProperties": {
-                    "type": "string"
-                  }
-                }
-              }
-            }
+            "type": "string",
+            "default": "CHF"
           }
         ],
         "responses": {
-          "204": {
-            "description": "No Content"
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Rates"
+            }
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Rates": {
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "number",
+          "format": "float"
+        },
+        "base": {
+          "type": "string"
+        },
+        "date": {
+          "type": "string"
+        },
+        "CHF": {
+          "type": "number",
+          "format": "float",
+          "x-path": "rates.CHF"
         }
       }
     }
