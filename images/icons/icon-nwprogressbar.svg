@@ -1,29 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <!-- Step 1 - completed -->
-  <circle cx="18" cy="42" r="13" fill="#7c3aed"/>
-  <circle cx="18" cy="42" r="8" fill="white"/>
-  <polyline points="13,42 17,46 23,37" fill="none" stroke="#7c3aed" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-
-  <!-- Connector 1→2 -->
-  <line x1="31" y1="42" x2="45" y2="42" stroke="#7c3aed" stroke-width="2"/>
-
-  <!-- Step 2 - active -->
-  <circle cx="58" cy="42" r="13" fill="#7c3aed"/>
-  <circle cx="58" cy="42" r="8" fill="white"/>
-  <circle cx="58" cy="42" r="3.5" fill="#7c3aed"/>
-
-  <!-- Connector 2→3 -->
-  <line x1="71" y1="42" x2="72" y2="42" stroke="#d1d5db" stroke-width="2"/>
-  <line x1="72" y1="42" x2="85" y2="42" stroke="#d1d5db" stroke-width="2"/>
-
-  <!-- Step 3 - pending -->
-  <circle cx="88" cy="42" r="9" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1.5"/>
-  <circle cx="88" cy="42" r="5" fill="#e5e7eb"/>
-
-  <!-- Label bar under step 1 -->
-  <rect x="7" y="60" width="22" height="3" rx="1.5" fill="#7c3aed" opacity="0.8"/>
-  <!-- Label bar under step 2 -->
-  <rect x="45" y="60" width="26" height="3" rx="1.5" fill="#7c3aed" opacity="0.5"/>
-  <!-- Label bar under step 3 -->
-  <rect x="79" y="60" width="18" height="3" rx="1.5" fill="#e5e7eb"/>
+  <circle cx="18" cy="40" r="12" fill="#7c3aed"/>
+  <circle cx="18" cy="40" r="7" fill="white"/>
+  <polyline points="13,40 17,44 23,35" fill="none" stroke="#7c3aed" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <line x1="30" y1="40" x2="46" y2="40" stroke="#7c3aed" stroke-width="2.5"/>
+  <circle cx="58" cy="40" r="12" fill="#7c3aed"/>
+  <circle cx="58" cy="40" r="7" fill="white"/>
+  <circle cx="58" cy="40" r="3" fill="#7c3aed"/>
+  <line x1="70" y1="40" x2="76" y2="40" stroke="#ddd6fe" stroke-width="2.5"/>
+  <circle cx="86" cy="40" r="10" fill="#ede9fe" stroke="#c4b5fd" stroke-width="1.5"/>
+  <circle cx="86" cy="40" r="5.5" fill="#c4b5fd"/>
+  <rect x="6" y="56" width="88" height="5" rx="2.5" fill="#ede9fe"/>
+  <rect x="6" y="56" width="55" height="5" rx="2.5" fill="#7c3aed"/>
 </svg>
