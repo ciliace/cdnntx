@@ -199,6 +199,13 @@ class NWSla extends LitElement {
     this.requestUpdate();
   }
 
+  /* Normalise a boolean property that Nintex may deliver as the string "false" */
+  _bool(v, defaultVal = true) {
+    if (v === undefined || v === null) return defaultVal;
+    if (typeof v === 'boolean') return v;
+    return v !== 'false' && v !== '0' && v !== '';
+  }
+
   get _status() {
     if (this._remaining === null) return 'unknown';
     if (this._remaining <= 0) return 'overdue';
@@ -277,7 +284,7 @@ class NWSla extends LitElement {
   }
 
   _syncFieldLabel() {
-    const hide = !!this.hideFieldLabel;
+    const hide = this._bool(this.hideFieldLabel, false);
     let el = this.parentElement;
     for (let i = 0; i < 4 && el; i++) {
       const labels = el.querySelectorAll(':scope > label, :scope > [class*="label" i], :scope > [class*="Label"]');
@@ -519,8 +526,9 @@ class NWSla extends LitElement {
   _renderCountdown() {
     const s   = this._status;
     const f   = this._format(this._remaining);
-    const due = this.showDeadline ? this._formatDueDate() : '';
-    const utc = this.showDeadline ? this._formatDueDateUTC() : '';
+    const showDl = this._bool(this.showDeadline);
+    const due = showDl ? this._formatDueDate() : '';
+    const utc = showDl ? this._formatDueDateUTC() : '';
     const lbl = this.label;
 
     return html`
@@ -536,7 +544,7 @@ class NWSla extends LitElement {
             ? html`<div class="cd-empty-txt">No due date set</div>`
             : html`<div class="cd-digits">${this._renderTimeBlocks(f)}</div>`
           }
-          ${f !== null && this.showDeadline && due ? html`
+          ${f !== null && due ? html`
             <div class="cd-footer">
               <span>${due}${utc ? html`<span class="due-utc">${utc}</span>` : ''}</span>
             </div>` : ''}
@@ -548,8 +556,9 @@ class NWSla extends LitElement {
   _renderSplit() {
     const s   = this._status;
     const f   = this._format(this._remaining);
-    const due = this.showDeadline ? this._formatDueDate() : '';
-    const utc = this.showDeadline ? this._formatDueDateUTC() : '';
+    const showDl = this._bool(this.showDeadline);
+    const due = showDl ? this._formatDueDate() : '';
+    const utc = showDl ? this._formatDueDateUTC() : '';
     const splitCls = { block: 'split-dblock', val: 'split-dval', unit: 'split-dunit', sep: 'split-colon' };
 
     const icon = s === 'ok' ? '✓' : s === 'warning' ? '⚠' : s === 'overdue' ? '✕' : '–';
@@ -582,8 +591,9 @@ class NWSla extends LitElement {
     const s   = this._status;
     const f   = this._format(this._remaining);
     const lbl = this.label;
-    const due = this.showDeadline ? this._formatDueDate() : '';
-    const utc = this.showDeadline ? this._formatDueDateUTC() : '';
+    const showDl = this._bool(this.showDeadline);
+    const due = showDl ? this._formatDueDate() : '';
+    const utc = showDl ? this._formatDueDateUTC() : '';
     const pillCls = { block: 'pill-dblock', val: 'pill-dval', unit: 'pill-dunit', sep: 'pill-colon' };
 
     return html`
@@ -605,8 +615,9 @@ class NWSla extends LitElement {
   _renderCard() {
     const s    = this._status;
     const f    = this._format(this._remaining);
-    const due  = this.showDeadline ? this._formatDueDate() : '';
-    const utc  = this.showDeadline ? this._formatDueDateUTC() : '';
+    const showDl = this._bool(this.showDeadline);
+    const due  = showDl ? this._formatDueDate() : '';
+    const utc  = showDl ? this._formatDueDateUTC() : '';
     const warnH = this.warningThreshold || 24;
     const lbl   = this.label;
 
