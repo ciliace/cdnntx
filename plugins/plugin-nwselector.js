@@ -62,6 +62,7 @@ class NWSelector extends LitElement {
     return {
       value:        { type: String },
       defaultValue: { type: String },
+      readOnly:     { type: Boolean },
       optionsJSON:  { type: String },
       layout:       { type: String },
       cardMinWidth: { type: String },
@@ -79,7 +80,11 @@ class NWSelector extends LitElement {
     this._selected    = null;
   }
 
-  _norm(v) { return (v || '').trim().toLowerCase(); }
+  updated(changed) {
+    if (changed.has('value')) this._selected = null;
+  }
+
+  _norm(v) { return String(v ?? '').trim().toLowerCase(); }
 
   _getSelected() {
     if (this._selected !== null) return this._norm(this._selected);
@@ -247,7 +252,8 @@ class NWSelector extends LitElement {
   }
 
   _onChange(val) {
-    if (this.readOnly === true || this.readOnly === 'true') return;
+    if (this.readOnly) return;
+    if (val === undefined || val === null) return;
     this._selected = val;
     this.dispatchEvent(new CustomEvent('ntx-value-change', {
       bubbles: true,
