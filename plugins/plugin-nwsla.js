@@ -49,7 +49,7 @@ class NWSla extends LitElement {
         },
         showDeadline: {
           type: 'boolean',
-          title: 'Show Due Date',
+          title: 'Show Deadline',
           description: 'Display the due date and UTC line below the countdown',
           defaultValue: true
         },
@@ -87,6 +87,13 @@ class NWSla extends LitElement {
           description: 'CSS color override for background (e.g. "#fff", "transparent"). Leave empty to use status default.',
           defaultValue: '',
           maxLength: 40
+        },
+        digitAlign: {
+          type: 'string',
+          title: 'Digit Alignment',
+          description: 'Horizontal alignment of digit blocks: Left | Center | Right',
+          enum: ['Left', 'Center', 'Right'],
+          defaultValue: 'Left'
         },
         hideFieldLabel: {
           type: 'boolean',
@@ -130,6 +137,7 @@ class NWSla extends LitElement {
       showDeadline:     { type: Boolean },
       borderMode:       { type: String },
       background:       { type: String },
+      digitAlign:       { type: String },
       hideFieldLabel:   { type: Boolean },
       slaValue:         { type: Object },
       _remaining:       { state: true },  // ms remaining (negative = overdue)
@@ -150,6 +158,7 @@ class NWSla extends LitElement {
     this.timeZone         = '';
     this.borderMode       = 'Standard';
     this.background       = '';
+    this.digitAlign       = 'Left';
     this.hideFieldLabel   = false;
     this.slaValue         = null;
     this._remaining       = null;
@@ -254,6 +263,8 @@ class NWSla extends LitElement {
     const parts = [];
     if (this.minWidth)   parts.push(`min-width:${this.minWidth}`);
     if (this.background) parts.push(`--c-bg:${this.background}`);
+    const alignMap = { left: 'flex-start', center: 'center', right: 'flex-end' };
+    parts.push(`--dig-align:${alignMap[(this.digitAlign || 'left').toLowerCase()] || 'flex-start'}`);
     return parts.join(';');
   }
 
@@ -360,7 +371,7 @@ class NWSla extends LitElement {
         text-transform: uppercase; padding: 2px 8px; border-radius: 999px;
         color: #fff; background: var(--c-val);
       }
-      .cd-digits { display: flex; align-items: flex-end; gap: 4px; margin-bottom: 14px; flex-wrap: wrap; }
+      .cd-digits { display: flex; align-items: flex-end; gap: 4px; margin-bottom: 14px; flex-wrap: wrap; justify-content: var(--dig-align, flex-start); }
       .digit-block { display: flex; flex-direction: column; align-items: center; }
       .digit-val {
         font-size: clamp(26px, 5vw, 38px);
@@ -410,11 +421,19 @@ class NWSla extends LitElement {
         padding: 16px 20px; flex: 1; min-width: 0;
         background: var(--c-bg); transition: background .4s;
       }
-      .split-time {
-        font-size: clamp(20px, 4vw, 30px); font-weight: 800; line-height: 1.1;
-        color: var(--c-val); font-variant-numeric: tabular-nums;
-        margin-bottom: 6px; transition: color .4s;
+      .split-digits {
+        display: flex; align-items: flex-end; gap: 3px; flex-wrap: wrap;
+        justify-content: var(--dig-align, flex-start); margin-bottom: 6px;
       }
+      .split-dblock { display: flex; flex-direction: column; align-items: center; }
+      .split-dval {
+        font-size: clamp(18px, 3vw, 26px); font-weight: 800; line-height: 1;
+        font-variant-numeric: tabular-nums; letter-spacing: -.02em;
+        color: var(--c-val); min-width: 34px; text-align: center; transition: color .4s;
+      }
+      .split-dunit { font-size: 9px; color: #9ca3af; text-transform: uppercase; letter-spacing: .05em; margin-top: 3px; }
+      .split-colon { font-size: 20px; font-weight: 700; color: #d1d5db; line-height: 1.15; padding-bottom: 11px; }
+      .split-empty { font-size: 13px; color: var(--c-sub); }
       .split-due   { font-size: 12px; color: var(--c-sub); line-height: 1.5; }
       .split-due strong { display: block; font-size: 13px; font-weight: 600; color: var(--c-val); }
 
@@ -435,7 +454,7 @@ class NWSla extends LitElement {
         text-transform: uppercase; color: var(--c-txt); flex-shrink: 0;
       }
       .pill-sep { width: 1px; height: 22px; background: var(--c-bd); flex-shrink: 0; }
-      .pill-cd { display: flex; align-items: flex-end; gap: 2px; flex: 1; }
+      .pill-cd { display: flex; align-items: flex-end; gap: 2px; flex: 1; justify-content: var(--dig-align, flex-start); }
       .pill-dblock { display: flex; flex-direction: column; align-items: center; }
       .pill-dval {
         font-size: 22px; font-weight: 800; line-height: 1;
@@ -473,7 +492,7 @@ class NWSla extends LitElement {
       .card-body { padding: 16px 20px 18px; }
       .card-due  { font-size: 12px; color: #6b7280; margin-bottom: 14px; line-height: 1.5; }
       .card-due strong { display: block; font-size: 13px; font-weight: 600; color: var(--c-val); margin-top: 2px; }
-      .card-digits { display: flex; align-items: flex-end; gap: 4px; margin-bottom: 12px; flex-wrap: wrap; }
+      .card-digits { display: flex; align-items: flex-end; gap: 4px; margin-bottom: 12px; flex-wrap: wrap; justify-content: var(--dig-align, flex-start); }
       .card-empty  { font-size: 13px; color: var(--c-sub); }
       .card-hint      { font-size: 11px; color: var(--c-sub); margin-top: 4px; }
     `;
@@ -487,7 +506,7 @@ class NWSla extends LitElement {
     const parts  = fmt.split(/(DD|HH|MM|SS)/);
     const values = { DD: f.d, HH: f.h, MM: f.m, SS: f.s };
     const labels = { DD: 'days', HH: 'hrs', MM: 'min', SS: 'sec' };
-    const pad    = { DD: n => String(n), HH: n => this._pad(n), MM: n => this._pad(n), SS: n => this._pad(n) };
+    const pad    = { DD: n => this._pad(n), HH: n => this._pad(n), MM: n => this._pad(n), SS: n => this._pad(n) };
     return parts.map(p => {
       if (p === 'DD' || p === 'HH' || p === 'MM' || p === 'SS') {
         return html`<div class="${c.block}"><span class="${c.val}">${pad[p](values[p])}</span><span class="${c.unit}">${labels[p]}</span></div>`;
@@ -531,13 +550,10 @@ class NWSla extends LitElement {
     const f   = this._format(this._remaining);
     const due = this.showDeadline ? this._formatDueDate() : '';
     const utc = this.showDeadline ? this._formatDueDateUTC() : '';
+    const splitCls = { block: 'split-dblock', val: 'split-dval', unit: 'split-dunit', sep: 'split-colon' };
 
     const icon = s === 'ok' ? '✓' : s === 'warning' ? '⚠' : s === 'overdue' ? '✕' : '–';
     const accentLbl = s === 'ok' ? 'ON TRACK' : s === 'warning' ? 'WARNING' : s === 'overdue' ? 'OVERDUE' : this.label || 'SLA';
-
-    const timeText = f === null ? 'No due date'
-      : f.d > 0    ? `${f.d}d ${this._pad(f.h)}h ${this._pad(f.m)}m`
-      :              `${this._pad(f.h)}h ${this._pad(f.m)}m ${this._pad(f.s)}s`;
 
     return html`
       <div class="${s}" style="${this._outerStyle()}">
@@ -547,7 +563,10 @@ class NWSla extends LitElement {
             <span class="split-status-lbl">${accentLbl}</span>
           </div>
           <div class="split-content">
-            <div class="split-time">${timeText}</div>
+            ${f === null
+              ? html`<div class="split-empty">No due date set</div>`
+              : html`<div class="split-digits">${this._renderTimeBlocks(f, splitCls)}</div>`
+            }
             ${due ? html`
               <div class="split-due">
                 Due: <strong>${due}</strong>
